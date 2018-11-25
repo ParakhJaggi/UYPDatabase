@@ -1,6 +1,5 @@
 package UYPDatabase.site.common.user;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 import alloy.util.Momento;
 
@@ -28,7 +27,6 @@ public class UserAuthenticationDto implements Momento<String> {
 		return password;
 	}
 
-	@JsonIgnore
 	@Override
 	public String getMomento() {
 		return user.getMomento();

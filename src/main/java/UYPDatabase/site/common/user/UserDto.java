@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 import alloy.util.Momento;
 
@@ -38,7 +37,6 @@ public class UserDto implements Momento<String> {
 		return principal;
 	}
 
-	@JsonIgnore
 	@Override
 	public String getMomento() {
 		return principal;
