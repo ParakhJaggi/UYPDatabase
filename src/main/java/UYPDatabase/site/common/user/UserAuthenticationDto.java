@@ -1,4 +1,4 @@
-package hacktx.site.common.user;
+package UYPDatabase.site.common.user;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 

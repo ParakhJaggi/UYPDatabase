@@ -20,8 +20,8 @@ export function authenticate(username, password) {
 				password
 			},
 			auth: {
-				username: 'hacktx-app',
-				password: 'hacktx-app-secret'
+				username: 'UYPDatabase-app',
+				password: 'UYPDatabase-app-secret'
 			}
 		}
 	);
