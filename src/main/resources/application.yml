@@ -1,0 +1,38 @@
+security:
+  oauth2:
+    resource:
+      id: oauth2_id
+
+management:
+  security:
+    roles: ADMIN
+
+---
+spring:
+  profiles: development
+
+web:
+  statics:
+    js-bundle-location: http://localhost:3000/hacktx-site.js
+
+elastic-search:
+  host: localhost
+  port: 9200
+  scheme: http
+  user-name:
+  password:
+---
+spring:
+  profiles: qa
+
+web:
+  statics:
+    js-bundle-location: /statics/hacktx-site.js
+    css-bundle-location: /statics/hacktx-site.css
+
+elastic-search:
+  host: olive-6984281.us-east-1.bonsaisearch.net
+  port: 443
+  scheme: https
+  user-name: jawaojy5a2
+  password: 8udzze6p34
