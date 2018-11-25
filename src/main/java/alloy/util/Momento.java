@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * Created by jlutteringer on 1/15/18.

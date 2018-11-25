@@ -11,23 +11,37 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/HackTxApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/common/user/UserAuthenticationDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/common/user/UserDto$UserType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/common/user/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserAuthenticationDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserAuthenticationDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto$UserType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto$UserType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/alloy/util/AlloyAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/alloy/util/AlloyAuthentication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/alloy/util/Momento.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/alloy/util/Momento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/controller/PageController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/hacktx/site/controller/ToolsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/HackTxApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/JDBC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/MvcConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/common/user/UserAuthenticationDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/common/user/UserDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/controller/PageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hacktx/site/controller/ToolsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/PageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/ToolsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/ToolsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alloy/util/AlloyAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alloy/util/AlloyAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/alloy/util/Momento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/alloy/util/Momento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/alloy/bessemer/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/alloy/bessemer/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/alloy/utils/core-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/alloy/utils/core-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/alloy/utils/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/alloy/utils/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/cards.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/decks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/pages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/pages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/test/cards.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/test/deck.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/js/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/js/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -43,43 +57,74 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="UYPDatabase-site" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1594315809">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gradle" value="2" />
-          <entry key="java" value="6" />
-          <entry key="js" value="2" />
-          <entry key="json" value="2" />
-          <entry key="md" value="1" />
-          <entry key="yml" value="1" />
+          <entry key="Procfile" value="1" />
+          <entry key="babelrc" value="1" />
+          <entry key="bat" value="1" />
+          <entry key="gradle" value="4" />
+          <entry key="gradlew" value="1" />
+          <entry key="html" value="3" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="23" />
+          <entry key="js" value="10" />
+          <entry key="json" value="4" />
+          <entry key="log" value="1" />
+          <entry key="md" value="2" />
+          <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="6" />
-          <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="2" />
-          <entry key="Markdown" value="1" />
-          <entry key="YAML" value="1" />
+          <entry key="Groovy" value="4" />
+          <entry key="HTML" value="3" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="23" />
+          <entry key="JSON" value="5" />
+          <entry key="JavaScript" value="10" />
+          <entry key="Markdown" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="java" value="46" />
           <entry key="json" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="JAVA" value="46" />
           <entry key="JSON" value="8" />
         </counts>
       </usages-collector>
@@ -88,91 +133,73 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java">
+        <entry file="file://$PROJECT_DIR$/src/main/js/pages.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="168">
+              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README copy.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor>
-                <caret column="50" selection-start-column="50" selection-end-column="50" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack.config.js">
+        <entry file="file://$PROJECT_DIR$/src/main/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.gradle">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="31" selection-start-column="31" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/js/users.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state relative-caret-position="253">
+              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/UYPDatabaseApplication.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+            <state relative-caret-position="35">
+              <caret line="3" column="76" lean-forward="true" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/PageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="19" lean-forward="true" selection-start-column="8" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/ToolsController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="3" column="62" lean-forward="true" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/UYPDatabaseApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -180,10 +207,24 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/MvcConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="6" column="81" lean-forward="true" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
+            <state relative-caret-position="173">
+              <caret line="23" column="36" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="36" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.babelrc">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -191,6 +232,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>hack</find>
+      <find>localho</find>
+      <find>security</find>
+      <find>default</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -471,9 +515,10 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="4629537621000" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="2275107452" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="3099680613" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2668279752" />
+        <entry key="$PROJECT_DIR$/settings.gradle" value="3913049326" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -666,6 +711,7 @@
     <option name="projectSyncType">
       <map>
         <entry key="$PROJECT_DIR$/.." value="PREVIEW" />
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
         <entry key="$PROJECT_DIR$/../../Java Programs/HackTx/HackTx" value="PREVIEW" />
       </map>
     </option>
@@ -678,12 +724,22 @@
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/src/main/js/users.js" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/HackTxApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/UYPDatabaseApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/OAuth2ResourceServerConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/OAuth2AuthorizationServerConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/SecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/alloy/util/Momento.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/alloy/util/AlloyAuthentication.java" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/MvcConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/PageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/ToolsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
       </list>
     </option>
   </component>
@@ -692,6 +748,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -709,57 +768,89 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
               <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
               <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
               <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
               <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="site" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="UYPDatabase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
               <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="site" type="462c0819:PsiDirectoryNode" />
-              <item name="UYPDatabaseApplication.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelOrder2" value="2" />
@@ -768,7 +859,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543178678224" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543183482556" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -803,6 +894,8 @@
     <configuration name="UYPDatabaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="UYPDatabase-site_main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="UYPDatabase.site.UYPDatabaseApplication" />
+      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=development" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -825,17 +918,20 @@
       <updated>1543177550239</updated>
       <workItem from="1543177551911" duration="796000" />
       <workItem from="1543178355491" duration="307000" />
+      <workItem from="1543178667669" duration="1732000" />
+      <workItem from="1543180642116" duration="415000" />
+      <workItem from="1543181439042" duration="1680000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1103000" />
+    <option name="totallyTimeSpent" value="4930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="38" y="23" width="1225" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24936602" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25359255" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -845,7 +941,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -854,7 +950,7 @@
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3290938" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3290938" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="14" show_stripe_button="false" />
@@ -864,7 +960,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.32967034" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -878,17 +974,38 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/HackTxApplication.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/js/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        <state relative-caret-position="46">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/js/login.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README copy.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="506">
+            <caret line="22" column="82" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="82" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -899,92 +1016,185 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        <state relative-caret-position="161">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README copy.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="50" selection-start-column="50" selection-end-column="50" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/derby.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hacktx.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew.bat">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
+        <state relative-caret-position="-2334">
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        <state relative-caret-position="-1552">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/PetfinderUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/OAuth2AuthorizationServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-584">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/OAuth2ResourceServerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="56" column="18" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/security/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradlew">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/alloy/util/Momento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserAuthenticationDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="127">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/alloy/util/AlloyAuthentication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="119">
+          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/MvcConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/js/pages.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="6" column="81" lean-forward="true" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/HackTxApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="168">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/js/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/UYPDatabaseApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="276">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/MvcConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" lean-forward="true" selection-start-column="8" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/controller/ToolsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="3" column="62" lean-forward="true" selection-start-line="3" selection-start-column="62" selection-end-line="3" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="3" column="76" lean-forward="true" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
         </state>
       </provider>
     </entry>

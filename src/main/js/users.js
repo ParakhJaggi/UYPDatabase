@@ -1,12 +1,7 @@
-import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 export function register(user) {
-	return axios.post('/api/user/register', {
-		principal: user.principal,
-		password: user.password,
-		balance: user.balance,
-	});
+	return axios.post('/api/user/register', user);
 }
 
 export function authenticate(username, password) {
@@ -20,15 +15,11 @@ export function authenticate(username, password) {
 				password
 			},
 			auth: {
-				username: 'UYPDatabase-app',
-				password: 'UYPDatabase-app-secret'
+				username: 'petfinder-app',
+				password: 'petfinder-app-secret'
 			}
 		}
 	);
-}
-
-export function updateBalance(val) {
-	return axios.post('/api/user/update_balance/' + val);
 }
 
 export function getUserDetails() {
@@ -45,7 +36,7 @@ State.getUser = state => {
 	return state.user;
 };
 
-export {State};
+export { State };
 
 let Actions = {};
 
@@ -54,18 +45,7 @@ Actions.Types = {
 	SET_USER: 'SET_USER'
 };
 
-Actions.updateBalance = val => {
-	return (dispatch) => {
-		return updateBalance(val).then(() => {
-			return getUserDetails().then(user => {
-				dispatch(Actions.setUser(user));
-			});
-		});
-	};
-};
-
 Actions.register = user => {
-	user.balance = 0;
 	return (dispatch) => {
 		return register(user).then(() => {
 			return dispatch(Actions.authenticate(user.principal, user.password));
@@ -89,30 +69,20 @@ Actions.authenticate = (username, password) => {
 
 Actions.logout = () => {
 	return (dispatch) => {
-		// Reset all User Action states
 		dispatch(Actions.setAuthentication(null));
 		dispatch(Actions.setUser(null));
-		const cookies = new Cookies();
-		cookies.remove('authentication');
-		cookies.remove('user');
 	};
 };
 
 Actions.setAuthentication = authentication => {
-	// Set authentication cookie
-	const cookies = new Cookies();
-	cookies.set('authentication', authentication, { path: '/' });
 	return {type: Actions.Types.SET_AUTHENTICATION, authentication};
 };
 
 Actions.setUser = user => {
-	// Set user cookie
-	const cookies = new Cookies();
-	cookies.set('user', user, { path: '/' });
 	return {type: Actions.Types.SET_USER, user};
 };
 
-export {Actions};
+export { Actions };
 
 let Reducers = {};
 
@@ -138,4 +108,4 @@ Reducers.user = (user = null, action) => {
 	}
 };
 
-export {Reducers};
+export { Reducers };

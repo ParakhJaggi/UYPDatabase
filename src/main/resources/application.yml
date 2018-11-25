@@ -13,7 +13,7 @@ spring:
 
 web:
   statics:
-    js-bundle-location: http://localhost:3000/hacktx-site.js
+    js-bundle-location: http://localhost:3000/UYPDatabase-site.js
 
 elastic-search:
   host: localhost
@@ -27,8 +27,8 @@ spring:
 
 web:
   statics:
-    js-bundle-location: /statics/hacktx-site.js
-    css-bundle-location: /statics/hacktx-site.css
+    js-bundle-location: /statics/UYPDatabase-site.js
+    css-bundle-location: /statics/UYPDatabase-site.css
 
 elastic-search:
   host: olive-6984281.us-east-1.bonsaisearch.net
