@@ -22,9 +22,10 @@ class HomePage extends React.Component {
 			<div style={{marginTop: 100}}>
 				<Jumbotron>
 					<Container fluid>
-						<h2 className="display-4">Refurring you to the best sitters in your area!</h2>
-						<h4 className="lead">Our job is to seamlessly pair you with qualified pet sitters in your
-							area. Join our massive network of just under 5 users today!</h4>
+						<h2 className="display-4">University for Young People</h2>
+						<h4 className="lead">Our goal is to show what an updated registration system can look like so
+							that it is easy for potential students to register for classes, as well as maintain a
+                            database of students and other information for their research.</h4>
 						<br/>
 
 						{!_.isDefined(this.props.user) &&
@@ -32,9 +33,9 @@ class HomePage extends React.Component {
 							<Row>
 								<Col md={6} sm={6} xs={12} style={{marginBottom: 10}}>
 									<Card body>
-										<CardTitle>Join Now!</CardTitle>
-										<CardText>Sign up for the best pet sitting service!</CardText>
-										<Button onClick={() => this.context.router.history.push('/register')}>Register</Button>
+										<CardTitle>Apply Now!</CardTitle>
+										<CardText>Sign up for UYPD!</CardText>
+										<Button onClick={() => this.context.router.history.push('/apply')}>Apply</Button>
 									</Card>
 								</Col>
 								<Col md={6} sm={6} xs={12}>

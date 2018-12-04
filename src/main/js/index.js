@@ -20,6 +20,7 @@ import EditPetPage from './pages/EditPetPage';
 import ViewSitterPage from './pages/ViewSitterPage';
 import MyJobPage from 'js/pages/MyJobPage';
 import MainReviewPage from './pages/MainReviewPage.js';
+import ApplyPage from 'js/pages/ApplyPage';
 
 class Index extends React.Component {
 
@@ -65,6 +66,10 @@ class Index extends React.Component {
 								<AcceptJobPage {...props}/>}
 							/>
 
+                            <Route exact path='/apply' render={(props) =>
+                                <ApplyPage {...props}/>}
+                            />
+
 							<Route exact path='/rating-page' component={MainReviewPage} />
 							<Route exact path='/report-page' component={ReportPage} />
 							<Route exact path='/find-sitter' component={FindSitterPage} />
@@ -73,6 +78,8 @@ class Index extends React.Component {
 							<Route exact path='/edit-pet-page' component={EditPetPage}/>
 							<Route exact path='/view-sitter-page' component={ViewSitterPage}/>
 							<Route exact path='/my-job-page' component={MyJobPage}/>
+                            <Route exact path='/apply-page' component={ApplyPage}/>
+
 						</Switch>
 					</HashRouter>
 				</div>
