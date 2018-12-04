@@ -136,12 +136,12 @@ class NavigationBar extends React.Component {
 			<Navbar fixed="top" color="dark" dark expand="md" style={{listStyleType: 'none'}}>
 				<Favicon url="https://imgur.com/AzPIQVM.png" />
 				<Helmet>
-					<title>ReFur</title>
+					<title>UYPD</title>
 				</Helmet>
 
 				<NavbarBrand href="/">
 					<img src={logo} />&nbsp;
-					ReFur
+					UYPD
 				</NavbarBrand>
 
 				{_.isDefined(this.props.user) &&
