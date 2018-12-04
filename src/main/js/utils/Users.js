@@ -1,6 +1,11 @@
 import Cookie from 'universal-cookie';
 import axios from 'axios';
 
+export function applyForWeb(guest){
+	console.log('using is trying to apply!');
+	return axios.post('/api/guest/apply', guest);
+}
+
 // Makes API call to our register function in the back-end
 export function register(user) {
 	return axios.post('/api/user/register', user);

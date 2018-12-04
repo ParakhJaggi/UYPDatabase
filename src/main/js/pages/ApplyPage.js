@@ -13,12 +13,6 @@ import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
 
-const typeOptions = [
-    {value: 'Owner', label: 'Owner'},
-    {value: 'Sitter', label: 'Sitter'},
-    {value: 'Both', label: 'Both'}
-];
-
 const schoolOptions = [
     {value: 'public', label: 'Public School'},
     {value: 'private', label: 'Private School'},
@@ -48,7 +42,7 @@ class ApplyPage extends React.Component {
     }
 
     onSubmit = user => {
-        //this.props.register(user);
+        Users.applyForWeb(user);
         console.log(user);
         return window.location.href = '/#/';
     };
