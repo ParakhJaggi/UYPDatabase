@@ -10,7 +10,6 @@ import * as ReduxForm from 'redux-form';
 import * as Bessemer from 'js/alloy/bessemer/components';
 import * as Users from 'js/utils/Users';
 import PropTypes from 'prop-types';
-import notification from 'js/notification';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
 
@@ -46,25 +45,13 @@ class ApplyPage extends React.Component {
         };
 
         this.onSubmit = this.onSubmit.bind(this);
-        this.add = this.add.bind(this);
     }
 
     onSubmit = user => {
-        this.props.register(user);
-        this.add('bottom-center');
+        //this.props.register(user);
+        console.log(user);
         return window.location.href = '/#/';
     };
-
-    add(container) {
-        const { addNotification } = this.props;
-
-        return addNotification(Object.assign({}, notification, {
-            title: 'Success!',
-            message: 'You are now a registered user!',
-            container,
-            type: 'success'
-        }));
-    }
 
     render() {
         let { handleSubmit } = this.props;
@@ -154,25 +141,20 @@ class ApplyPage extends React.Component {
 
                                 <br/>
                                 Information about the Parent/Guardian 2:
-                                <Bessemer.Field name="parentFirstName2" friendlyName="Parent First Name" placeholder="John"
-                                                validators={[Validation.requiredValidator]} />
+                                <Bessemer.Field name="parentFirstName2" friendlyName="Parent First Name" placeholder="John"/>
 
-                                <Bessemer.Field name="parentLastName2" friendlyName="Parent Last Name" placeholder="Doe"
-                                                validators={[Validation.requiredValidator]} />
+                                <Bessemer.Field name="parentLastName2" friendlyName="Parent Last Name" placeholder="Doe"/>
 
-                                <Bessemer.Field name="parentEmail2" friendlyName="Parent email" placeholder="test@web.com"
-                                                validators={[Validation.requiredValidator, Validation.emailValidator]} />
+                                <Bessemer.Field name="parentEmail2" friendlyName="Parent email" placeholder="test@web.com"/>
+
 
                                 <Bessemer.Field name="parentHomeNumber2" friendlyName="Parent Home Phone Number" placeholder="281-123-1234"
-                                                validators={[Validation.requiredValidator]}
                                                 field={<input className="form-control" type="number" />}/>
 
                                 <Bessemer.Field name="parentWorkNumber2" friendlyName="Parent Work Phone Number" placeholder="281-123-1234"
-                                                validators={[Validation.requiredValidator]}
                                                 field={<input className="form-control" type="number" />}/>
 
                                 <Bessemer.Field name="parentCellNumber2" friendlyName="Parent Cell Phone Number" placeholder="281-123-1234"
-                                                validators={[Validation.requiredValidator]}
                                                 field={<input className="form-control" type="number" />}/>
 
 
