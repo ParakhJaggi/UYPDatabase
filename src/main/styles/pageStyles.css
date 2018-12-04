@@ -1,0 +1,45 @@
+.backgroundContainer {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../js/dogs_background.jpg);
+    background-color: #292929;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    display: inline-block;
+    z-index: -1;
+}
+
+.pageContent {
+    opacity: 0.75;
+}
+
+.page-content {
+    margin-top: 4vh;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardStyle {
+    flex: 1;
+    padding: 15px;
+    flex-direction: row;
+    width: 100%;
+}
+
+.darkColumn {
+    border-color: black;
+    border: 10px;
+}
+
+.center-container {
+    margin-top: 5vh;
+}
