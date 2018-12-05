@@ -98,8 +98,7 @@ class NavigationBar extends React.Component {
 				<NavbarToggler onClick={this.toggle} />
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
-						{NavigationBar.checkUserStatus()}
-
+                        {NavigationBar.checkUserStatus()}
 						{_.isDefined(this.props.user) &&
 						<NavItem>
 							<NavLink onClick={this.logout} href="#">Logout</NavLink>

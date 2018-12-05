@@ -18,9 +18,14 @@ public class UserDao {
     public UserDto getUserDetails(String username){
         System.out.println("trying to get info from " + username);
         UserDto temp = new UserDto();
+        temp.setPrincipal("test@test.com");
         temp.setFirstName("Parakh");
         temp.setUserType("user");
         return temp;
+    }
+
+    public void updateUser(LoginDto loginDto){
+        System.out.println("I should update the user!!!!");
     }
 
 }
