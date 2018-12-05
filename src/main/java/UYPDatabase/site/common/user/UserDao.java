@@ -3,6 +3,7 @@ package UYPDatabase.site.common.user;
 
 import UYPDatabase.site.JDBC;
 import UYPDatabase.site.common.AllDto.LoginDto;
+import UYPDatabase.site.common.AllDto.UserNameListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,12 +22,17 @@ public class UserDao {
     public UserDto getUserDetails(String username) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getUserDetails(username);
-
     }
 
     public void updateUser(UserDto userDto){
         System.out.println("I should update the user with this info");
         System.out.println(userDto);
+    }
+
+    public UserNameListDto getPossibleApplicants(){
+        UserNameListDto temp = new UserNameListDto();
+        System.out.println("Give me all of the usernames for people not accepted");
+        return temp;
     }
 
 }
