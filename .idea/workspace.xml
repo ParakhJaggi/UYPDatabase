@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c1501d1-651e-4508-b97a-488e73aaf2d4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/js/pages/ExportPage.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/js/pages/RegisterClassPage.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/js/pages/ViewApplicationPage.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDto.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDto.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/components/Navbar.js" afterPath="$PROJECT_DIR$/src/main/js/components/Navbar.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/index.js" afterPath="$PROJECT_DIR$/src/main/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/pages/ApplyPage.js" afterPath="$PROJECT_DIR$/src/main/js/pages/ApplyPage.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/js/pages/ProfilePage.js" afterPath="$PROJECT_DIR$/src/main/js/pages/ProfilePage.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -102,11 +96,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.41488856">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="GuestDto.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="GuestDto.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDto.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+                <state relative-caret-position="1220">
+                  <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
                   <folding>
                     <element signature="e#8833#8834#0" expanded="true" />
                     <element signature="e#8861#8862#0" expanded="true" />
@@ -132,11 +126,33 @@
           <file leaf-file-name="ProfilePage.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/js/pages/ProfilePage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="520">
-                  <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+                <state relative-caret-position="760">
+                  <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainReviewPage.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/js/pages/MainReviewPage.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserDto.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="380">
+                  <caret line="27" column="720" lean-forward="false" selection-start-line="27" selection-start-column="720" selection-end-line="27" selection-end-column="720" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -158,8 +174,8 @@
           <file leaf-file-name="ApplyPage.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/js/pages/ApplyPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="116" column="106" lean-forward="false" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
+                <state relative-caret-position="820">
+                  <caret line="116" column="52" lean-forward="false" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
@@ -702,9 +718,7 @@
         <option value="$PROJECT_DIR$/src/main/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/js/pages/HomePage.js" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/AllDto/LoginDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
         <option value="$PROJECT_DIR$/src/main/js/pages/LoginPage.js" />
-        <option value="$PROJECT_DIR$/src/main/js/pages/ProfilePage.js" />
         <option value="$PROJECT_DIR$/src/main/js/utils/Users.js" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/endpoint/UserEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserService.java" />
@@ -716,6 +730,8 @@
         <option value="$PROJECT_DIR$/src/main/js/index.js" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDto.java" />
         <option value="$PROJECT_DIR$/src/main/js/pages/ApplyPage.js" />
+        <option value="$PROJECT_DIR$/src/main/js/pages/ProfilePage.js" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
       </list>
     </option>
   </component>
@@ -1007,12 +1023,12 @@
       <workItem from="1543618478398" duration="965000" />
       <workItem from="1543898282518" duration="34000" />
       <workItem from="1543944740313" duration="2574000" />
-      <workItem from="1543947842862" duration="34660000" />
+      <workItem from="1543947842862" duration="35796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40066000" />
+    <option name="totallyTimeSpent" value="41202000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -1067,13 +1083,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/MvcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1333,17 +1342,7 @@
         <state relative-caret-position="580">
           <caret line="104" column="131" lean-forward="false" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="131" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/js/pages/ProfilePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1361,12 +1360,12 @@
         <state relative-caret-position="380">
           <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
           <folding>
-            <element signature="e#408#409#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="false" />
+            <element signature="e#464#465#0" expanded="false" />
+            <element signature="e#517#518#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#620#621#0" expanded="false" />
+            <element signature="e#664#665#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1450,8 +1449,8 @@
         <state relative-caret-position="240">
           <caret line="22" column="62" lean-forward="false" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
           <folding>
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1292#1293#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="false" />
+            <element signature="e#1292#1293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1461,8 +1460,8 @@
         <state relative-caret-position="420">
           <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
           <folding>
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="false" />
+            <element signature="e#922#923#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1472,37 +1471,18 @@
         <state relative-caret-position="820">
           <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding>
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1148#1149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-          <folding>
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-            <element signature="e#1790#1791#0" expanded="true" />
-            <element signature="e#1823#1824#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1919#1920#0" expanded="true" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
-            <element signature="e#2033#2034#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="false" />
+            <element signature="e#1060#1061#0" expanded="false" />
+            <element signature="e#1108#1109#0" expanded="false" />
+            <element signature="e#1148#1149#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/ApplyPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="116" column="106" lean-forward="false" selection-start-line="116" selection-start-column="106" selection-end-line="116" selection-end-column="106" />
+        <state relative-caret-position="820">
+          <caret line="116" column="52" lean-forward="false" selection-start-line="116" selection-start-column="52" selection-end-line="116" selection-end-column="52" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1511,14 +1491,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="1220">
+          <caret line="61" column="37" lean-forward="true" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
           <folding>
             <element signature="e#8833#8834#0" expanded="true" />
             <element signature="e#8861#8862#0" expanded="true" />
             <element signature="e#8903#8904#0" expanded="true" />
             <element signature="e#8937#8938#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/js/pages/ProfilePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/js/pages/MainReviewPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="27" column="720" lean-forward="false" selection-start-line="27" selection-start-column="720" selection-end-line="27" selection-end-column="720" />
+          <folding />
         </state>
       </provider>
     </entry>
