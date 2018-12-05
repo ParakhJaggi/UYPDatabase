@@ -54,7 +54,7 @@ class HomePage extends React.Component {
 							<Row className="center">
 								<Col md="6" sm="10">
 									<Card body>
-										<CardTitle>Welcome back, {this.props.user.principal}</CardTitle>
+										<CardTitle>Welcome back, {this.props.user.firstName}</CardTitle>
 										<CardText>
 											We're glad you're back!
 										</CardText>

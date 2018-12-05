@@ -1,5 +1,6 @@
 package UYPDatabase.site.endpoint;
 
+import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.user.UserDto;
 import UYPDatabase.site.common.user.UserService;
 
@@ -18,8 +19,16 @@ public class UserEndpoint {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/apply")
-    public void apply(@RequestBody UserDto userDto){
-        //userService.apply(userDto);
+    @GetMapping(value = "/login/{username}/{password}")
+    public LoginDto login(@PathVariable("username") String username, @PathVariable("password") String password){
+        return userService.login(username,password);
     }
+
+    @GetMapping(value = "/{username}")
+    public UserDto getUserDetails(@PathVariable("username") String username){
+        return userService.getUserDetails(username);
+    }
+
+//    @GetMapping(value = "/get-login")
+//    public boolean
 }

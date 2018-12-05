@@ -10,56 +10,27 @@ import * as Validation from '../alloy/utils/validation';
 import * as ReduxForm from 'redux-form';
 import * as Users from '../utils/Users';
 import PropTypes from 'prop-types';
-import notification from 'js/notification';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
+import {loginUser} from 'js/utils/Users';
+import Cookie from 'universal-cookie';
 
 class LoginPage extends React.Component {
 
 	constructor(props) {
-		super(props);
-
-		this.add = this.add.bind(this);
-		this.addError = this.addError.bind(this);
+        const myCookie = new Cookie();
+        let authTemp = {
+        	'loginSuccees': false
+		};
+        const auth = myCookie.set('authentication', authTemp, {path: '/'});
+        super(props);
 	}
 
-	onSubmit = ({principal, password}) => {
-		// This is where we would make our axios calls to the data store
-		if (this.props.authenticate(principal, password)) {
-			setTimeout(() => {
-				if (this.props.authentication != null) {
-					window.location.href = '/#/';
-					this.add('bottom-center');
-				} else {
-					this.addError('bottom-center');
-				}
-			}, 250);
-		} else {
-			console.log('Error! Email or password does not exist.');
-		}
+	onSubmit = ({username, password}) => {
+		this.props.authenticate(username,password);
+		window.location.href = '/';
 	};
 
-	add(container) {
-		const { addNotification } = this.props;
-
-		return addNotification(Object.assign({}, notification, {
-			title: 'Success!',
-			message: 'You are now logged in!',
-			container,
-			type: 'success'
-		}));
-	}
-
-	addError(container) {
-		const { addNotification } = this.props;
-
-		return addNotification(Object.assign({}, notification, {
-			title: 'Error!',
-			message: 'Incorrect email or password.',
-			container,
-			type: 'danger'
-		}));
-	}
 
 	render() {
 		let { handleSubmit } = this.props;
@@ -72,9 +43,9 @@ class LoginPage extends React.Component {
 						<CardTitle className='center'>Login</CardTitle>
 						<CardBody>
 							<form name='form' onSubmit={handleSubmit(form => this.onSubmit(form))}>
-								<Bessemer.Field name='principal' friendlyName='Email Address'
-												validators={[Validation.requiredValidator, Validation.emailValidator]}
-												field={<input className='form-control' type='text' placeholder='example@email.com' /> }/>
+								<Bessemer.Field name='username' friendlyName='Username'
+												validators={[Validation.requiredValidator]}
+												field={<input className='form-control' type='text' placeholder='JohnDoe123' /> }/>
 
 								<Bessemer.Field name='password' friendlyName='Password'
 												validators={[Validation.requiredValidator, Validation.passwordValidator]}
@@ -97,11 +68,10 @@ LoginPage.contextTypes = {
 LoginPage = ReduxForm.reduxForm({form: 'login'})(LoginPage);
 LoginPage = connect(
 	state => ({
-		authentication: Users.State.getAuthentication(state),
 		user: Users.State.getUser(state)
 	}),
 	dispatch => ({
-		authenticate: (principal, password) => dispatch(Users.Actions.authenticate(principal, password))
+		authenticate: (username, password) => dispatch(Users.Actions.authenticate(username, password))
 	})
 )(LoginPage);
 
