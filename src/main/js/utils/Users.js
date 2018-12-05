@@ -280,6 +280,8 @@ Actions.authenticate = (username, password) => {
                 myCookie.set('authentication', response, {path: '/'});
 
 				return getUserDetails(username).then(user => {
+					console.log('this is the user i am setting for props');
+					console.log(user);
 					dispatch(Actions.setUser(user));
 				});
 			}
@@ -306,7 +308,6 @@ Actions.logout = () => {
 };
 
 Actions.setAuthentication = authentication => {
-	// Setting our cookies for auth token
 	const myCookie = new Cookie();
 	myCookie.set('authentication', authentication, {path: '/'});
 

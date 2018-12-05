@@ -62,12 +62,18 @@ class ApplyPage extends React.Component {
                                 <Bessemer.Field name="principal" friendlyName="Email Address" placeholder="test@web.com"
                                                 validators={[Validation.requiredValidator, Validation.emailValidator]} />
 
+                                <Bessemer.Field name="suffix" friendlyName="Suffix" placeholder="Sr"
+                                                validators={[Validation.requiredValidator]} />
+
                                 <Bessemer.Field name="firstName" friendlyName="First Name" placeholder="John"
                                                 validators={[Validation.requiredValidator]} />
 
                                 <Bessemer.Field name="middleInitial" friendlyName="Middle Initial" placeholder="K" />
 
-                                <Bessemer.Field name="lastName" friendlyName="Last Name" placeholder="Smith"
+                                <Bessemer.Field name="lastName" friendlyName="Last Name" placeholder="Doe"
+                                                validators={[Validation.requiredValidator]} />
+
+                                <Bessemer.Field name="preferredName" friendlyName="Preferred Name" placeholder="Johnny"
                                                 validators={[Validation.requiredValidator]} />
 
                                 <Bessemer.Field name="addressLine" friendlyName="Address Line" placeholder="123 Main St"
@@ -90,6 +96,15 @@ class ApplyPage extends React.Component {
                                 <Bessemer.Field name="password" friendlyName="Password"
                                                 validators={[Validation.requiredValidator, Validation.passwordValidator]}
                                                 field={<input className="form-control" type="password" />} />
+
+                                <Bessemer.Field name="birthday" friendlyName="Birthday" placeholder="1-11-1111"
+                                                validators={[Validation.requiredValidator]} />
+
+                                <Bessemer.Field name="gender" friendlyName="Gender" placeholder="Female"
+                                                validators={[Validation.requiredValidator]} />
+
+                                <Bessemer.Field name="race" friendlyName="Ethnicity" placeholder="Native American"
+                                                validators={[Validation.requiredValidator]} />
 
                                 <Bessemer.Field name="prevSchool" friendlyName="Previous School Information"
                                                 validator={[Validation.requiredValidator]}
