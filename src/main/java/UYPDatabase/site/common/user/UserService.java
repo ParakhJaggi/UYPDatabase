@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import UYPDatabase.site.common.AllDto.LoginDto;
+import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.user.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,10 @@ public class UserService {
 
     public void updateUser(UserDto userDto) throws SQLException, ClassNotFoundException {
         userDao.updateUser(userDto);
+    }
+
+    public UserNameListDto getPossibleApplicants(){
+        return userDao.getPossibleApplicants();
     }
 }
 
