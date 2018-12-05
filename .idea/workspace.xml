@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c1501d1-651e-4508-b97a-488e73aaf2d4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto.class" afterPath="$PROJECT_DIR$/out/production/classes/UYPDatabase/site/common/user/UserDto.class" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/endpoint/UserEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/UYPDatabase/site/endpoint/UserEndpoint.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/pages/AcceptJobPage.js" afterPath="$PROJECT_DIR$/src/main/js/pages/AcceptJobPage.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/pages/LoginPage.js" afterPath="$PROJECT_DIR$/src/main/js/pages/LoginPage.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/pages/MyJobPage.js" afterPath="$PROJECT_DIR$/src/main/js/pages/MyJobPage.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/js/utils/Users.js" afterPath="$PROJECT_DIR$/src/main/js/utils/Users.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -86,14 +75,27 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46181083">
+    <splitter split-orientation="horizontal" split-proportion="0.77768093">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="student" pinned="false" current-in-tab="false">
-            <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.student">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
+          <file leaf-file-name="JDBC.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="582">
+                  <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+                  <folding>
+                    <marker date="1544004879765" expanded="true" signature="1034:1352" ph="INSERT INTO `Student`... " />
+                    <marker date="1544004879765" expanded="true" signature="1034:2077" ph="INSERT INTO `Student`... " />
+                    <marker date="1544004879765" expanded="true" signature="2204:2267" ph="SELECT id FR... Student" />
+                    <marker date="1544004879765" expanded="true" signature="2531:2616" ph="UPDATE Student... " />
+                    <marker date="1544004879765" expanded="true" signature="2661:2978" ph="INSERT INTO `parent`... " />
+                    <marker date="1544004879765" expanded="true" signature="3095:3418" ph="INSERT INTO `parent`... " />
+                    <marker date="1544004879765" expanded="true" signature="3534:3635" ph="INSERT INTO `usertype`... " />
+                    <marker date="1544004879765" expanded="true" signature="4105:4158" ph="SELECT * FRO... Student" />
+                    <marker date="1544004879765" expanded="true" signature="5554:5650" ph="SELECT * FRO... parent" />
+                    <marker date="1544004879765" expanded="true" signature="5941:6039" ph="SELECT * FRO... parent" />
+                    <marker date="1544004879765" expanded="true" signature="6333:6387" ph="SELECT * FRO... usertype" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -117,47 +119,13 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="JDBC.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="625">
-                  <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-                  <folding>
-                    <marker date="1544001939450" expanded="true" signature="1034:2027" ph="INSERT INTO `Student`... " />
-                    <marker date="1544001939450" expanded="true" signature="2156:2219" ph="SELECT id FR... Student" />
-                    <marker date="1544001939450" expanded="true" signature="2483:2568" ph="UPDATE Student... " />
-                    <marker date="1544001939450" expanded="true" signature="2613:2899" ph="INSERT INTO `parent`... " />
-                    <marker date="1544001939450" expanded="true" signature="3016:3307" ph="INSERT INTO `parent`... " />
-                    <marker date="1544001939450" expanded="true" signature="3423:3492" ph="INSERT INTO `usertype`... " />
-                    <marker date="1544001939450" expanded="true" signature="3423:3504" ph="INSERT INTO `usertype`... " />
-                    <marker date="1544001939450" expanded="true" signature="3973:4026" ph="SELECT * FRO... Student" />
-                    <marker date="1544001939450" expanded="true" signature="5429:5525" ph="SELECT * FRO... parent" />
-                    <marker date="1544001939450" expanded="true" signature="5815:5913" ph="SELECT * FRO... parent" />
-                    <marker date="1544001939450" expanded="true" signature="6187:6241" ph="SELECT * FRO... usertype" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AcceptJobPage.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="AcceptJobPage.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/js/pages/AcceptJobPage.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+                <state relative-caret-position="1620">
+                  <caret line="81" column="61" lean-forward="false" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
                   <folding>
                     <element signature="e#0#23#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoginPage.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/js/pages/LoginPage.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="30" column="10" lean-forward="false" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -166,9 +134,12 @@
           <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDao.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="360">
-                  <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="340">
+                  <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#794#795#0" expanded="true" />
+                    <element signature="e#860#861#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -177,7 +148,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="219">
-                  <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+                  <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -256,8 +227,8 @@
           <file leaf-file-name="Users.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/js/utils/Users.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1070">
-                  <caret line="340" column="0" lean-forward="true" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+                <state relative-caret-position="1056">
+                  <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -766,10 +737,11 @@
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/endpoint/UserEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java" />
         <option value="$PROJECT_DIR$/src/main/js/pages/LoginPage.js" />
-        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java" />
         <option value="$PROJECT_DIR$/src/main/js/utils/Users.js" />
         <option value="$PROJECT_DIR$/src/main/js/pages/MyJobPage.js" />
         <option value="$PROJECT_DIR$/src/main/js/pages/AcceptJobPage.js" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/296d07a7-b03f-4263-a37e-a3bd7c409a08/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java" />
       </list>
     </option>
   </component>
@@ -856,7 +828,98 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="site" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="AllDto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="guest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="site" type="462c0819:PsiDirectoryNode" />
+              <item name="endpoint" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="UYPDatabase-site" type="b2602c69:ProjectViewProjectNode" />
+              <item name="UYPDatabase" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -950,7 +1013,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44778000" />
+    <option name="totallyTimeSpent" value="46125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -973,10 +1036,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298887" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21422893" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -989,7 +1053,6 @@
       <window_info id="Database Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298887" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1023,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,9 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="89" column="98" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="131" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1055,9 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,11 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#240#241#0" expanded="false" />
-            <element signature="e#261#262#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1127,9 +1178,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="74" column="42" lean-forward="false" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,14 +1203,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/endpoint/GuestEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/PetPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
-          <caret line="63" column="51" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="64" />
+          <caret line="63" column="51" lean-forward="false" selection-start-line="63" selection-start-column="51" selection-end-line="63" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1169,7 +1218,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/RegisterClassPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1179,7 +1228,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/ExportPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
-          <caret line="5" column="37" selection-end-line="36" selection-end-column="26" />
+          <caret line="5" column="37" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1189,7 +1238,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/ViewApplicationPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1199,7 +1248,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+          <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -1207,7 +1256,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/js/components/Navbar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
-          <caret line="66" column="53" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
+          <caret line="66" column="53" lean-forward="false" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -1227,13 +1276,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/AllDto/LoginDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="820">
-          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
-          <folding>
-            <element signature="e#1029#1030#0" expanded="false" />
-            <element signature="e#1060#1061#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1148#1149#0" expanded="false" />
-          </folding>
+          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1251,7 +1294,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1267,22 +1309,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/296d07a7-b03f-4263-a37e-a3bd7c409a08/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/ProfilePage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -1311,36 +1344,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1720">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.usertype">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.parent">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1349,21 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1900">
           <caret line="61" column="31" lean-forward="false" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1380,29 +1375,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/js/utils/Users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="340" column="0" lean-forward="true" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+        <state relative-caret-position="1056">
+          <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <marker date="1544001939450" expanded="true" signature="1034:2027" ph="INSERT INTO `Student`... " />
-            <marker date="1544001939450" expanded="true" signature="2156:2219" ph="SELECT id FR... Student" />
-            <marker date="1544001939450" expanded="true" signature="2483:2568" ph="UPDATE Student... " />
-            <marker date="1544001939450" expanded="true" signature="2613:2899" ph="INSERT INTO `parent`... " />
-            <marker date="1544001939450" expanded="true" signature="3016:3307" ph="INSERT INTO `parent`... " />
-            <marker date="1544001939450" expanded="true" signature="3423:3492" ph="INSERT INTO `usertype`... " />
-            <marker date="1544001939450" expanded="true" signature="3423:3504" ph="INSERT INTO `usertype`... " />
-            <marker date="1544001939450" expanded="true" signature="3973:4026" ph="SELECT * FRO... Student" />
-            <marker date="1544001939450" expanded="true" signature="5429:5525" ph="SELECT * FRO... parent" />
-            <marker date="1544001939450" expanded="true" signature="5815:5913" ph="SELECT * FRO... parent" />
-            <marker date="1544001939450" expanded="true" signature="6187:6241" ph="SELECT * FRO... usertype" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1418,10 +1393,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/js/pages/AcceptJobPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="1620">
+          <caret line="81" column="61" lean-forward="false" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/296d07a7-b03f-4263-a37e-a3bd7c409a08/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.usertype">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/guest/GuestDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/common/user/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#860#861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/7e01ea7d/296d07a7-b03f-4263-a37e-a3bd7c409a08/uypd.parent">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UYPDatabase/site/JDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding>
+            <marker date="1544004879765" expanded="true" signature="1034:1352" ph="INSERT INTO `Student`... " />
+            <marker date="1544004879765" expanded="true" signature="1034:2077" ph="INSERT INTO `Student`... " />
+            <marker date="1544004879765" expanded="true" signature="2204:2267" ph="SELECT id FR... Student" />
+            <marker date="1544004879765" expanded="true" signature="2531:2616" ph="UPDATE Student... " />
+            <marker date="1544004879765" expanded="true" signature="2661:2978" ph="INSERT INTO `parent`... " />
+            <marker date="1544004879765" expanded="true" signature="3095:3418" ph="INSERT INTO `parent`... " />
+            <marker date="1544004879765" expanded="true" signature="3534:3635" ph="INSERT INTO `usertype`... " />
+            <marker date="1544004879765" expanded="true" signature="4105:4158" ph="SELECT * FRO... Student" />
+            <marker date="1544004879765" expanded="true" signature="5554:5650" ph="SELECT * FRO... parent" />
+            <marker date="1544004879765" expanded="true" signature="5941:6039" ph="SELECT * FRO... parent" />
+            <marker date="1544004879765" expanded="true" signature="6333:6387" ph="SELECT * FRO... usertype" />
           </folding>
         </state>
       </provider>
