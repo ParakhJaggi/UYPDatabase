@@ -21,6 +21,11 @@ export function updateUserDetails(user){
 	return axios.post('/api/user/update-profile', user);
 }
 
+export function getApplicants(){
+	console.log('user is trying to get a list of all possible applicants');
+	return axios.get('/api/user/possible-applicants');
+}
+
 /* Functions so far... */
 
 
@@ -199,6 +204,10 @@ State.getUser = state => {
 	return state.user;
 };
 
+State.getApplicants = state => {
+	return state.applicants;
+};
+
 
 export { State };
 
@@ -206,7 +215,8 @@ let Actions = {};
 
 Actions.Types = {
 	SET_AUTHENTICATION: 'SET_AUTHENTICATION',
-	SET_USER: 'SET_USER'
+	SET_USER: 'SET_USER',
+	SET_APPLICANTS: 'SET_APPLICANTS'
 };
 
 Actions.getPets = principal => {
@@ -214,6 +224,13 @@ Actions.getPets = principal => {
 		return getPets(principal).then((pets) => {
 			return dispatch(Actions.setPets(pets));
 		});
+	};
+};
+Actions.getApplicants = () => {
+	return (dispatch) => {
+		return getApplicants().then((applicants => {
+			return dispatch(Actions.setApplicant(applicants));
+		}));
 	};
 };
 
@@ -280,6 +297,10 @@ Actions.setUser = user => {
 	const myCookie = new Cookie();
 	myCookie.set('user', user, {path: '/'});
 	return {type: Actions.Types.SET_USER, user};
+};
+
+Actions.setApplicant = applicants => {
+	return {type: Actions.Types.SET_APPLICANTS, applicants};
 };
 
 export { Actions };
