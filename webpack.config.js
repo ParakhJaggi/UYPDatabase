@@ -11,7 +11,7 @@ const test = path.join(root, 'src/test');
 const dest = path.join(root, 'build');
 
 let main = 'js/app.js';
-let libraryName = 'UYPDatabase-site';
+let libraryName = 'petfinder-site';
 let outputFile = '';
 let port = 3000;
 
@@ -28,22 +28,25 @@ const config = {
 				exclude: /node_modules/
 			}, {
 				test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|ico|eot)$/,
-				use: "url-loader?limit=8192"
-			}],
-		loaders: [
-			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' }
-		]
+				use: "url-loader?limit=100000"
+			}]
 	},
 	resolve: {
 		alias: {
 			js: path.resolve(src, 'js'),
 			styles: path.resolve(src, 'styles')
 		},
-		extensions: ['.json', '.js', '.scss']
+		extensions: ['.json', '.js', '.scss', '.css']
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			},
+			'__DEV__': false
+		}),
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NamedModulesPlugin()
+		new webpack.NamedModulesPlugin(),
 	],
 };
 
@@ -68,6 +71,17 @@ if(env === 'dev') {
 	];
 
 	config.devtool = 'cheap-module-eval-source-map';
+
+	config.module.rules.push({
+		test: /\.css$/,
+		use: [{
+			loader: "style-loader" // creates style nodes from JS strings
+		}, {
+			loader: "css-loader" // translates CSS into CommonJS
+		}, {
+			loader: "sass-loader" // compiles Sass to CSS
+		}],
+	});
 
 	config.module.rules.push({
 		test: /\.scss$/,
@@ -104,6 +118,14 @@ else {
 	}
 
 	config.plugins.push(new ExtractTextPlugin(libraryName + '.css'));
+
+	config.module.rules.push({
+		test: /\.css$/,
+		use: ExtractTextPlugin.extract({
+			fallback: "style-loader",
+			use: ['css-loader', 'sass-loader']
+		}),
+	});
 
 	config.module.rules.push({
 		test: /\.scss$/,
