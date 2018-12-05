@@ -1,9 +1,12 @@
 package UYPDatabase.site.common.user;
 
 
+import UYPDatabase.site.JDBC;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
 
 
 @Repository
@@ -15,13 +18,10 @@ public class UserDao {
         return temp;
     }
 
-    public UserDto getUserDetails(String username){
-        System.out.println("trying to get info from " + username);
-        UserDto temp = new UserDto();
-        temp.setPrincipal("test@test.com");
-        temp.setFirstName("Parakh");
-        temp.setUserType("user");
-        return temp;
+    public UserDto getUserDetails(String username) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        return j.getUserDetails(username);
+
     }
 
     public void updateUser(LoginDto loginDto){
