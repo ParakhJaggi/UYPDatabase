@@ -27,7 +27,7 @@ public class UserService {
         userDao.updateUser(userDto);
     }
 
-    public UserNameListDto getPossibleApplicants(){
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         return userDao.getPossibleApplicants();
     }
 }
