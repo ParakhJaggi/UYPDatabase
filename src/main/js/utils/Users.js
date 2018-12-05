@@ -16,7 +16,9 @@ export function getUserDetails(username) {
     return axios.get('/api/user/' + username);
 }
 
-export function updateProfile(user){
+export function updateUserDetails(user){
+    console.log('user has just requested their profile to be updated with this info');
+    console.log(user);
 	return axios.post('/api/user/update-profile', user);
 }
 
@@ -278,10 +280,18 @@ Actions.authenticate = (username, password) => {
 	};
 };
 
+Actions.updateUserDetails = (user) => {
+    return (dispatch) => {
+        console.log('I am updating front end to the newest user!!');
+        console.log(user);
+    	dispatch(Actions.setUser(user));
+    };
+};
+
 Actions.getUserDetails = (username) => {
 	return (dispatch) => {
 		getUserDetails(username).then(user => {
-			console.log('I am updating to the newest user!!');
+			console.log('I am updating front end to the newest user!!');
 			console.log(user);
 			dispatch(Actions.setUser(user));
 		});
@@ -292,7 +302,6 @@ Actions.logout = () => {
 	return (dispatch) => {
 		dispatch(Actions.setAuthentication(null));
 		dispatch(Actions.setUser(null));
-		dispatch(Actions.setPets(null));
 	};
 };
 

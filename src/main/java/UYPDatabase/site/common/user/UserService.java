@@ -22,8 +22,8 @@ public class UserService {
         return userDao.getUserDetails(username);
     }
 
-    public void updateUser(LoginDto loginDto){
-        userDao.updateUser(loginDto);
+    public void updateUser(UserDto userDto){
+        userDao.updateUser(userDto);
     }
 }
 
