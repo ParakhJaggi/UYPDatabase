@@ -32,7 +32,7 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/update-profile")
-    public void updateUser(@RequestBody UserDto userDto){
+    public void updateUser(@RequestBody UserDto userDto) throws SQLException, ClassNotFoundException {
         userService.updateUser(userDto);
     }
 

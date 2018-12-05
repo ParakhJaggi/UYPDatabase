@@ -12,7 +12,7 @@ public class UYPDatabaseApplication {
 		SpringApplication.run(UYPDatabaseApplication.class, args);
 
 		JDBC j = new JDBC();
-		j.DerbyTest();
+ 		j.DerbyTest();
 
 	}
 }
