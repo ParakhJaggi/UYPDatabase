@@ -1,5 +1,6 @@
 package UYPDatabase.site.common.user;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import UYPDatabase.site.common.AllDto.LoginDto;
@@ -17,7 +18,7 @@ public class UserService {
         return userDao.login(username, password);
     }
 
-    public UserDto getUserDetails(String username){
+    public UserDto getUserDetails(String username) throws SQLException, ClassNotFoundException {
         return userDao.getUserDetails(username);
     }
 

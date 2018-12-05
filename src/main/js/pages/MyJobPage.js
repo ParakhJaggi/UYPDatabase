@@ -32,28 +32,6 @@ class MyJobPage extends React.Component {
 
 	quitJob = (e, res) => {
 		e.preventDefault();
-		let thisUser = this.props.user.principal;
-
-		let notification1 = {
-			'senderPrincipal': thisUser,
-			'receiverPrincipal': res.ownerPrincipal,
-			'message': thisUser + ' has quit the job!',
-			'read': 'no'
-		};
-
-		let notification2 = {
-			'senderPrincipal': thisUser,
-			'receiverPrincipal': res.sitterPrincipal,
-			'message': thisUser + ' has quit the job!',
-			'read': 'no'
-		};
-
-		if(thisUser === res.sitterPrincipal.valueOf()){
-			Users.createNotification(notification1);
-		} else{
-			Users.createNotification(notification2);
-		}
-
 		Users.quitJob(res.jobID, res.id);
 	};
 

@@ -10,7 +10,6 @@ import {
 import * as Users from 'js/utils/Users';
 import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
-import notification from 'js/notification';
 import '../../styles/pageStyles.css';
 
 class AcceptJobPage extends React.Component {
@@ -25,7 +24,6 @@ class AcceptJobPage extends React.Component {
 			job: currentJob
 		};
 
-		this.add = this.add.bind(this);
 	}
 
 	acceptJob = (e) => {
@@ -35,40 +33,20 @@ class AcceptJobPage extends React.Component {
 		console.log(this.state.job.jobID);
 
 		let sitterInfo = this.props.user.principal;
-		let ownerPrincipal = this.state.ownerPrincipal;
 
 		Users.getJob(this.state.job.jobID)
 			.then(function (response) {
 				response.accepted = 'yes';
 				response.sitterPrincipal = sitterInfo;
-				let notification = {
-					'senderPrincipal': sitterInfo,
-					'receiverPrincipal': ownerPrincipal,
-					'message': sitterInfo + ' has accepted your job!',
-					'read': 'no'
-				};
 
 				Users.updateJobDetails(response);
-				Users.createNotification(notification);
 				window.location.href = '/#/my-job-page';
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
 
-		this.add('bottom-center');
 	};
-
-	add(container) {
-		const { addNotification } = this.props;
-
-		return addNotification(Object.assign({}, notification, {
-			title: 'Success!',
-			message: 'You have accepted a job!',
-			container,
-			type: 'success'
-		}));
-	}
 
 	render() {
 		return (
