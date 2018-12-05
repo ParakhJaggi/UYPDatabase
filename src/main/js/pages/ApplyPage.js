@@ -97,7 +97,7 @@ class ApplyPage extends React.Component {
                                                 validators={[Validation.requiredValidator, Validation.passwordValidator]}
                                                 field={<input className="form-control" type="password" />} />
 
-                                <Bessemer.Field name="birthday" friendlyName="Birthday" placeholder="1-11-1111"
+                                <Bessemer.Field name="birthday" friendlyName="Birthday" placeholder="1111-11-30"
                                                 validators={[Validation.requiredValidator]} />
 
                                 <Bessemer.Field name="gender" friendlyName="Gender" placeholder="Female"
