@@ -21,6 +21,9 @@ import ViewSitterPage from './pages/ViewSitterPage';
 import MyJobPage from 'js/pages/MyJobPage';
 import MainReviewPage from './pages/MainReviewPage.js';
 import ApplyPage from 'js/pages/ApplyPage';
+import ExportPage from 'js/pages/ExportPage';
+import RegisterClassPage from 'js/pages/RegisterClassPage';
+import ViewApplicationPage from 'js/pages/ViewApplicationPage';
 
 class Index extends React.Component {
 
@@ -70,6 +73,18 @@ class Index extends React.Component {
                                 <ApplyPage {...props}/>}
                             />
 
+                            <Route exact path='/export' render={(props) =>
+                                <ExportPage {...props}/>}
+                            />
+
+                            <Route exact path='/register-class' render={(props) =>
+                                <RegisterClassPage {...props}/>}
+                            />
+
+                            <Route exact path='/view-application' render={(props) =>
+                                <ViewApplicationPage {...props}/>}
+                            />
+
 							<Route exact path='/rating-page' component={MainReviewPage} />
 							<Route exact path='/report-page' component={ReportPage} />
 							<Route exact path='/find-sitter' component={FindSitterPage} />
@@ -79,6 +94,12 @@ class Index extends React.Component {
 							<Route exact path='/view-sitter-page' component={ViewSitterPage}/>
 							<Route exact path='/my-job-page' component={MyJobPage}/>
                             <Route exact path='/apply-page' component={ApplyPage}/>
+                            <Route exact path='/export-page' component={ExportPage}/>
+                            <Route exact path='/register-class-page' component={RegisterClassPage}/>
+                            <Route exact path='/view-application-page' component={ViewApplicationPage}/>
+
+
+
 
 						</Switch>
 					</HashRouter>
