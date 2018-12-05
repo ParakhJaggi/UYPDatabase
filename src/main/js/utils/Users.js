@@ -1,12 +1,27 @@
 import Cookie from 'universal-cookie';
 import axios from 'axios';
 
+/* Functions so far... */
 export function applyForWeb(guest){
 	console.log('using is trying to apply!');
 	return axios.post('/api/guest/apply', guest);
 }
 
-// Makes API call to our register function in the back-end
+export function loginUser(username, password){
+    console.log('user is trying to login with ' + username +' ' + password);
+    return axios.get('api/user/login/' + username + '/' + password);
+}
+
+export function getUserDetails(username) {
+    return axios.get('/api/user/' + username);
+}
+
+/* Functions so far... */
+
+
+
+
+
 export function register(user) {
 	return axios.post('/api/user/register', user);
 }
@@ -179,105 +194,23 @@ export function updateUser(user){
 		});
 }
 
-export function authenticate(username, password) {
-	return axios(
-		{
-			method: 'post',
-			url: '/oauth/token',
-			params: {
-				'grant_type': 'password',
-				username,
-				password
-			},
-			auth: {
-				username: 'rceiwx2ja6',
-				password: 'k8akj8q570'
-			}
-		}
-	);
-}
-
-export function addRating(user){
-	let newUser = {
-		'principal': user.principal,
-		'firstName': user.firstName,
-		'middleName': user.middleName,
-		'lastName': user.lastName,
-		'addressLine1': user.addressLine1,
-		'addressLine2': user.addressLine2,
-		'state': user.state,
-		'city': user.city,
-		'zip': user.zip,
-		'phoneNumber': user.phoneNumber,
-		'userType': user.userType,
-		'password': user.password,
-		'sumRatings': user.sumRatings,
-		'numRatings': user.numRatings,
-		'avgRating': user.avgRating
-	};
-
-	console.log('In updateUse()');
-	console.log(newUser);
-
-	let backEndUser = getSitterInfo(newUser.principal);
-
-	if(newUser.principal != null){
-		backEndUser.principal = newUser.principal;
-	}
-	if(newUser.firstName != null){
-		backEndUser.firstName = newUser.firstName;
-	}
-	if(newUser.middleName != null){
-		backEndUser.middleName = newUser.middleName;
-	}
-	if(newUser.lastName != null){
-		backEndUser.lastName = newUser.lastName;
-	}
-	if(newUser.addressLine1 != null){
-		backEndUser.addressLine1 = newUser.addressLine1;
-	}
-	if(newUser.addressLine2 != null){
-		backEndUser.addressLine2 = newUser.addressLine2;
-	}
-	if(newUser.state != null){
-		backEndUser.state = newUser.state;
-	}
-	if(newUser.zip != null){
-		backEndUser.zip = newUser.zip;
-	}
-	if(newUser.city != null){
-		backEndUser.city = newUser.city;
-	}
-	if(newUser.phoneNumber != null){
-		backEndUser.phoneNumber = newUser.phoneNumber;
-	}
-	if(newUser.userType != null){
-		backEndUser.userType = newUser.userType;
-	}
-	if(newUser.password != null){
-		backEndUser.password = newUser.password;
-	}
-	if(newUser.numRatings != null){
-		backEndUser.numRatings = newUser.numRatings;
-	}
-	if(newUser.sumRatings != null){
-		backEndUser.sumRatings = newUser.sumRatings;
-	}
-	if(newUser.avgRating != null){
-		backEndUser.avgRating = newUser.avgRating;
-	}
-	return axios.post('/api/user/add-rating/', user)
-		.then(function (response) {
-			console.log(response);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
-
-export function getUserDetails() {
-	return axios.get('/api/user');
-}
+// export function authenticate(username, password) {
+// 	return axios(
+// 		{
+// 			method: 'post',
+// 			url: '/oauth/token',
+// 			params: {
+// 				'grant_type': 'password',
+// 				username,
+// 				password
+// 			},
+// 			auth: {
+// 				username: 'rceiwx2ja6',
+// 				password: 'k8akj8q570'
+// 			}
+// 		}
+// 	);
+// }
 
 export function getSitterInfo(principal){
 	console.log('trying to get sitter info with principal ' + principal);
@@ -341,11 +274,12 @@ Actions.register = user => {
 
 Actions.authenticate = (username, password) => {
 	return (dispatch) => {
-		return authenticate(username, password).then(
-			authentication => {
-				dispatch(Actions.setAuthentication(authentication));
+		return loginUser(username, password).then(
+			response => {
+                const myCookie = new Cookie();
+                myCookie.set('authentication', response, {path: '/'});
 
-				return getUserDetails().then(user => {
+				return getUserDetails(username).then(user => {
 					dispatch(Actions.setUser(user));
 				});
 			}
@@ -353,9 +287,9 @@ Actions.authenticate = (username, password) => {
 	};
 };
 
-Actions.getUserDetails = () => {
+Actions.getUserDetails = (username) => {
 	return (dispatch) => {
-		getUserDetails().then(user => {
+		getUserDetails(username).then(user => {
 			console.log('I am updating to the newest user!!');
 			console.log(user);
 			dispatch(Actions.setUser(user));
@@ -395,16 +329,16 @@ export { Actions };
 
 let Reducers = {};
 
-Reducers.authentication = (authentication = null, action) => {
-	switch (action.type) {
-		case Actions.Types.SET_AUTHENTICATION: {
-			return action.authentication;
-		}
-		default: {
-			return authentication;
-		}
-	}
-};
+// Reducers.authentication = (authentication = null, action) => {
+// 	switch (action.type) {
+// 		case Actions.Types.SET_AUTHENTICATION: {
+// 			return action.authentication;
+// 		}
+// 		default: {
+// 			return authentication;
+// 		}
+// 	}
+// };
 
 Reducers.user = (user = null, action) => {
 	switch (action.type) {
