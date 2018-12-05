@@ -14,10 +14,10 @@ import java.util.ArrayList;
 @Repository
 public class UserDao {
 
-    public LoginDto login(String username, String password){
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
         LoginDto temp = new LoginDto(username, password, "user", true);
-        System.out.println("User is trying to login with username " + username + " and password " + password);
-        return temp;
+        JDBC j = new JDBC();
+        return j.login(username,password);
     }
 
     public UserDto getUserDetails(String username) throws SQLException, ClassNotFoundException {
@@ -25,19 +25,15 @@ public class UserDao {
         return j.getUserDetails(username);
     }
 
-    public void updateUser(UserDto userDto){
-        System.out.println("I should update the user with this info");
-        System.out.println(userDto);
+    public void updateUser(UserDto userDto) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.updateuser(userDto);
     }
 
-    public UserNameListDto getPossibleApplicants(){
-        UserNameListDto temp = new UserNameListDto();
-        ArrayList<String> myList = temp.getUsernameList();
-        myList.add("Carl");
-        temp.setUsernameList(myList);
-        System.out.println(myList);
-        System.out.println("Give me all of the usernames for people not accepted");
-        return temp;
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        return j.getPossibleApplicants();
+
     }
 
 }
