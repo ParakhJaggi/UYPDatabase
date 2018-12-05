@@ -18,8 +18,12 @@ export function getUserDetails(username) {
 
 export function updateUserDetails(user){
     console.log('user has just requested their profile to be updated with this info');
-    console.log(user);
 	return axios.post('/api/user/update-profile', user);
+}
+
+export function getApplicants(){
+	console.log('user is trying to get a list of all possible applicants');
+	return axios.get('/api/user/possible-applicants');
 }
 
 /* Functions so far... */
@@ -153,43 +157,6 @@ export function updateUser(user){
 
 	let backEndUser = getUserDetails();
 
-	if(newUser.principal != null){
-		backEndUser.principal = newUser.principal;
-	}
-	if(newUser.firstName != null){
-		backEndUser.firstName = newUser.firstName;
-	}
-	if(newUser.middleName != null){
-		backEndUser.middleName = newUser.middleName;
-	}
-	if(newUser.lastName != null){
-		backEndUser.lastName = newUser.lastName;
-	}
-	if(newUser.addressLine1 != null){
-		backEndUser.addressLine1 = newUser.addressLine1;
-	}
-	if(newUser.addressLine2 != null){
-		backEndUser.addressLine2 = newUser.addressLine2;
-	}
-	if(newUser.state != null){
-		backEndUser.state = newUser.state;
-	}
-	if(newUser.zip != null){
-		backEndUser.zip = newUser.zip;
-	}
-	if(newUser.city != null){
-		backEndUser.city = newUser.city;
-	}
-	if(newUser.phoneNumber != null){
-		backEndUser.phoneNumber = newUser.phoneNumber;
-	}
-	if(newUser.userType != null){
-		backEndUser.userType = newUser.userType;
-	}
-	if(newUser.password != null){
-		backEndUser.password = newUser.password;
-	}
-
 	return axios.post('/api/user/update-user/', backEndUser)
 		.then(function (response) {
 			console.log('This is a response:');
@@ -237,6 +204,10 @@ State.getUser = state => {
 	return state.user;
 };
 
+State.getApplicants = state => {
+	return state.applicants;
+};
+
 
 export { State };
 
@@ -244,7 +215,8 @@ let Actions = {};
 
 Actions.Types = {
 	SET_AUTHENTICATION: 'SET_AUTHENTICATION',
-	SET_USER: 'SET_USER'
+	SET_USER: 'SET_USER',
+	SET_APPLICANTS: 'SET_APPLICANTS'
 };
 
 Actions.getPets = principal => {
@@ -252,6 +224,13 @@ Actions.getPets = principal => {
 		return getPets(principal).then((pets) => {
 			return dispatch(Actions.setPets(pets));
 		});
+	};
+};
+Actions.getApplicants = () => {
+	return (dispatch) => {
+		return getApplicants().then((applicants => {
+			return dispatch(Actions.setApplicant(applicants));
+		}));
 	};
 };
 
@@ -281,9 +260,9 @@ Actions.authenticate = (username, password) => {
 };
 
 Actions.updateUserDetails = (user) => {
+    console.log('I am updating front end to the newest user!!');
+    console.log(user);
     return (dispatch) => {
-        console.log('I am updating front end to the newest user!!');
-        console.log(user);
     	dispatch(Actions.setUser(user));
     };
 };
@@ -317,8 +296,11 @@ Actions.setUser = user => {
 	// Setting our cookies for current user
 	const myCookie = new Cookie();
 	myCookie.set('user', user, {path: '/'});
-
 	return {type: Actions.Types.SET_USER, user};
+};
+
+Actions.setApplicant = applicants => {
+	return {type: Actions.Types.SET_APPLICANTS, applicants};
 };
 
 export { Actions };
