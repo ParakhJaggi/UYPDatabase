@@ -225,17 +225,6 @@ export function getSitterInfo(principal){
 }
 
 
-export function createNotification(notification){
-	console.log('creating a notification!');
-	console.log(notification);
-	return axios.post('/api/notification/post-notification' , notification);
-}
-
-export function deleteNotification(id, notifyID){
-	console.log('i want to delete this notification ' + id + ' ' + notifyID);
-	return axios.post('/api/notification/delete-notification/' + id + '/' + notifyID);
-}
-
 let State = {};
 
 State.getAuthentication = state => {
@@ -246,9 +235,6 @@ State.getUser = state => {
 	return state.user;
 };
 
-State.getPets = state => {
-	return state.pets;
-};
 
 export { State };
 
@@ -256,8 +242,7 @@ let Actions = {};
 
 Actions.Types = {
 	SET_AUTHENTICATION: 'SET_AUTHENTICATION',
-	SET_USER: 'SET_USER',
-	SET_PETS: 'SET_PETS'
+	SET_USER: 'SET_USER'
 };
 
 Actions.getPets = principal => {
@@ -318,9 +303,6 @@ Actions.setAuthentication = authentication => {
 	return {type: Actions.Types.SET_AUTHENTICATION, authentication};
 };
 
-Actions.setPets = pets => {
-	return {type: Actions.Types.SET_PETS, pets};
-};
 
 Actions.setUser = user => {
 	// Setting our cookies for current user
@@ -352,17 +334,6 @@ Reducers.user = (user = null, action) => {
 		}
 		default: {
 			return user;
-		}
-	}
-};
-
-Reducers.pets = (pets = [], action) => {
-	switch (action.type) {
-		case Actions.Types.SET_PETS: {
-			return action.pets;
-		}
-		default: {
-			return pets;
 		}
 	}
 };
