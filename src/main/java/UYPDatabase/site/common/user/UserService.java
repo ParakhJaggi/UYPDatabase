@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public LoginDto login(String username, String password){
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
         return userDao.login(username, password);
     }
 

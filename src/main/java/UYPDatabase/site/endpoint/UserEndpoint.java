@@ -22,7 +22,7 @@ public class UserEndpoint {
     private UserService userService;
 
     @GetMapping(value = "/login/{username}/{password}")
-    public LoginDto login(@PathVariable("username") String username, @PathVariable("password") String password){
+    public LoginDto login(@PathVariable("username") String username, @PathVariable("password") String password) throws SQLException, ClassNotFoundException {
         return userService.login(username,password);
     }
 

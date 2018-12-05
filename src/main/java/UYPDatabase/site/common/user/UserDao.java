@@ -12,10 +12,10 @@ import java.sql.SQLException;
 @Repository
 public class UserDao {
 
-    public LoginDto login(String username, String password){
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
         LoginDto temp = new LoginDto(username, password, "user", true);
-        System.out.println("User is trying to login with username " + username + " and password " + password);
-        return temp;
+        JDBC j = new JDBC();
+        return j.login(username,password);
     }
 
     public UserDto getUserDetails(String username) throws SQLException, ClassNotFoundException {
