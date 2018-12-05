@@ -1,6 +1,7 @@
 package UYPDatabase.site;
 
 
+import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.guest.GuestDto;
 import UYPDatabase.site.common.user.UserDto;
 
@@ -59,7 +60,7 @@ public class JDBC {
        // System.out.println(q3);
 
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
-                " ('"+username+"','Student');";
+                " ('"+username+"','user');";
         rs = conn.prepareStatement(q4).executeUpdate();
 
 
@@ -138,6 +139,30 @@ public class JDBC {
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
         int rs = conn.prepareStatement("UPDATE Student SET firstname = '"+user.getFirstName()+"', middleinitial = '"+user.getMiddleInitial()+"' , lastname = '"+user.getLastName()+"', suffix = '"+user.getSuffix()+"' ,nameprefered = '"+user.getPreferredName()+"' , address = '"+user.getAddressLine()+"' , city = '"+user.getCity()+"' , state = '"+user.getState()+"' , zip = '"+user.getZip()+"' , birthdate = '"+user.getBirthday()+"' , gender = '"+user.getGender()+"', race = '"+user.getEthnicity()+"', graduationyear = '"+user.getGraduationYear()+"' , email = '"+user.getPrincipal()+"' , phonenumber = '"+user.getPhoneNumber()+"' ,sibling = '"+user.getSibling()+"' , previousschool = '"+user.getPrevSchool()+"' , grade = '"+user.getGrade()+"' , parent1firstname = '+"+user.getParentFirstName()+"', parent1lastname = '"+user.getParentLastName()+"' , parent2firstname = '"+user.getParentFirstName2()+"', parent2lastname = '"+user.getParentLastName2()+ "' , gtacceptance = '"+user.getGtAcceptance()+"' ,expectedschool = '"+user.getExpectedSchool()+"'  WHERE username = '"+user.getUsername()+"';").executeUpdate();
+
+    }
+
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        ResultSet rs = conn.prepareStatement("SELECT password, firstname,lastname FROM Student WHERE username = '"+username+"'").executeQuery();
+        System.out.println("SELECT password, firstname,lastname FROM Student WHERE username = '"+username+"'");
+
+        rs.next();
+        String pass = rs.getString(1);
+        String first = rs.getString(2);
+        String last = rs.getString(3);
+        boolean loggedin = (pass.equals(password));
+       if(loggedin){
+            ResultSet rs2 = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = '"+username+"'").executeQuery();
+            rs2.next();
+
+            System.out.println(first+last+rs2.getString(1));
+            return new LoginDto(rs.getString(2),rs.getString(3),rs2.getString(1),true);
+
+        }
+       return new LoginDto("","","",false);
+
+
 
     }
 
