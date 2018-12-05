@@ -1,5 +1,6 @@
 package UYPDatabase.site.common.guest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import UYPDatabase.site.common.guest.GuestDao;
@@ -12,7 +13,7 @@ public class GuestService {
     @Autowired
     private GuestDao guestDao;
 
-    public void apply(GuestDto guestDto){
+    public void apply(GuestDto guestDto) throws SQLException, ClassNotFoundException {
         guestDao.apply(guestDto);
     }
 
