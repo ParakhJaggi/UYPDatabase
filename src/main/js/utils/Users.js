@@ -19,6 +19,7 @@ export function getUserDetails(username) {
 export function updateUserDetails(user){
     console.log('user has just requested their profile to be updated with this info');
     console.log(user);
+    Actions.updateUserDetails(user);
 	return axios.post('/api/user/update-profile', user);
 }
 
@@ -153,43 +154,6 @@ export function updateUser(user){
 
 	let backEndUser = getUserDetails();
 
-	if(newUser.principal != null){
-		backEndUser.principal = newUser.principal;
-	}
-	if(newUser.firstName != null){
-		backEndUser.firstName = newUser.firstName;
-	}
-	if(newUser.middleName != null){
-		backEndUser.middleName = newUser.middleName;
-	}
-	if(newUser.lastName != null){
-		backEndUser.lastName = newUser.lastName;
-	}
-	if(newUser.addressLine1 != null){
-		backEndUser.addressLine1 = newUser.addressLine1;
-	}
-	if(newUser.addressLine2 != null){
-		backEndUser.addressLine2 = newUser.addressLine2;
-	}
-	if(newUser.state != null){
-		backEndUser.state = newUser.state;
-	}
-	if(newUser.zip != null){
-		backEndUser.zip = newUser.zip;
-	}
-	if(newUser.city != null){
-		backEndUser.city = newUser.city;
-	}
-	if(newUser.phoneNumber != null){
-		backEndUser.phoneNumber = newUser.phoneNumber;
-	}
-	if(newUser.userType != null){
-		backEndUser.userType = newUser.userType;
-	}
-	if(newUser.password != null){
-		backEndUser.password = newUser.password;
-	}
-
 	return axios.post('/api/user/update-user/', backEndUser)
 		.then(function (response) {
 			console.log('This is a response:');
@@ -281,9 +245,9 @@ Actions.authenticate = (username, password) => {
 };
 
 Actions.updateUserDetails = (user) => {
+    console.log('I am updating front end to the newest user!!');
+    console.log(user);
     return (dispatch) => {
-        console.log('I am updating front end to the newest user!!');
-        console.log(user);
     	dispatch(Actions.setUser(user));
     };
 };
@@ -317,7 +281,7 @@ Actions.setUser = user => {
 	// Setting our cookies for current user
 	const myCookie = new Cookie();
 	myCookie.set('user', user, {path: '/'});
-
+	this.props.user = user;
 	return {type: Actions.Types.SET_USER, user};
 };
 
