@@ -13,7 +13,7 @@ public class JDBC {
     public void DerbyTest() throws Exception {
 
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
         Connection conn = DriverManager.getConnection(connectionUrl);
         ResultSet rs = conn.prepareStatement("show tables").executeQuery();
 
@@ -27,7 +27,7 @@ public class JDBC {
     public void addStudent(GuestDto guest) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
         Connection conn = DriverManager.getConnection(connectionUrl);
         String query = "INSERT INTO `Student` (`firstname`,`middleinitial`,`lastname`,`suffix`,`nameprefered`,`address`,`city`,`state`,`zip`,`birthdate`,`gender`,`race`,`graduationyear`,`email`,`phonenumber`,`sibling`,`previousschool`,`grade`,`parent1firstname`,`parent1lastname`,`parent2firstname`,`parent2lastname`,`gtacceptance`,`password`, `expectedschool`) VALUES" +
                 "('"+guest.getFirstName()+"','"+guest.getMiddleInitial()+"','"+guest.getLastName()+"','"+guest.getSuffix()+"','"+guest.getPreferredName()+"','"+guest.getAddressLine()+"','"+guest.getCity()+"','"+guest.getState()+"','"+guest.getZip()+"','"+guest.getBirthday()+"','"+guest.getGender()+"','"+guest.getEthnicity()+"','"+guest.getGraduationYear()+"','"+guest.getPrincipal()+"','"+guest.getPhoneNumber()+"','"+guest.getSibling()+"','"+guest.getPrevSchool()+"','12','"+guest.getParentFirstName()+"','"+guest.getParentLastName()+"','"+guest.getParentFirstName2()+"','"+guest.getParentLastName2()+"','"+guest.getGtAcceptance()+"','"+guest.getPassword()+"','"+guest.getExpectedSchool()+"');";
@@ -67,7 +67,7 @@ public class JDBC {
     public UserDto getUserDetails(String username) throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
         Connection conn = DriverManager.getConnection(connectionUrl);
 
         ResultSet rs = conn.prepareStatement("SELECT * FROM Student WHERE username = '"+username+"'").executeQuery();
@@ -112,6 +112,7 @@ public class JDBC {
         String expectedSchool = rs.getString(27);
 
 
+        System.out.println("parent name is " + parentFirstName + " " + parentLastName);
         ResultSet rs2 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '"+parentFirstName+"' AND lastname = '"+parentLastName+"'").executeQuery();
         rs.next();
         String parentEmail = rs2.getString(3);
