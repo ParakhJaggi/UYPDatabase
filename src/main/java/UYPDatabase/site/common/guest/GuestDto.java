@@ -23,6 +23,7 @@ public class GuestDto {
     private String birthday;
     private String gender;
     private String ethnicity;
+    private String grade;
 
     //guardian 1 info
     private String parentFirstName;
@@ -44,7 +45,7 @@ public class GuestDto {
 
     }
 
-    public GuestDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String race, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2) {
+    public GuestDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2) {
         this.principal = principal;
         this.firstName = firstName;
         this.middleInitial = middleInitial;
@@ -64,7 +65,8 @@ public class GuestDto {
         this.preferredName = preferredName;
         this.birthday = birthday;
         this.gender = gender;
-        this.ethnicity = race;
+        this.ethnicity = ethnicity;
+        this.grade = grade;
         this.parentFirstName = parentFirstName;
         this.parentLastName = parentLastName;
         this.parentEmail = parentEmail;
@@ -336,6 +338,14 @@ public class GuestDto {
         this.ethnicity = ethnicity;
     }
 
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
     @Override
     public String toString() {
         return "GuestDto{" +
@@ -359,6 +369,7 @@ public class GuestDto {
                 ", birthday='" + birthday + '\'' +
                 ", gender='" + gender + '\'' +
                 ", ethnicity='" + ethnicity + '\'' +
+                ", grade='" + grade + '\'' +
                 ", parentFirstName='" + parentFirstName + '\'' +
                 ", parentLastName='" + parentLastName + '\'' +
                 ", parentEmail='" + parentEmail + '\'' +
