@@ -13,7 +13,7 @@ spring:
 
 web:
   statics:
-    js-bundle-location: http://localhost:3000/UYPDatabase-site.js
+    js-bundle-location: http://localhost:3000/petfinder-site.js
 
 elastic-search:
   host: localhost
@@ -27,12 +27,12 @@ spring:
 
 web:
   statics:
-    js-bundle-location: /statics/UYPDatabase-site.js
-    css-bundle-location: /statics/UYPDatabase-site.css
+    js-bundle-location: /statics/petfinder-site.js
+    css-bundle-location: /statics/petfinder-site.css
 
 elastic-search:
-  host: olive-6984281.us-east-1.bonsaisearch.net
+  host: yew-1307964.us-east-1.bonsaisearch.net
   port: 443
   scheme: https
-  user-name: jawaojy5a2
-  password: 8udzze6p34
+  user-name: rceiwx2ja6
+  password: k8akj8q570
