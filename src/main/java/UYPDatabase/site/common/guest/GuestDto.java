@@ -3,6 +3,7 @@ package UYPDatabase.site.common.guest;
 public class GuestDto {
     //guest info
     private String principal;
+
     private String firstName;
     private String middleInitial;
     private String lastName;
@@ -79,6 +80,7 @@ public class GuestDto {
         this.parentWorkNumber2 = parentWorkNumber2;
         this.parentCellNumber2 = parentCellNumber2;
     }
+
 
     public String getPrincipal() {
         return principal;
