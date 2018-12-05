@@ -153,7 +153,7 @@ class ApplyPage extends React.Component {
 
 
                                 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}} className="center">
-                                    <Bessemer.Button>Register</Bessemer.Button>
+                                    <Bessemer.Button>Apply</Bessemer.Button>
                                 </div>
                             </form>
                         </CardBody>

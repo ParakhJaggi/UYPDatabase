@@ -31,14 +31,22 @@ const store = createStore(reducer, {
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 
-/* Every Axios requests requires us to have a valid authentication token on our client */
-axios.interceptors.request.use(request => {
-	let authentication = Users.State.getAuthentication(store.getState());
-	if(_.isDefined(authentication)) {
-		request.headers.common['Authorization'] = 'Bearer ' + authentication['access_token'];
-	}
-	return request;
-}, error => Promise.reject(error));
+// /* Every Axios requests requires us to have a valid authentication token on our client */
+// axios.interceptors.request.use(request => {
+// 	let authentication = Users.State.getAuthentication(store.getState());
+// 	if(_.isDefined(authentication)) {
+// 		request.headers.common['Authorization'] = 'Bearer ' + authentication['access_token'];
+// 	}
+// 	return request;
+// }, error => Promise.reject(error));
+
+// axios.interceptors.request.use(request => {
+//     const myCookie = new Cookie();
+//     const auth = myCookie.get('authentication');
+//     if(auth != undefined && auth.loginSuccess == true){
+//     	return request;
+// 	}
+// }, error => Promise.reject(error));
 
 axios.interceptors.response.use(response => response.data, error => Promise.reject(error));
 

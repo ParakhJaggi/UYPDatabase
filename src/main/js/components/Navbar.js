@@ -17,13 +17,10 @@ import { Helmet } from 'react-helmet';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import * as Users from '../utils/Users';
-import NotificationList from 'js/components/NotificationList';
 import Cookie from 'universal-cookie';
 import Favicon from 'react-favicon';
 import logo from '../logo.png';
 import connect from 'react-redux/es/connect/connect';
-import notification from 'js/notification';
-import notificationBell from '../notificationUnread.png';
 import '../../styles/pageStyles.css';
 
 library.add(faPaw);
@@ -38,25 +35,6 @@ class NavigationBar extends React.Component {
 			isOpen: false
 		};
 
-		this.add = this.add.bind(this);
-		this.toggle = this.toggle.bind(this);
-	}
-
-	toggle() {
-		this.setState({
-			isOpen: !this.state.isOpen
-		});
-	}
-
-	add(container) {
-		const { addNotification } = this.props;
-
-		return addNotification(Object.assign({}, notification, {
-			title: '',
-			message: 'You have been logged out.',
-			container,
-			type: 'warning'
-		}));
 	}
 
 	logout = () => {
@@ -64,7 +42,6 @@ class NavigationBar extends React.Component {
 		const myCookie = new Cookie();
 		myCookie.remove('authentication', {path: '/'});
 		myCookie.remove('user', {path: '/'});
-		this.add('bottom-center');
 	};
 
 	static checkUserStatus() {
@@ -143,22 +120,6 @@ class NavigationBar extends React.Component {
 					<img src={logo} />&nbsp;
 					UYPD
 				</NavbarBrand>
-
-				{_.isDefined(this.props.user) &&
-				<React.Fragment>
-					|
-					<UncontrolledDropdown nav inNavbar>
-						<DropdownToggle nav caret>
-							<img src={notificationBell}/>&nbsp;
-							Notifications
-						</DropdownToggle>
-
-						{/* @TODO BRANDON Do your notification stuff here */}
-						<DropdownMenu >
-							<NotificationList/>
-						</DropdownMenu>
-					</UncontrolledDropdown>
-				</React.Fragment>}
 
 				<NavbarToggler onClick={this.toggle} />
 				<Collapse isOpen={this.state.isOpen} navbar>
