@@ -49,22 +49,22 @@ class NavigationBar extends React.Component {
 		if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'user') {
 			return <React.Fragment>
                 <NavItem>
-                    <NavLink >Register for Classes</NavLink>
+                    <NavLink href="#/register-class">Register for Classes</NavLink>
+                </NavItem>
+
+                <NavItem>
+                    <NavLink href="#/export">Export Schedule</NavLink>
                 </NavItem>
 
                 <NavItem>
                     <NavLink href="#/profile-page">My Profile</NavLink>
                 </NavItem>
 
-                <NavItem>
-                    <NavLink >Export Schedule</NavLink>
-                </NavItem>
-
 			</React.Fragment>;
 		} else if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'admin') {
 			return <React.Fragment>
                 <NavItem>
-                    <NavLink >View Applications</NavLink>
+                    <NavLink href="#/view-application">View Applications</NavLink>
                 </NavItem>
 
 			</React.Fragment>;
@@ -72,11 +72,11 @@ class NavigationBar extends React.Component {
 		}
 		else {
 			return 	<React.Fragment>
+                <NavItem>
+                    <NavLink href="#/apply">Apply</NavLink>
+                </NavItem>
 				<NavItem>
 					<NavLink href="#/login">Login</NavLink>
-				</NavItem>
-				<NavItem>
-					<NavLink href="#/register">Register</NavLink>
 				</NavItem>
 			</React.Fragment>;
 		}

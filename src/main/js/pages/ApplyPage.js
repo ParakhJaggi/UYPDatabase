@@ -114,6 +114,9 @@ class ApplyPage extends React.Component {
                                                 validators={[Validation.requiredValidator]}
                                                 field={<input className="form-control" type="number" />}/>
 
+                                <Bessemer.Field name="grade" friendlyName="Expected Grade" placeholder="95"
+                                                validators={[Validation.requiredValidator]} />
+
                                 <Bessemer.Field name="expectedSchool" friendlyName="Expected high school (if known)" placeholder="Seven Lakes High School"
                                                 validators={[Validation.requiredValidator]} />
 
