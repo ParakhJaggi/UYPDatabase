@@ -24,8 +24,9 @@ public class UserDao {
 
     }
 
-    public void updateUser(LoginDto loginDto){
-        System.out.println("I should update the user!!!!");
+    public void updateUser(UserDto userDto){
+        System.out.println("I should update the user with this info");
+        System.out.println(userDto);
     }
 
 }

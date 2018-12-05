@@ -17,9 +17,9 @@ public class UserDto extends GuestDto {
     private String userType;
 
     //either admin default
-//    UserDto(){
-//        super();
-//    }
+    UserDto(){
+        System.out.println("Creating a UserDto");;
+    }
 
     public UserDto(String disability, String userType) {
         this.disability = disability;
@@ -50,9 +50,11 @@ public class UserDto extends GuestDto {
 
     @Override
     public String toString() {
-        return "UserDto{" +
-                "disability='" + disability + '\'' +
-                ", userType='" + userType + '\'' +
+        return "GuestDto{" +
+                "principal='" + getPrincipal() + '\'' +
+                ", zip='" + getZip() + '\'' +
+                ", grade='" + getGrade() + '\'' +
+                ", parentEmail='" + getParentEmail() + '\'' +
                 '}';
     }
 }

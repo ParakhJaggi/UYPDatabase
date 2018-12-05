@@ -32,10 +32,9 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/update-profile")
-    public void updateUser(@RequestBody LoginDto loginDto){
-        userService.updateUser(loginDto);
+    public void updateUser(@RequestBody UserDto userDto){
+        userService.updateUser(userDto);
     }
 
-//    @GetMapping(value = "/get-login")
-//    public boolean
+
 }
