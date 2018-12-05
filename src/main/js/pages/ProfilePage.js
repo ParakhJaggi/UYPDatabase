@@ -32,7 +32,6 @@ class ProfilePage extends React.Component {
     handleSubmit(e){
 	    e.preventDefault();
 
-
 	    let backend = this.props.user;
 
 	    backend.principal = e.target.principal.value;
@@ -70,7 +69,8 @@ class ProfilePage extends React.Component {
         backend.parentCellNumber2 = e.target.parentCellNumber2.value;
 
         Users.updateUserDetails(backend);
-        //return window.location.href = '/#/';
+        this.props.updateUserDetails(backend);
+        return window.location.href = '/#/';
     }
 
 	render() {

@@ -18,8 +18,6 @@ export function getUserDetails(username) {
 
 export function updateUserDetails(user){
     console.log('user has just requested their profile to be updated with this info');
-    console.log(user);
-    Actions.updateUserDetails(user);
 	return axios.post('/api/user/update-profile', user);
 }
 
@@ -281,7 +279,6 @@ Actions.setUser = user => {
 	// Setting our cookies for current user
 	const myCookie = new Cookie();
 	myCookie.set('user', user, {path: '/'});
-	this.props.user = user;
 	return {type: Actions.Types.SET_USER, user};
 };
 
