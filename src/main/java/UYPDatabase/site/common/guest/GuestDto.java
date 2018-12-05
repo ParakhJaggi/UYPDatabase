@@ -4,7 +4,6 @@ public class GuestDto {
     //guest info
     private String principal;
 
-    private String email;
     private String firstName;
     private String middleInitial;
     private String lastName;
@@ -48,7 +47,6 @@ public class GuestDto {
     public GuestDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String race, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2) {
         this.principal = principal;
         this.firstName = firstName;
-        this.email = email;
         this.middleInitial = middleInitial;
         this.lastName = lastName;
         this.addressLine = addressLine;
@@ -81,13 +79,7 @@ public class GuestDto {
         this.parentCellNumber2 = parentCellNumber2;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
     public String getPrincipal() {
         return principal;
     }
