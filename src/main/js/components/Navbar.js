@@ -34,7 +34,6 @@ class NavigationBar extends React.Component {
 		this.state = {
 			isOpen: false
 		};
-
 	}
 
 	logout = () => {
@@ -42,59 +41,34 @@ class NavigationBar extends React.Component {
 		const myCookie = new Cookie();
 		myCookie.remove('authentication', {path: '/'});
 		myCookie.remove('user', {path: '/'});
-	};
+        window.location.href = '/';
+    };
 
 	static checkUserStatus() {
 		const myCookie = new Cookie();
-		if (myCookie.get('user') && myCookie.get('user').userType === 'Owner') {
+		if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'user') {
 			return <React.Fragment>
-				<UncontrolledDropdown nav inNavbar>
-					<DropdownToggle nav caret>
-						Jobs
-					</DropdownToggle>
-					<DropdownMenu right>
-						<DropdownItem href="#/post-job">
-							Post Job
-						</DropdownItem>
-						<DropdownItem href="#/find-sitter">
-							Find Sitter
-						</DropdownItem>
-					</DropdownMenu>
-				</UncontrolledDropdown>
+                <NavItem>
+                    <NavLink >Register for Classes</NavLink>
+                </NavItem>
+
+                <NavItem>
+                    <NavLink href="#/profile-page">My Profile</NavLink>
+                </NavItem>
+
+                <NavItem>
+                    <NavLink >Export Schedule</NavLink>
+                </NavItem>
+
 			</React.Fragment>;
-		} else if (myCookie.get('user') && myCookie.get('user').userType === 'Sitter') {
+		} else if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'admin') {
 			return <React.Fragment>
-				<UncontrolledDropdown nav inNavbar>
-					<DropdownToggle nav caret>
-						Jobs
-					</DropdownToggle>
-					<DropdownMenu right>
-						<DropdownItem href="#/search-job">
-							Search Jobs
-						</DropdownItem>
-					</DropdownMenu>
-				</UncontrolledDropdown>
+                <NavItem>
+                    <NavLink >View Applications</NavLink>
+                </NavItem>
+
 			</React.Fragment>;
 
-		} else if (myCookie.get('user') && myCookie.get('user').userType === 'Both') {
-			return <React.Fragment>
-				<UncontrolledDropdown nav inNavbar>
-					<DropdownToggle nav caret>
-						Jobs
-					</DropdownToggle>
-					<DropdownMenu right>
-						<DropdownItem href="#/post-job">
-							Post Job
-						</DropdownItem>
-						<DropdownItem href="#/find-sitter">
-							Find Sitter
-						</DropdownItem>
-						<DropdownItem href="#/search-job">
-							Search Jobs
-						</DropdownItem>
-					</DropdownMenu>
-				</UncontrolledDropdown>
-			</React.Fragment>;
 		}
 		else {
 			return 	<React.Fragment>
@@ -125,26 +99,6 @@ class NavigationBar extends React.Component {
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
 						{NavigationBar.checkUserStatus()}
-
-						{_.isDefined(this.props.user) &&
-						<UncontrolledDropdown nav inNavbar>
-							<DropdownToggle nav caret>
-								User
-							</DropdownToggle>
-							<DropdownMenu right>
-								<DropdownItem href="#/profile-page">
-									My Profile
-								</DropdownItem>
-								{(_.isEqual(this.props.user.userType, 'Both') ||
-								  _.isEqual(this.props.user.userType, 'Owner')) &&
-								<DropdownItem href="#/pet-page">
-									My Pets
-								</DropdownItem>}
-								<DropdownItem href="#/my-job-page">
-									My Jobs
-								</DropdownItem>
-							</DropdownMenu>
-						</UncontrolledDropdown>}
 
 						{_.isDefined(this.props.user) &&
 						<NavItem>
