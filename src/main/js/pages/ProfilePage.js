@@ -17,21 +17,18 @@ import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
 
 import * as ReduxForm from 'redux-form';
-import notification from 'js/notification';
 
 class ProfilePage extends React.Component {
 
 	constructor(props) {
-		super(props);
+        super(props);
 
-		this.state = {
-			updatedUserProfile: {},
-			value: null,
-			label: null
-		};
-
-		this.add = this.add.bind(this);
-	}
+        this.state = {
+            updatedUserProfile: {},
+            value: null,
+            label: null
+        };
+    }
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -64,17 +61,6 @@ class ProfilePage extends React.Component {
 						this.props.getUserDetails();
 					});
 			});
-		this.add('bottom-center');
-	}
-
-	add(container) {
-		const { addNotification } = this.props;
-		return addNotification(Object.assign({}, notification, {
-			title: 'Success!',
-			message: 'You have updated your profile!',
-			container,
-			type: 'success'
-		}));
 	}
 
 	render() {
@@ -89,19 +75,6 @@ class ProfilePage extends React.Component {
 								<h6 className="center">Submit any changes below.</h6>
 								<Form name="form" onSubmit={this.handleSubmit.bind(this)}>
 									<Row form>
-										<Col>
-											<FormGroup>
-												<Label for="userType">User Type</Label>
-												<Input type="select" name="userType">
-													<option value="Sitter">Sitter</option>
-													<option value="Owner">Owner</option>
-													<option value="Both">Both</option>
-												</Input>
-											</FormGroup>
-										</Col>
-									</Row>
-
-									<Row form>
 										<Col md={12}>
 											<FormGroup>
 												<Label for="principal">Email</Label>
@@ -111,8 +84,8 @@ class ProfilePage extends React.Component {
 											</FormGroup>
 										</Col>
 									</Row>
-									<Row>
-										<Col md={4}>
+									<Row form>
+										<Col md={5}>
 											<FormGroup>
 												<Label for="firstName">First Name</Label>
 												<Input type="text" name="firstName"
@@ -120,15 +93,15 @@ class ProfilePage extends React.Component {
 													   defaultValue={this.props.user.firstName}/>
 											</FormGroup>
 										</Col>
-										<Col md={4}>
+										<Col md={2}>
 											<FormGroup>
-												<Label for="middleName">Middle Name</Label>
+												<Label for="middleName">Middle Initial</Label>
 												<Input type="text" name="middleName"
-													   placeholder={this.props.user.middleName}
-													   defaultValue={this.props.user.middleName}/>
+													   placeholder={this.props.user.middleInitial}
+													   defaultValue={this.props.user.middleInitial}/>
 											</FormGroup>
 										</Col>
-										<Col md={4}>
+										<Col md={5}>
 											<FormGroup>
 												<Label for="lastName">Last Name</Label>
 												<Input type="text" name="lastName"
@@ -137,18 +110,30 @@ class ProfilePage extends React.Component {
 											</FormGroup>
 										</Col>
 									</Row>
-									<FormGroup>
-										<Label for="addressLine1">Address</Label>
-										<Input type="text" name="addressLine1"
-											   placeholder={this.props.user.addressLine1}
-											   defaultValue={this.props.user.addressLine1}/>
-									</FormGroup>
+                                    <Row form>
+                                        <Col md={5}>
+                                            <FormGroup>
+                                                <Label for="preferredName">Preferred Name</Label>
+                                                <Input type="text" name="preferredName"
+                                                       placeholder={this.props.user.preferredName}
+                                                       defaultValue={this.props.user.preferredName}/>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={2}>
+                                            <FormGroup>
+                                                <Label for="suffix">Suffix</Label>
+                                                <Input type="text" name="suffix"
+                                                       placeholder={this.props.user.suffix}
+                                                       defaultValue={this.props.user.suffix}/>
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
 
 									<FormGroup>
-										<Label for="addressLine2">Address Line 2</Label>
-										<Input type="text" name="addressLine2"
-											   placeholder={this.props.user.addressLine2}
-											   defaultValue={this.props.user.addressLine2}/>
+										<Label for="addressLine">Address</Label>
+										<Input type="text" name="addressLine"
+											   placeholder={this.props.user.addressLine}
+											   defaultValue={this.props.user.addressLine}/>
 									</FormGroup>
 
 									<Row form>

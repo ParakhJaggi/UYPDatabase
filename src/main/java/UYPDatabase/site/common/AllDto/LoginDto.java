@@ -3,15 +3,18 @@ package UYPDatabase.site.common.AllDto;
 public class LoginDto {
     String firstName;
     String lastName;
+    String userType;
     Boolean loginSuccess;
 
     public LoginDto() {
         this.loginSuccess = false;
+        this.userType = "user";
     }
 
-    public LoginDto(String firstName, String lastName, Boolean loginSuccess) {
+    public LoginDto(String firstName, String lastName, String userType, Boolean loginSuccess) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userType = userType;
         this.loginSuccess = loginSuccess;
     }
 
@@ -39,11 +42,20 @@ public class LoginDto {
         this.loginSuccess = loginSuccess;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
     @Override
     public String toString() {
         return "LoginDto{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", userType='" + userType + '\'' +
                 ", loginSuccess=" + loginSuccess +
                 '}';
     }
