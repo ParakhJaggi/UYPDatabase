@@ -16,6 +16,10 @@ export function getUserDetails(username) {
     return axios.get('/api/user/' + username);
 }
 
+export function updateProfile(user){
+	return axios.post('/api/user/update-profile', user);
+}
+
 /* Functions so far... */
 
 

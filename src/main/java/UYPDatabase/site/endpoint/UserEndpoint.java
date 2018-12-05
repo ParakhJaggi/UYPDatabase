@@ -29,6 +29,11 @@ public class UserEndpoint {
         return userService.getUserDetails(username);
     }
 
+    @PostMapping(value = "/update-profile")
+    public void updateUser(@RequestBody LoginDto loginDto){
+        userService.updateUser(loginDto);
+    }
+
 //    @GetMapping(value = "/get-login")
 //    public boolean
 }

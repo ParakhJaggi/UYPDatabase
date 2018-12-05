@@ -22,7 +22,7 @@ public class GuestDto {
     private String preferredName;
     private String birthday;
     private String gender;
-    private String race;
+    private String ethnicity;
 
     //guardian 1 info
     private String parentFirstName;
@@ -64,7 +64,7 @@ public class GuestDto {
         this.preferredName = preferredName;
         this.birthday = birthday;
         this.gender = gender;
-        this.race = race;
+        this.ethnicity = race;
         this.parentFirstName = parentFirstName;
         this.parentLastName = parentLastName;
         this.parentEmail = parentEmail;
@@ -328,12 +328,12 @@ public class GuestDto {
         this.gender = gender;
     }
 
-    public String getRace() {
-        return race;
+    public String getEthnicity() {
+        return ethnicity;
     }
 
-    public void setRace(String race) {
-        this.race = race;
+    public void setEthnicity(String ethnicity) {
+        this.ethnicity = ethnicity;
     }
 
     @Override
@@ -358,7 +358,7 @@ public class GuestDto {
                 ", preferredName='" + preferredName + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", gender='" + gender + '\'' +
-                ", race='" + race + '\'' +
+                ", ethnicity='" + ethnicity + '\'' +
                 ", parentFirstName='" + parentFirstName + '\'' +
                 ", parentLastName='" + parentLastName + '\'' +
                 ", parentEmail='" + parentEmail + '\'' +
