@@ -89,13 +89,6 @@ public class JDBC {
         String graduationYear = rs.getString(13);
         String principal = rs.getString(14);
 
-
-
-
-
-
-
-
         String phoneNumber = rs.getString(15);
         String sibling = rs.getString(16);
         String prevSchool = rs.getString(17);
@@ -114,7 +107,7 @@ public class JDBC {
 
         System.out.println("parent name is " + parentFirstName + " " + parentLastName);
         ResultSet rs2 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '"+parentFirstName+"' AND lastname = '"+parentLastName+"'").executeQuery();
-        rs.next();
+        rs2.next();
         String parentEmail = rs2.getString(3);
         String parentHomeNumber = rs2.getString(4);
         String parentWorkNumber = rs2.getString(5);
@@ -122,12 +115,14 @@ public class JDBC {
 
 
         ResultSet rs3 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '"+parentFirstName2+"' AND lastname = '"+parentLastName2+"'").executeQuery();
+        rs3.next();
         String parentEmail2 = rs3.getString(3);
         String parentHomeNumber2 = rs3.getString(4);
         String parentWorkNumber2 = rs3.getString(5);
         String parentCellNumber2 = rs3.getString(6);
 
         ResultSet rs4 = conn.prepareStatement("SELECT * FROM usertype WHERE username = '"+username+"'").executeQuery();
+        rs4.next();
         String usertype = rs4.getString(2);
 
 
