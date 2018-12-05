@@ -15,7 +15,6 @@ import {
 import * as Users from '../utils/Users';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-
 import * as ReduxForm from 'redux-form';
 
 class ProfilePage extends React.Component {
@@ -28,18 +27,53 @@ class ProfilePage extends React.Component {
             value: null,
             label: null
         };
-
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onSubmit = user => {
-        console.log(user);
-        Users.updateProfile(user);
+    handleSubmit(e){
+	    e.preventDefault();
+
+
+	    let backend = this.props.user;
+
+	    backend.principal = e.target.principal.value;
+	    backend.firstName = e.target.firstName.value;
+	    backend.lastName = e.target.lastName.value;
+        backend.middleInitial = e.target.middleInitial.value;
+        backend.addressLine = e.target.addressLine.value;
+        backend.city = e.target.city.value;
+        backend.state = e.target.state.value;
+        backend.zip = e.target.zip.value;
+        backend.phoneNumber = e.target.phoneNumber.value;
+        backend.prevSchool = e.target.prevSchool.value;
+        backend.graduationYear = e.target.graduationYear.value;
+        backend.expectedSchool = e.target.expectedSchool.value;
+        backend.sibling = e.target.sibling.value;
+        backend.gtAcceptance = e.target.gtAcceptance.value;
+        backend.suffix = e.target.suffix.value;
+        backend.preferredName = e.target.preferredName.value;
+        backend.birthday = e.target.birthday.value;
+        backend.gender = e.target.gender.value;
+        backend.ethnicity = e.target.ethnicity.value;
+        backend.grade = e.target.grade.value;
+        backend.parentFirstName = e.target.parentFirstName.value;
+        backend.parentLastName = e.target.parentLastName.value;
+        backend.parentEmail = e.target.parentEmail.value;
+        backend.parentHomeNumber = e.target.parentHomeNumber.value;
+        backend.parentWorkNumber = e.target.parentWorkNumber.value;
+        backend.parentCellNumber = e.target.parentCellNumber.value;
+
+        backend.parentFirstName2 = e.target.parentFirstName2.value;
+        backend.parentLastName2 = e.target.parentLastName2.value;
+        backend.parentEmail2 = e.target.parentEmail2.value;
+        backend.parentHomeNumber2 = e.target.parentHomeNumber2.value;
+        backend.parentWorkNumber2 = e.target.parentWorkNumber2.value;
+        backend.parentCellNumber2 = e.target.parentCellNumber2.value;
+
+        Users.updateUserDetails(backend);
         //return window.location.href = '/#/';
-    };
+    }
 
 	render() {
-        let { handleSubmit } = this.props;
 		return (
 			<Container style={{marginTop: 80, marginBottom: 20}}>
 				<Row>
@@ -49,7 +83,7 @@ class ProfilePage extends React.Component {
 							<CardTitle className="center">Welcome to your profile!</CardTitle>
 							<CardBody>
 								<h6 className="center">Submit any changes below.</h6>
-								<Form name="form" onSubmit={handleSubmit(form => this.onSubmit(form))}>
+								<Form name="form" onSubmit={this.handleSubmit.bind(this)}>
 									<Row form>
 										<Col md={12}>
 											<FormGroup>
@@ -71,8 +105,8 @@ class ProfilePage extends React.Component {
 										</Col>
 										<Col md={2}>
 											<FormGroup>
-												<Label for="middleName">Middle Initial</Label>
-												<Input type="text" name="middleName"
+												<Label for="middleInitial">Middle Initial</Label>
+												<Input type="text" name="middleInitial"
 													   placeholder={this.props.user.middleInitial}
 													   defaultValue={this.props.user.middleInitial}/>
 											</FormGroup>
@@ -146,12 +180,6 @@ class ProfilePage extends React.Component {
 											</FormGroup>
 										</Col>
 									</Row>
-
-									<FormGroup>
-										<Label for="password">Password</Label>
-										<Input type="password" name="password" />
-									</FormGroup>
-
                                     <Row form>
                                         <Col md={4}>
                                             <FormGroup>
@@ -199,10 +227,10 @@ class ProfilePage extends React.Component {
                                         </Col>
                                         <Col md={4}>
                                             <FormGroup>
-                                                <Label for="expectedSchool">Expected High School</Label>
-                                                <Input type="text" name="expectedSchool"
-                                                       placeholder={this.props.user.expectedSchool}
-                                                       defaultValue={this.props.user.expectedSchool}/>
+                                                <Label for="grade">Expected Grade</Label>
+                                                <Input type="text" name="grade"
+                                                       placeholder={this.props.user.grade}
+                                                       defaultValue={this.props.user.grade}/>
                                             </FormGroup>
                                         </Col>
                                     </Row>
@@ -216,12 +244,20 @@ class ProfilePage extends React.Component {
                                                        defaultValue={this.props.user.gtAcceptance}/>
                                             </FormGroup>
                                         </Col>
-                                        <Col md={8}>
+                                        <Col md={4}>
                                             <FormGroup>
                                                 <Label for="sibling">Any siblings in the program?</Label>
                                                 <Input type="text" name="sibling"
                                                        placeholder={this.props.user.sibling}
                                                        defaultValue={this.props.user.sibling}/>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md={4}>
+                                            <FormGroup>
+                                                <Label for="expectedSchool">Expected High School</Label>
+                                                <Input type="text" name="expectedSchool"
+                                                       placeholder={this.props.user.expectedSchool}
+                                                       defaultValue={this.props.user.expectedSchool}/>
                                             </FormGroup>
                                         </Col>
                                     </Row>
@@ -355,7 +391,8 @@ ProfilePage = connect(
 	}),
 	dispatch => ({
 		register: user => dispatch(Users.Actions.register(user)),
-		getUserDetails: () => dispatch(Users.Actions.getUserDetails())
+		getUserDetails: () => dispatch(Users.Actions.getUserDetails()),
+        updateUserDetails: user => dispatch(Users.Actions.updateUserDetails(user))
 	})
 )(ProfilePage);
 
