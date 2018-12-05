@@ -1,20 +1,27 @@
 package UYPDatabase.site;
 
 
+import UYPDatabase.site.common.AllDto.LoginDto;
+import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.guest.GuestDto;
 import UYPDatabase.site.common.user.UserDto;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBC {
 
+    public Connection MakeConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        return DriverManager.getConnection(connectionUrl);
 
+    }
 
     public void DerbyTest() throws Exception {
 
-        Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
-        Connection conn = DriverManager.getConnection(connectionUrl);
+        Connection conn = this.MakeConnection();
         ResultSet rs = conn.prepareStatement("show tables").executeQuery();
 
         while(rs.next()){
@@ -25,10 +32,8 @@ public class JDBC {
 
     }
     public void addStudent(GuestDto guest) throws ClassNotFoundException, SQLException {
-
-        Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
-        Connection conn = DriverManager.getConnection(connectionUrl);
+        System.out.println("test");
+        Connection conn =this.MakeConnection();
         String query = "INSERT INTO `Student` (`firstname`,`middleinitial`,`lastname`,`suffix`,`nameprefered`,`address`,`city`,`state`,`zip`,`birthdate`,`gender`,`race`,`graduationyear`,`email`,`phonenumber`,`sibling`,`previousschool`,`grade`,`parent1firstname`,`parent1lastname`,`parent2firstname`,`parent2lastname`,`gtacceptance`,`password`, `expectedschool`) VALUES" +
                 "('"+guest.getFirstName()+"','"+guest.getMiddleInitial()+"','"+guest.getLastName()+"','"+guest.getSuffix()+"','"+guest.getPreferredName()+"','"+guest.getAddressLine()+"','"+guest.getCity()+"','"+guest.getState()+"','"+guest.getZip()+"','"+guest.getBirthday()+"','"+guest.getGender()+"','"+guest.getEthnicity()+"','"+guest.getGraduationYear()+"','"+guest.getPrincipal()+"','"+guest.getPhoneNumber()+"','"+guest.getSibling()+"','"+guest.getPrevSchool()+"','12','"+guest.getParentFirstName()+"','"+guest.getParentLastName()+"','"+guest.getParentFirstName2()+"','"+guest.getParentLastName2()+"','"+guest.getGtAcceptance()+"','"+guest.getPassword()+"','"+guest.getExpectedSchool()+"');";
         System.out.println(query);
@@ -58,7 +63,7 @@ public class JDBC {
        // System.out.println(q3);
 
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
-                " ('"+username+"','Student');";
+                " ('"+username+"','guest');";
         rs = conn.prepareStatement(q4).executeUpdate();
 
 
@@ -66,9 +71,7 @@ public class JDBC {
 
     public UserDto getUserDetails(String username) throws ClassNotFoundException, SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
-        Connection conn = DriverManager.getConnection(connectionUrl);
+        Connection conn =this.MakeConnection();
 
         ResultSet rs = conn.prepareStatement("SELECT * FROM Student WHERE username = '"+username+"'").executeQuery();
         rs.next();
@@ -131,8 +134,53 @@ public class JDBC {
 
         //guardian 2 info
 
-        return new UserDto(principal,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,"idk",usertype);
+        return new UserDto(principal,username,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,"idk",usertype);
 
+
+    }
+
+    public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        int rs = conn.prepareStatement("UPDATE Student SET firstname = '"+user.getFirstName()+"', middleinitial = '"+user.getMiddleInitial()+"' , lastname = '"+user.getLastName()+"', suffix = '"+user.getSuffix()+"' ,nameprefered = '"+user.getPreferredName()+"' , address = '"+user.getAddressLine()+"' , city = '"+user.getCity()+"' , state = '"+user.getState()+"' , zip = '"+user.getZip()+"' , birthdate = '"+user.getBirthday()+"' , gender = '"+user.getGender()+"', race = '"+user.getEthnicity()+"', graduationyear = '"+user.getGraduationYear()+"' , email = '"+user.getPrincipal()+"' , phonenumber = '"+user.getPhoneNumber()+"' ,sibling = '"+user.getSibling()+"' , previousschool = '"+user.getPrevSchool()+"' , grade = '"+user.getGrade()+"' , parent1firstname = '+"+user.getParentFirstName()+"', parent1lastname = '"+user.getParentLastName()+"' , parent2firstname = '"+user.getParentFirstName2()+"', parent2lastname = '"+user.getParentLastName2()+ "' , gtacceptance = '"+user.getGtAcceptance()+"' ,expectedschool = '"+user.getExpectedSchool()+"'  WHERE username = '"+user.getUsername()+"';").executeUpdate();
+
+    }
+
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        ResultSet rs = conn.prepareStatement("SELECT password, firstname,lastname FROM Student WHERE username = '"+username+"'").executeQuery();
+        System.out.println("SELECT password, firstname,lastname FROM Student WHERE username = '"+username+"'");
+
+        rs.next();
+        String pass = rs.getString(1);
+        String first = rs.getString(2);
+        String last = rs.getString(3);
+        boolean loggedin = (pass.equals(password));
+       if(loggedin){
+            ResultSet rs2 = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = '"+username+"'").executeQuery();
+            rs2.next();
+
+            System.out.println(first+last+rs2.getString(1));
+            return new LoginDto(rs.getString(2),rs.getString(3),rs2.getString(1),true);
+
+        }
+       return new LoginDto("","","",false);
+
+
+
+    }
+
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        ArrayList<String> temp = new ArrayList<String>();
+        String qury = "SELECT * FROM usertype";
+        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        while(rs.next()){
+            if(rs.getString(2).equals("guest")){
+                temp.add(rs.getString(1));
+            }
+        }
+        System.out.println(temp.toString());
+        return new UserNameListDto(temp);
 
     }
 

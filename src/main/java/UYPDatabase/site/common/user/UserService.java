@@ -15,7 +15,7 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public LoginDto login(String username, String password){
+    public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
         return userDao.login(username, password);
     }
 
@@ -23,11 +23,11 @@ public class UserService {
         return userDao.getUserDetails(username);
     }
 
-    public void updateUser(UserDto userDto){
+    public void updateUser(UserDto userDto) throws SQLException, ClassNotFoundException {
         userDao.updateUser(userDto);
     }
 
-    public UserNameListDto getPossibleApplicants(){
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         return userDao.getPossibleApplicants();
     }
 }
