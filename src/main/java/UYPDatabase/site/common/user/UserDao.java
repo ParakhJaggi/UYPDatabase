@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 @Repository
@@ -31,6 +32,10 @@ public class UserDao {
 
     public UserNameListDto getPossibleApplicants(){
         UserNameListDto temp = new UserNameListDto();
+        ArrayList<String> myList = temp.getUsernameList();
+        myList.add("Carl");
+        temp.setUsernameList(myList);
+        System.out.println(myList);
         System.out.println("Give me all of the usernames for people not accepted");
         return temp;
     }

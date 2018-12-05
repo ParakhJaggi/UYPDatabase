@@ -57,14 +57,6 @@ class Index extends React.Component {
 								<ProfilePage {...props}/>}
 							/>
 
-							<Route exact path='/pet-page' render={(props) =>
-								<PetPage {...props}/>}
-							/>
-
-							<Route exact path='/post-job' render={(props) =>
-								<PostJobPage {...props}/>}
-							/>
-
 							<Route exact path='/accept-job-page' render={(props) =>
 								<AcceptJobPage {...props}/>}
 							/>

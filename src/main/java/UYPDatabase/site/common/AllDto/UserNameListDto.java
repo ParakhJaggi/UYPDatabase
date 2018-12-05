@@ -5,7 +5,9 @@ import java.util.ArrayList;
 public class UserNameListDto {
     private ArrayList<String> usernameList;
 
-    public UserNameListDto(){ }
+    public UserNameListDto(){
+        usernameList = new ArrayList<>();
+    }
 
     public UserNameListDto(ArrayList<String> usernameList) {
         this.usernameList = usernameList;
