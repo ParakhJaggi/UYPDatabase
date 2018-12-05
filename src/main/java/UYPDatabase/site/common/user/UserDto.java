@@ -15,6 +15,7 @@ public class UserDto extends GuestDto {
 
     private String disability;
     private String userType;
+    private String username;
 
     //either admin default
     UserDto(){
@@ -26,10 +27,14 @@ public class UserDto extends GuestDto {
         this.userType = userType;
     }
 
-    public UserDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String disability, String userType) {
+
+
+    public UserDto(String principal, String username, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String disability, String userType) {
         super(principal, firstName, middleInitial, lastName, addressLine, city, state, zip, phoneNumber, password, prevSchool, graduationYear, expectedSchool, sibling, gtAcceptance, suffix, preferredName, birthday, gender, ethnicity, grade, parentFirstName, parentLastName, parentEmail, parentHomeNumber, parentWorkNumber, parentCellNumber, parentFirstName2, parentLastName2, parentEmail2, parentHomeNumber2, parentWorkNumber2, parentCellNumber2);
         this.disability = disability;
         this.userType = userType;
+        this.username = username;
+
     }
 
     public String getDisability() {
@@ -47,6 +52,13 @@ public class UserDto extends GuestDto {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     @Override
     public String toString() {
@@ -55,6 +67,8 @@ public class UserDto extends GuestDto {
                 ", zip='" + getZip() + '\'' +
                 ", grade='" + getGrade() + '\'' +
                 ", parentEmail='" + getParentEmail() + '\'' +
+                ", username='" + this.getUsername() + '\'' +
+
                 '}';
     }
 }

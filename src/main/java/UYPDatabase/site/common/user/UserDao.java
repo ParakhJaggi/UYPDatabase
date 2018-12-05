@@ -24,9 +24,9 @@ public class UserDao {
 
     }
 
-    public void updateUser(UserDto userDto){
-        System.out.println("I should update the user with this info");
-        System.out.println(userDto);
+    public void updateUser(UserDto userDto) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.updateuser(userDto);
     }
 
 }

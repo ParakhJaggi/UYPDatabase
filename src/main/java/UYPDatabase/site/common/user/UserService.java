@@ -22,7 +22,7 @@ public class UserService {
         return userDao.getUserDetails(username);
     }
 
-    public void updateUser(UserDto userDto){
+    public void updateUser(UserDto userDto) throws SQLException, ClassNotFoundException {
         userDao.updateUser(userDto);
     }
 }
