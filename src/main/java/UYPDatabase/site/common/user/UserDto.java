@@ -16,9 +16,6 @@ public class UserDto extends GuestDto {
     private String disability;
     private String userType;
     //either admin default
-    UserDto(){
-        super();
-    }
 
     public UserDto(String disability, String userType) {
         this.disability = disability;
