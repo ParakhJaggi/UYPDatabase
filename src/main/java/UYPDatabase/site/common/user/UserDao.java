@@ -30,14 +30,10 @@ public class UserDao {
         j.updateuser(userDto);
     }
 
-    public UserNameListDto getPossibleApplicants(){
-        UserNameListDto temp = new UserNameListDto();
-        ArrayList<String> myList = temp.getUsernameList();
-        myList.add("Carl");
-        temp.setUsernameList(myList);
-        System.out.println(myList);
-        System.out.println("Give me all of the usernames for people not accepted");
-        return temp;
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        return j.getPossibleApplicants();
+
     }
 
 }

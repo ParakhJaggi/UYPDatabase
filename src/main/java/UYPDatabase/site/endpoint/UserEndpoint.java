@@ -38,7 +38,7 @@ public class UserEndpoint {
     }
 
     @GetMapping(value = "/possible-applicants")
-    public UserNameListDto getPossibleApplicants(){
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         return userService.getPossibleApplicants();
     }
 

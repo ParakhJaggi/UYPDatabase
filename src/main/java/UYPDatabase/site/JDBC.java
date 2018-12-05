@@ -2,10 +2,13 @@ package UYPDatabase.site;
 
 
 import UYPDatabase.site.common.AllDto.LoginDto;
+import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.guest.GuestDto;
 import UYPDatabase.site.common.user.UserDto;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBC {
 
@@ -60,7 +63,7 @@ public class JDBC {
        // System.out.println(q3);
 
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
-                " ('"+username+"','user');";
+                " ('"+username+"','guest');";
         rs = conn.prepareStatement(q4).executeUpdate();
 
 
@@ -163,6 +166,21 @@ public class JDBC {
        return new LoginDto("","","",false);
 
 
+
+    }
+
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        ArrayList<String> temp = new ArrayList<String>();
+        String qury = "SELECT * FROM usertype";
+        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        while(rs.next()){
+            if(rs.getString(2).equals("guest")){
+                temp.add(rs.getString(1));
+            }
+        }
+        System.out.println(temp.toString());
+        return new UserNameListDto(temp);
 
     }
 
