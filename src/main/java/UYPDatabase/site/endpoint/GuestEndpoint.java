@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLException;
+
 @RestController
 @RequestMapping("/api/guest")
 public class GuestEndpoint {
@@ -18,7 +20,7 @@ public class GuestEndpoint {
     private GuestService guestService;
 
     @PostMapping(value = "/apply")
-    public void apply(@RequestBody GuestDto guestDto){
+    public void apply(@RequestBody GuestDto guestDto) throws SQLException, ClassNotFoundException {
         guestService.apply(guestDto);
     }
 }

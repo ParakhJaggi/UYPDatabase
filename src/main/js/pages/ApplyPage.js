@@ -44,7 +44,7 @@ class ApplyPage extends React.Component {
     onSubmit = user => {
         Users.applyForWeb(user);
         console.log(user);
-        return window.location.href = '/#/';
+       // return window.location.href = '/#/';
     };
 
     render() {
