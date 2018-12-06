@@ -34,10 +34,15 @@ public class UserDao {
         UserNameListDto temp = new UserNameListDto();
         ArrayList<String> myList = temp.getUsernameList();
         myList.add("Carl");
+        myList.add("Steve");
         temp.setUsernameList(myList);
         System.out.println(myList);
         System.out.println("Give me all of the usernames for people not accepted");
         return temp;
+    }
+
+    public void acceptApplicant(String username){
+        System.out.println("Accept the applicant with username " + username);
     }
 
 }
