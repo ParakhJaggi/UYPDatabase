@@ -193,6 +193,10 @@ public class JDBC {
 
     }
 
+    public void addStudentInfo(){
+
+    }
+
 
 
 }
