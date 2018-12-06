@@ -43,7 +43,7 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/accept")
-    public void acceptApplicant(@RequestBody String username){
+    public void acceptApplicant(@RequestBody String username) throws SQLException, ClassNotFoundException {
         userService.acceptApplicant(username);
     }
 

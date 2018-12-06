@@ -31,7 +31,7 @@ public class UserService {
         return userDao.getPossibleApplicants();
     }
 
-    public void acceptApplicant(String username){
+    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException {
         userDao.acceptApplicant(username);
     }
 }
