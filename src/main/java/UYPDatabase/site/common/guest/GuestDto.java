@@ -4,6 +4,8 @@ public class GuestDto {
     //guest info
     private String principal;
 
+
+    private String username;
     private String firstName;
     private String middleInitial;
     private String lastName;
@@ -45,7 +47,7 @@ public class GuestDto {
 
     }
 
-    public GuestDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2) {
+    public GuestDto(String principal ,String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2) {
         this.principal = principal;
         this.firstName = firstName;
         this.middleInitial = middleInitial;
@@ -101,6 +103,14 @@ public class GuestDto {
     public String getMiddleInitial() {
         return middleInitial;
     }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
 
     public void setMiddleInitial(String middleInitial) {
         this.middleInitial = middleInitial;
@@ -382,6 +392,7 @@ public class GuestDto {
                 ", parentHomeNumber2='" + parentHomeNumber2 + '\'' +
                 ", parentWorkNumber2='" + parentWorkNumber2 + '\'' +
                 ", parentCellNumber2='" + parentCellNumber2 + '\'' +
+
                 '}';
     }
 }
