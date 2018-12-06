@@ -14,7 +14,7 @@ public class JDBC {
 
     public Connection MakeConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
         return DriverManager.getConnection(connectionUrl);
 
     }
@@ -171,7 +171,7 @@ public class JDBC {
 
     public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList();
         String qury = "SELECT * FROM usertype";
         ResultSet rs = conn.prepareStatement(qury).executeQuery();
         while(rs.next()){
@@ -180,6 +180,7 @@ public class JDBC {
             }
         }
         System.out.println(temp.toString());
+
         return new UserNameListDto(temp);
 
     }

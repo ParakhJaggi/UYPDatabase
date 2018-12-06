@@ -17,7 +17,8 @@ import '../../styles/pageStyles.css';
 class ViewApplicationPage extends React.Component {
 
     constructor(props){
-        super(props);
+	    const myCookie = new Cookie();
+	    super(props);
         this.props.fetchApplicants();
         getApplicants()
             .then(function (response) {
@@ -46,14 +47,20 @@ class ViewApplicationPage extends React.Component {
         this.context.router.history.push('/edit-pet-page');
     };
 
-    viewApplication(e){
+    viewApplication = (e) => {
         e.preventDefault();
-
-
-        //Users.updateUserDetails(backend);
-        //this.props.updateUserDetails(backend);
-        return window.location.href = '/#/';
-    }
+        const myCookie = new Cookie();
+        Users.getUserDetails(e.target.username.value)
+	        .then(function (response) {
+		        myCookie.set('currentApplicant', response, {path: '/'})
+			        .then(() => {
+				        window.location.href = '/#/current-applicant-page';
+			        });
+	        })
+	        .catch(function (error) {
+		        console.log(error);
+	        });
+    };
 
     acceptApplicant(e){
         e.preventDefault();
@@ -115,7 +122,7 @@ class ViewApplicationPage extends React.Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                { _.isDefined(applicationList) &&
+                                { _.isDefined(applicationList.usernameList) &&
                                 applicationList.usernameList.map(applicant => (
                                     <tr key={applicant}>
                                         <th scope="row">{applicant}</th>
