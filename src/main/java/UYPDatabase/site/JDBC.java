@@ -184,6 +184,15 @@ public class JDBC {
 
     }
 
+    public void acceptApplicant(String usernmae) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        String q = "UPDATE usertype SET usertype = 'user' WHERE username = '"+usernmae+"' ";
+        int rs = conn.prepareStatement(q).executeUpdate();
+
+
+
+    }
+
 
 
 }
