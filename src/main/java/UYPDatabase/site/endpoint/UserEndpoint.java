@@ -23,7 +23,7 @@ public class UserEndpoint {
     private UserService userService;
 
     @GetMapping(value = "/login/{username}/{password}")
-    public LoginDto login(@PathVariable("username") String username, @PathVariable("password") String password){
+    public LoginDto login(@PathVariable("username") String username, @PathVariable("password") String password) throws SQLException, ClassNotFoundException {
         return userService.login(username,password);
     }
 
@@ -33,12 +33,12 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/update-profile")
-    public void updateUser(@RequestBody UserDto userDto){
+    public void updateUser(@RequestBody UserDto userDto) throws SQLException, ClassNotFoundException {
         userService.updateUser(userDto);
     }
 
     @GetMapping(value = "/possible-applicants")
-    public UserNameListDto getPossibleApplicants(){
+    public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         return userService.getPossibleApplicants();
     }
 
