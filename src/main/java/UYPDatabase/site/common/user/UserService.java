@@ -30,5 +30,9 @@ public class UserService {
     public UserNameListDto getPossibleApplicants(){
         return userDao.getPossibleApplicants();
     }
+
+    public void acceptApplicant(String username){
+        userDao.acceptApplicant(username);
+    }
 }
 
