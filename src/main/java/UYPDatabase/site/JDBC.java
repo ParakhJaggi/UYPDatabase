@@ -14,7 +14,7 @@ public class JDBC {
 
     public Connection MakeConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=root&password=test1234";
+        String connectionUrl = "jdbc:mysql://localhost:3306/uypd?useUnicode=true&characterEncoding=UTF-8&user=Brandon&password=Michael1";
         return DriverManager.getConnection(connectionUrl);
 
     }
@@ -100,10 +100,9 @@ public class JDBC {
         String parentFirstName2 = rs.getString(21);
         String parentLastName2 = rs.getString(22);
         String gtAcceptance = rs.getString(23);
-        String id = rs.getString(24);
-        String password = rs.getString(25);
-        username = rs.getString(26);
-        String expectedSchool = rs.getString(27);
+        String password = rs.getString(24);
+        username = rs.getString(25);
+        String expectedSchool = rs.getString(26);
 
 
         System.out.println("parent name is " + parentFirstName + " " + parentLastName);
@@ -169,7 +168,7 @@ public class JDBC {
 
     public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
-        ArrayList<String> temp = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList();
         String qury = "SELECT * FROM usertype";
         ResultSet rs = conn.prepareStatement(qury).executeQuery();
         while(rs.next()){
@@ -178,6 +177,7 @@ public class JDBC {
             }
         }
         System.out.println(temp.toString());
+
         return new UserNameListDto(temp);
 
     }
