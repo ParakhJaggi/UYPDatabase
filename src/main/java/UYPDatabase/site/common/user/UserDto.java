@@ -32,6 +32,7 @@ public class UserDto extends GuestDto {
         System.out.println("Creating a UserDto");;
     }
 
+
     public UserDto(String disability, String userType, String yearaccepted,String status,String hasGrant,String whatgrant,String mentorname, String healthconditions,String english,String gt,String cleaninghouseinfo,String otherinfo) {
         this.disability = disability;
         this.userType = userType;
@@ -64,6 +65,16 @@ public class UserDto extends GuestDto {
         this.gt = gt;
         this.cleaninghouseinfo  =cleaninghouseinfo;
         this.otherinfo = otherinfo;
+
+
+
+    }
+
+    public UserDto(String principal, String username, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String disability, String userType) {
+        super(principal, firstName, middleInitial, lastName, addressLine, city, state, zip, phoneNumber, password, prevSchool, graduationYear, expectedSchool, sibling, gtAcceptance, suffix, preferredName, birthday, gender, ethnicity, grade, parentFirstName, parentLastName, parentEmail, parentHomeNumber, parentWorkNumber, parentCellNumber, parentFirstName2, parentLastName2, parentEmail2, parentHomeNumber2, parentWorkNumber2, parentCellNumber2);
+        this.disability = disability;
+        this.userType = userType;
+        this.username = username;
 
 
 

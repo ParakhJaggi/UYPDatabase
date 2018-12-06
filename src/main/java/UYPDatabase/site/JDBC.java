@@ -39,12 +39,10 @@ public class JDBC {
         System.out.println(query);
         int rs = conn.prepareStatement(query).executeUpdate();
 
-        String getid = "SELECT id FROM Student WHERE email = '"+guest.getPrincipal()+"'; ";
 
-        ResultSet rss = conn.prepareStatement(getid).executeQuery();
-        rss.next();
-        System.out.println(rss.getString(1));
-        String username = guest.getFirstName()+guest.getLastName()+rss.getString(1);
+
+        String username = guest.getFirstName()+guest.getLastName() + (int)(Math.random() * 1000000);
+        System.out.println(username);
 
          rs = conn.prepareStatement("UPDATE Student SET username = '"+username+"' WHERE email = '"+guest.getPrincipal()+"'").executeUpdate();
 
@@ -196,6 +194,7 @@ public class JDBC {
     public void addStudentInfo(){
 
     }
+
 
 
 
