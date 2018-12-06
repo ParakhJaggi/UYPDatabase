@@ -11,8 +11,6 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import ReportPage from './pages/ReportPage';
 import FindSitterPage from './pages/FindSitterPage';
-import PetPage from './pages/PetPage';
-import PostJobPage from './pages/PostJobPage';
 import SearchJobPage from './pages/SearchJobPage';
 import ReviewJobPage from './pages/ReviewJobPage';
 import AcceptJobPage from './pages/AcceptJobPage';
@@ -24,6 +22,7 @@ import ApplyPage from 'js/pages/ApplyPage';
 import ExportPage from 'js/pages/ExportPage';
 import RegisterClassPage from 'js/pages/RegisterClassPage';
 import ViewApplicationPage from 'js/pages/ViewApplicationPage';
+import CurrentApplicantPage from 'js/pages/CurrentApplicantPage';
 
 class Index extends React.Component {
 
@@ -77,6 +76,10 @@ class Index extends React.Component {
                                 <ViewApplicationPage {...props}/>}
                             />
 
+							<Route exact path='/current-application' render={(props) =>
+								<CurrentApplicantPage {...props}/>}
+							/>
+
 							<Route exact path='/rating-page' component={MainReviewPage} />
 							<Route exact path='/report-page' component={ReportPage} />
 							<Route exact path='/find-sitter' component={FindSitterPage} />
@@ -89,8 +92,7 @@ class Index extends React.Component {
                             <Route exact path='/export-page' component={ExportPage}/>
                             <Route exact path='/register-class-page' component={RegisterClassPage}/>
                             <Route exact path='/view-application-page' component={ViewApplicationPage}/>
-
-
+							<Route exact path='/current-application-page' component={CurrentApplicantPage}/>
 
 
 						</Switch>
