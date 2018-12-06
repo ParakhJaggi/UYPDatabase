@@ -33,7 +33,10 @@ public class UserDao {
     public UserNameListDto getPossibleApplicants() throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getPossibleApplicants();
+    }
 
+    public void acceptApplicant(String username){
+        System.out.println("Accept the applicant with username " + username);
     }
 
 }

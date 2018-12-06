@@ -42,5 +42,10 @@ public class UserEndpoint {
         return userService.getPossibleApplicants();
     }
 
+    @PostMapping(value = "/accept")
+    public void acceptApplicant(@RequestBody String username){
+        userService.acceptApplicant(username);
+    }
+
 
 }
