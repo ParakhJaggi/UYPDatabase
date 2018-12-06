@@ -4,8 +4,9 @@ import {
     Container,
     Button,
     Table,
+    Col, FormGroup, Label, Input, Row, Card, CardBody, Form,
 } from 'reactstrap';
-import { getOnePet } from 'js/utils/Users';
+import {getApplicants, getOnePet} from 'js/utils/Users';
 import * as Users from 'js/utils/Users';
 import * as ReduxForm from 'redux-form';
 import PropTypes from 'prop-types';
@@ -17,10 +18,16 @@ class ViewApplicationPage extends React.Component {
 
     constructor(props){
         super(props);
-        this.props.fetchApplicants()
+        this.props.fetchApplicants();
+        getApplicants()
             .then(function (response) {
-                console.log('This is a response:');
+                console.log('user has clicked editPet button');
                 console.log(response);
+                const myCookie = new Cookie();
+                myCookie.set('possibleApplicants', response, {path: '/'});
+            })
+            .catch(function (error) {
+                console.log(error);
             });
     }
 
@@ -39,48 +46,87 @@ class ViewApplicationPage extends React.Component {
         this.context.router.history.push('/edit-pet-page');
     };
 
-    render() {
-        return (
-            <React.Fragment>
-                <Container fluid>
-                    <Table responsive striped hover style={{
-                        margin: 10,
-                        borderColor: 'black',
-                        border: 5
-                    }}>
-                        {_.isEqual(this.props.applicants.length, 0) &&
-                        <React.Fragment>
-                            <thead>
-                            <tr>
-                                <th>You don't have any applicants!</th>
-                            </tr>
-                            </thead>
-                        </React.Fragment>
-                        }
+    viewApplication(e){
+        e.preventDefault();
 
-                        {!_.isEqual(this.props.applicants.length, 0) &&
-                        <React.Fragment>
-                            <thead>
-                            <tr>
-                                <th>Pet ID</th>
-                                <th>Pet Name</th>
-                                <th> </th>
-                                <th> </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            { _.isDefined(this.props.applicants) &&
-                            this.props.applicants.map(applicant => (
-                                <tr key={applicant.username}>
-                                    <td><Button onClick={ (e) => this.handleAddPet(e)}>View Applicant</Button></td>
-                                    <td><Button onClick={ (e) => this.handleAddPet(e)}>Accept Applicant</Button></td>
+
+        //Users.updateUserDetails(backend);
+        //this.props.updateUserDetails(backend);
+        return window.location.href = '/#/';
+    }
+
+    acceptApplicant(e){
+        e.preventDefault();
+        Users.acceptApplicant(e.target.username.value);
+    }
+
+    render() {
+        const myCookie = new Cookie();
+        const applicationList = myCookie.get('possibleApplicants');
+
+        return (
+            <div style={{marginTop: 100}}>
+                <React.Fragment>
+                    <Container fluid>
+                        <Row>
+                            <Col lg={12} md={12} sm={12} xs={12}>
+                                <Card>
+                                    <CardBody>
+                                        <Form name="form" onSubmit={this.viewApplication.bind(this)}>
+                                            <Row form>
+                                                <Col md={12}>
+                                                    <FormGroup>
+                                                        <Label for="username">View Applicant with username</Label>
+                                                        <Input type="text" name="username"
+                                                               placeholder= "username"/>
+                                                    </FormGroup>
+                                                </Col>
+                                            </Row>
+                                            <Button>View Applicant</Button>
+                                        </Form>
+                                        <br/>
+                                        <Form name="form" onSubmit={this.acceptApplicant.bind(this)}>
+                                            <Row form>
+                                                <Col md={12}>
+                                                    <FormGroup>
+                                                        <Label for="username">Accept Applicant with username</Label>
+                                                        <Input type="text" name="username"
+                                                               placeholder= "username"/>
+                                                    </FormGroup>
+                                                </Col>
+                                            </Row>
+                                            <Button>Accept Applicant</Button>
+                                        </Form>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+
+                        <Table responsive striped hover style={{
+                            margin: 10,
+                            borderColor: 'black',
+                            border: 5
+                        }}>
+                            <React.Fragment>
+                                <thead>
+                                <tr>
+                                    <th>Applicant Username</th>
+                                    <th> </th>
                                 </tr>
-                            ))}
-                            </tbody>
-                        </React.Fragment>}
-                    </Table>
-                </Container>
-            </React.Fragment>
+                                </thead>
+                                <tbody>
+                                { _.isDefined(applicationList) &&
+                                applicationList.usernameList.map(applicant => (
+                                    <tr key={applicant}>
+                                        <th scope="row">{applicant}</th>
+                                    </tr>
+                                ))}
+                                </tbody>
+                            </React.Fragment>
+                        </Table>
+                    </Container>
+                </React.Fragment>
+            </div>
         );
     }
 }
