@@ -20,9 +20,9 @@ const schoolOptions = [
 ];
 
 const gtOptions = [
-    {value: '0', label: 'No'},
-    {value: '1', label: 'Yes'},
-    {value: '3', label: 'Unsure'}
+    {value: 'No', label: 'No'},
+    {value: 'Yes', label: 'Yes'},
+    {value: 'Unsure', label: 'Unsure'}
 ];
 
 

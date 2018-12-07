@@ -31,6 +31,11 @@ export function acceptApplicant(username){
 	return axios.post('/api/user/accept' , username);
 }
 
+export function getApplicant(username){
+	console.log('user is trying to get applicant details');
+	return axios.get('/api/user/applicant/' + username);
+}
+
 /* Functions so far... */
 
 
