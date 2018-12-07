@@ -244,9 +244,9 @@ public class JDBC {
 
     }
 
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
+    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
-        String qury = "SELECT * FROM class ORDER BY level ASC;";
+        String qury = "SELECT * FROM class WHERE availability > 0  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
         ResultSet rs = conn.prepareStatement(qury).executeQuery();
         while(rs.next()){
@@ -271,6 +271,14 @@ public class JDBC {
         System.out.println("trying to register " + username + " with id of " + classID);
         con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
                 "('" + username + "','" + classID + "');").executeUpdate();
+
+        ResultSet r = con.prepareStatement("SELECT availability FROM class WHERE id = '"+classID+"'").executeQuery();
+
+        r.next();
+        int a = r.getInt(1);
+        System.out.println(a);
+        a--;
+        con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
 
     }
 }
