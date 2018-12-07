@@ -5,6 +5,8 @@ import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.user.UserDto;
 import UYPDatabase.site.common.user.UserService;
 
+import com.mailjet.client.errors.MailjetException;
+import com.mailjet.client.errors.MailjetSocketTimeoutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,7 +50,7 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/accept")
-    public void acceptApplicant(@RequestBody String username) throws SQLException, ClassNotFoundException {
+    public void acceptApplicant(@RequestBody String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         userService.acceptApplicant(username);
     }
 
