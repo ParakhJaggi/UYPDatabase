@@ -230,7 +230,7 @@ public class JDBC {
 
         //guardian 2 info
         System.out.println("returning user details: firstName" + " " + lastName + " " + username);
-        return new UserDto(principal,username,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,gradeAccepted,usertype,hasGrant,whichGrant,mentor,disabilities,health,english,cleaning,other,usertype,authorizedUser);
+        return new UserDto(principal,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,yearaccepted,gradeAccepted,status,hasGrant,whichGrant,mentor,disabilities,health,english,cleaning,other,usertype,username,authorizedUser);
     }
 
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
@@ -318,7 +318,6 @@ public class JDBC {
     }
 
     public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
-        Date date = new Date();
         String quey = "UPDATE studentinfo SET yearaccepted = '"+user.getYearAccepted()+"',status = '"+user.getStatus()+"',hasgrant = '"+user.getHasGrant()+"',whichgrant = '"+user.getWhichGrant()+"',mentorname = '"+user.getMentorName()+"',disabilities = '"+user.getDisability()+"',healthconditions = '"+user.getHealthConditions()+"',learningenglish = '"+user.getEnglish()+"',cleaninghouseinfo = '"+user.getCleaningHouseInfo()+"',otherinfo = '"+user.getOtherInfo()+"'WHERE username = '"+user.getUsername()+"';";
         System.out.println(quey);
         Connection conn =this.MakeConnection();
