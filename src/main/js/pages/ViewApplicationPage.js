@@ -59,7 +59,7 @@ class ViewApplicationPage extends React.Component {
 
 	acceptApplicant = (e) => {
 		e.preventDefault();
-		Users.acceptApplicant(e.target.username.value);
+		Users.acceptApplicant(e.target.username.value, this.props.user.username);
 		Users.getApplicant(e.target.username.value)
 			.then(function (response) {
 				const myCookie = new Cookie();
@@ -73,7 +73,7 @@ class ViewApplicationPage extends React.Component {
 
 	acceptApp = (e, username) => {
 		e.preventDefault();
-		Users.acceptApplicant(username);
+		Users.acceptApplicant(username , this.props.user.username);
 		Users.getApplicant(username)
 			.then(function (response) {
 				const myCookie = new Cookie();
