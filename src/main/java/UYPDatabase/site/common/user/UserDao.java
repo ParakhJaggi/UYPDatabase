@@ -2,6 +2,7 @@ package UYPDatabase.site.common.user;
 
 
 import UYPDatabase.site.JDBC;
+import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
 import com.mailjet.client.errors.MailjetException;
@@ -42,9 +43,9 @@ public class UserDao {
         JDBC j = new JDBC();
         j.acceptApplicant(username);
     }
-    public void getClasses() throws SQLException, ClassNotFoundException {
+    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
-        j.getClasses();
+        return j.getClasses();
     }
 
     public void registerCLass(String username, int id) throws SQLException, ClassNotFoundException {
