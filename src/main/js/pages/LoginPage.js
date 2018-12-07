@@ -27,8 +27,13 @@ class LoginPage extends React.Component {
 	}
 
 	onSubmit = ({username, password}) => {
-		this.props.authenticate(username,password);
-		//window.location.href = '/';
+		this.props.authenticate(username,password)
+			.then(function () {
+				window.location.href = '/';
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 	};
 
 
