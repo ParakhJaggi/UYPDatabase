@@ -48,12 +48,6 @@ class NavigationBar extends React.Component {
 		const myCookie = new Cookie();
 		if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'user') {
 			return <React.Fragment>
-				<NavItem>
-					<NavLink href="#/view-user">View Registered User</NavLink>
-				</NavItem>
-                <NavItem>
-                    <NavLink href="#/view-application">View Applications</NavLink>
-                </NavItem>
 				<UncontrolledDropdown nav inNavbar>
 					<DropdownToggle nav caret>
 						Classes
@@ -78,6 +72,9 @@ class NavigationBar extends React.Component {
                 <NavItem>
                     <NavLink href="#/view-application">View Applications</NavLink>
                 </NavItem>
+				<NavItem>
+					<NavLink href="#/view-user">View Registered Users</NavLink>
+				</NavItem>
 
 			</React.Fragment>;
 

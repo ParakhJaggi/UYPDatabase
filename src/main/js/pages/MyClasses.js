@@ -131,7 +131,7 @@ class MyClasses extends React.Component {
 					</Container>
 					<Card>
 						<CSVLink
-							data={this.state.data}
+							data={this.state.headers}
 							filename={'my-file.csv'}
 							className="btn btn-primary"
 							target="_blank"
