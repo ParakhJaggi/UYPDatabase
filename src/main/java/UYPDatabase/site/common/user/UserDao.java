@@ -71,8 +71,8 @@ public class UserDao {
     }
 
     public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
-        UserNameListDto temp = new UserNameListDto();
-        return  temp;
+        JDBC j = new JDBC();
+        return j.getUsers();
     }
 
 }
