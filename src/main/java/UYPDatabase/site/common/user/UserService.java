@@ -58,8 +58,12 @@ public class UserService {
         userDao.dropClass(username, classID);
     }
 
-    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
-        return userDao.getUsers();
+    public UserNameListDto getRegisteredUsers() throws SQLException, ClassNotFoundException {
+        return userDao.getRegisteredUsers();
+    }
+
+    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
+        return userDao.getUserExtraDetails();
     }
 }
 

@@ -13,7 +13,13 @@ export function loginUser(username, password){
 }
 
 export function getUserDetails(username) {
-    return axios.get('/api/user/' + username);
+	console.log('user is trying to get user details for ' + username);
+    return axios.get('/api/user/details/' + username);
+}
+
+export function getUserExtraDetails(username) {
+	console.log('user is trying to get user extra details for ' + username);
+	return axios.get('/api/user/extra/details/' + username);
 }
 
 export function updateUserDetails(user){
@@ -59,8 +65,9 @@ export function dropClass(username, classID){
 	return axios.post('/api/class/drop/' + username + '/' + classID);
 }
 
-export function getUsers(){
-	return axios.get('api/user/list-of-users');
+export function getRegisteredUsers(){
+	console.log('getting a list of registered users');
+	return axios.get('/api/user/list-of-users');
 }
 
 /* Functions so far... */

@@ -12,13 +12,13 @@ import PropTypes from 'prop-types';
 import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import {getUsers} from 'js/utils/Users';
+import {getRegisteredUsers} from 'js/utils/Users';
 
 class ViewUserPage extends React.Component {
 
 	constructor(props){
 		super(props);
-		getUsers()
+		getRegisteredUsers()
 			.then(function (response) {
 				console.log('this is the list of users');
 				console.log(response);
@@ -32,11 +32,11 @@ class ViewUserPage extends React.Component {
 
 	viewUserForm = (e) => {
 		e.preventDefault();
-		Users.getUserDetails(e.target.username.value)
+		Users.getUserExtraDetails(e.target.username.value)
 			.then(function (response) {
 				const myCookie = new Cookie();
-				myCookie.set('currentUser', response, {path: '/'});
-				window.location.href = '/#/current-application';
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/accept-application';
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -45,11 +45,11 @@ class ViewUserPage extends React.Component {
 
 	viewUser = (e, username) => {
 		e.preventDefault();
-		Users.getUserDetails(username)
+		Users.getUserExtraDetails(username)
 			.then(function (response) {
 				const myCookie = new Cookie();
-				myCookie.set('currentUser', response, {path: '/'});
-				window.location.href = '/#/current-application';
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/accept-application';
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -128,7 +128,6 @@ ViewUserPage = connect(
 		user: Users.State.getUser(state),
 	}),
 	dispatch => ({
-		fetchApplicants: () => dispatch(Users.Actions.getApplicants()),
 		authenticate: (principal, password) => dispatch(Users.Actions.authenticate(principal, password))
 	})
 )(ViewUserPage);

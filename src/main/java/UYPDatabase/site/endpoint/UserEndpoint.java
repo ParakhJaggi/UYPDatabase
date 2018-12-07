@@ -29,8 +29,9 @@ public class UserEndpoint {
         return userService.login(username,password);
     }
 
-    @GetMapping(value = "/{username}")
+    @GetMapping(value = "/details/{username}")
     public UserDto getUserDetails(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
+        System.out.println("in the endpoint for getUserDetails for " + username);
         return userService.getUserDetails(username);
     }
 
@@ -59,9 +60,15 @@ public class UserEndpoint {
         userService.updateApplicant(userDto);
     }
 
-    @GetMapping(value = "/api/user/list-of-users")
-    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
-        return userService.getUsers();
+    @GetMapping(value = "/list-of-users")
+    public UserNameListDto getRegisteredUsers() throws SQLException, ClassNotFoundException {
+        System.out.println("in the endpoint for getRegisteredUsers ");
+        return userService.getRegisteredUsers();
+    }
+
+    @GetMapping(value = "/extra/details/{username}")
+    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
+        return userService.getUserExtraDetails();
     }
 
 }
