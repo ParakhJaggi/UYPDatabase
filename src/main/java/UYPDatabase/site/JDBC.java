@@ -236,7 +236,7 @@ public class JDBC {
 
     }
 
-    public ClassDto showClasses() throws SQLException, ClassNotFoundException {
+    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
         String qury = "SELECT * FROM class ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
