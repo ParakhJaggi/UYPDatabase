@@ -41,14 +41,14 @@ export function updateApplicant(userInfo){
 	return axios.post('/api/user/applicant-submit-info/', userInfo);
 }
 
-export function getClasses(){
+export function getNotMyClasses(username){
 	console.log('user is getting all of the classes');
-	return axios.get('/api/class/');
+	return axios.get('/api/class/not/' + username);
 }
 
 export function getMyClasses(username){
 	console.log('user is getting all of the classes for a particular user');
-	return axios.get('/api/class/' + username);
+	return axios.get('/api/class/my/' + username);
 }
 
 export function registerClass(username, classID){
