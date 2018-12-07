@@ -17,12 +17,11 @@ import '../../styles/pageStyles.css';
 class ViewApplicationPage extends React.Component {
 
     constructor(props){
-	    const myCookie = new Cookie();
 	    super(props);
         this.props.fetchApplicants();
         getApplicants()
             .then(function (response) {
-                console.log('user has clicked editPet button');
+                console.log('this is the list of applicants');
                 console.log(response);
                 const myCookie = new Cookie();
                 myCookie.set('possibleApplicants', response, {path: '/'});
@@ -32,18 +31,31 @@ class ViewApplicationPage extends React.Component {
             });
     }
 
-    viewApplication = (e) => {
-        e.preventDefault();
-        Users.getApplicant(e.target.username.value)
-	        .then(function (response) {
-		        const myCookie = new Cookie();
-		        myCookie.set('currentApplicant', response, {path: '/'});
-                window.location.href = '/#/current-application';
-	        })
-	        .catch(function (error) {
-		        console.log(error);
-	        });
-    };
+	viewApplication = (e) => {
+		e.preventDefault();
+		Users.getApplicant(e.target.username.value)
+			.then(function (response) {
+				const myCookie = new Cookie();
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/current-application';
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
+
+	viewApp = (e, username) => {
+		e.preventDefault();
+		Users.getApplicant(username)
+			.then(function (response) {
+				const myCookie = new Cookie();
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/current-application';
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
 
 	acceptApplicant = (e) => {
 		e.preventDefault();
@@ -57,6 +69,21 @@ class ViewApplicationPage extends React.Component {
 			.catch(function (error) {
 				console.log(error);
 			});
+	};
+
+	acceptApp = (e, username) => {
+		e.preventDefault();
+		Users.acceptApplicant(username);
+		Users.getApplicant(username)
+			.then(function (response) {
+				const myCookie = new Cookie();
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/accept-application';
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+
 	};
 
     render() {
@@ -118,6 +145,8 @@ class ViewApplicationPage extends React.Component {
                                 applicationList.usernameList.map(applicant => (
                                     <tr key={applicant}>
                                         <th scope="row">{applicant}</th>
+	                                    <th><Button onClick={(e) => this.viewApp(e,applicant)}>View Applicant</Button></th>
+	                                    <th><Button onClick={(e) => this.acceptApp(e,applicant)}>Accept Applicant</Button></th>
                                     </tr>
                                 ))}
                                 </tbody>

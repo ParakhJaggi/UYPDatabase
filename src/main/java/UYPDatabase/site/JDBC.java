@@ -251,6 +251,8 @@ public class JDBC {
             c.setId(rs.getString(6));
             temp.add(c);
             }
+
+        System.out.println("getting list of classes " + temp);
         return new ClassDto(temp);
         }
 
