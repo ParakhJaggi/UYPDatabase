@@ -6,15 +6,14 @@ import '../styles/pageStyles.css';
 
 // Pages
 import HomePage from './pages/HomePage';
-import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import ApplyPage from 'js/pages/ApplyPage';
-import ExportPage from 'js/pages/ExportPage';
 import RegisterClassPage from 'js/pages/RegisterClassPage';
 import ViewApplicationPage from 'js/pages/ViewApplicationPage';
 import CurrentApplicantPage from 'js/pages/CurrentApplicantPage';
 import AcceptedApplicantPage from 'js/pages/AcceptedApplicantPage';
+import MyClasses from 'js/pages/MyClasses';
 
 class Index extends React.Component {
 
@@ -23,8 +22,6 @@ class Index extends React.Component {
 
 		this.state = {
 		};
-
-		this.instance = React.createRef();
 	}
 
 	render() {
@@ -37,10 +34,6 @@ class Index extends React.Component {
 
 							<Route exact path='/' component={HomePage} />
 
-							<Route exact path='/register' render={(props) =>
-								<RegisterPage {...props}/>}
-							/>
-
 							<Route exact path='/login' render={(props) =>
 								<LoginPage {...props}/>}
 							/>
@@ -51,10 +44,6 @@ class Index extends React.Component {
 
                             <Route exact path='/apply' render={(props) =>
                                 <ApplyPage {...props}/>}
-                            />
-
-                            <Route exact path='/export' render={(props) =>
-                                <ExportPage {...props}/>}
                             />
 
                             <Route exact path='/register-class' render={(props) =>
@@ -73,12 +62,16 @@ class Index extends React.Component {
 								<AcceptedApplicantPage {...props}/>}
 							/>
 
+							<Route exact path='/my-classes' render={(props) =>
+								<MyClasses {...props}/>}
+							/>
+
                             <Route exact path='/apply-page' component={ApplyPage}/>
-                            <Route exact path='/export-page' component={ExportPage}/>
-                            <Route exact path='/register-class-page' component={RegisterClassPage}/>
                             <Route exact path='/view-application-page' component={ViewApplicationPage}/>
 							<Route exact path='/current-application-page' component={CurrentApplicantPage}/>
 							<Route exact path='/accept-application-page' component={AcceptedApplicantPage}/>
+							<Route exact path='/my-classes-page' component={MyClasses}/>
+
 
 						</Switch>
 					</HashRouter>

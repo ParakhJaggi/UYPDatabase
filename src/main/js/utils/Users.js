@@ -26,9 +26,9 @@ export function getApplicants(){
 	return axios.get('/api/user/possible-applicants');
 }
 
-export function acceptApplicant(username){
+export function acceptApplicant(username, authorizedPerson){
 	console.log('user is trying to accept applicant');
-	return axios.post('/api/user/accept' , username);
+	return axios.post('/api/user/accept/' + username + '/' + authorizedPerson);
 }
 
 export function getApplicant(username){
@@ -46,9 +46,17 @@ export function getClasses(){
 	return axios.get('/api/class/');
 }
 
+export function getMyClasses(username){
+	console.log('user is getting all of the classes for a particular user');
+	return axios.get('/api/class/' + username);
+}
+
 export function registerClass(username, classID){
-	console.log('user is trying to register for class with username ' + username + ' and class id of ' + classID);
-	return axios.post('/api/class/register', username, classID);
+	return axios.post('/api/class/register/' + username + '/' + classID);
+}
+
+export function dropClass(username, classID){
+	return axios.post('/api/class/drop/' + username + '/' + classID);
 }
 
 /* Functions so far... */

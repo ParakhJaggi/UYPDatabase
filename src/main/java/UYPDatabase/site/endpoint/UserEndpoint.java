@@ -49,9 +49,9 @@ public class UserEndpoint {
         return userService.getPossibleApplicants();
     }
 
-    @PostMapping(value = "/accept")
-    public void acceptApplicant(@RequestBody String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
-        userService.acceptApplicant(username);
+    @PostMapping(value = "/accept/{username}/{authorizedPerson}")
+    public void acceptApplicant(@PathVariable("username") String username, @PathVariable("authorizedPerson") String authorizedPerson) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
+        userService.acceptApplicant(username, authorizedPerson);
     }
 
     @PostMapping(value = "/applicant-submit-info/")
