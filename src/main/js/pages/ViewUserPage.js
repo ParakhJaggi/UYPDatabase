@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import {getUsers} from "js/utils/Users";
+import {getUsers} from 'js/utils/Users';
 
 class ViewUserPage extends React.Component {
 
@@ -23,7 +23,7 @@ class ViewUserPage extends React.Component {
 				console.log('this is the list of users');
 				console.log(response);
 				const myCookie = new Cookie();
-				myCookie.set('currentUser', response, {path: '/'});
+				myCookie.set('possibleUsers', response, {path: '/'});
 			})
 			.catch(function (error) {
 				console.log(error);
