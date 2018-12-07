@@ -75,10 +75,9 @@ public class UserDao {
         return j.getUsers();
     }
 
-    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
+    public UserDto getUserExtraDetails(String username) throws SQLException, ClassNotFoundException{
         //gimme gimme
-        UserDto temp = new UserDto();
-        return temp;
+        return new JDBC().getUserExtraDetails(username);
     }
 
 }
