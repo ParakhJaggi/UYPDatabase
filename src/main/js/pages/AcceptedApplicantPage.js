@@ -338,8 +338,8 @@ class AcceptedApplicantPage extends React.Component {
 											<FormGroup>
 												<Label for="yearAccepted">Home Phone Number</Label>
 												<Input type="text" name="yearAccepted"
-												       placeholder={this.state.applicant.yearAccepted}
-												       defaultValue={this.state.applicant.yearAccepted}/>
+												       placeholder={this.state.applicant.yearaccepted}
+												       defaultValue={this.state.applicant.yearaccepted}/>
 											</FormGroup>
 										</Col>
 										<Col md={4}>
