@@ -244,7 +244,7 @@ public class JDBC {
 
     }
 
-    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
+    public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
         String qury = "SELECT * FROM class WHERE availability > 0 AND id NOT IN (SELECT classid from studentclass WHERE username = '"+username+"'  )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
@@ -257,6 +257,8 @@ public class JDBC {
             c.setClassroom(rs.getString(4));
             c.setTeacherName(rs.getString(5));
             c.setId(rs.getString(6));
+            c.setAvailability(rs.getString(7));
+            c.setCapacity(rs.getString(8));
             temp.add(c);
             }
 
@@ -277,6 +279,8 @@ public class JDBC {
             c.setClassroom(rs.getString(4));
             c.setTeacherName(rs.getString(5));
             c.setId(rs.getString(6));
+            c.setAvailability(rs.getString(7));
+            c.setCapacity(rs.getString(8));
             temp.add(c);
         }
 
