@@ -36,5 +36,9 @@ public class UserService {
     public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         userDao.acceptApplicant(username);
     }
+
+    public void updateApplicant(String username,UserDto userDto) throws SQLException, ClassNotFoundException {
+        userDao.updateUser(userDto);
+    }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
 	CardTitle,
+	CustomInput,
 	FormGroup,
 	Container,
 	CardBody,
@@ -31,9 +32,58 @@ class AcceptedApplicantPage extends React.Component {
 		};
 	}
 
-	handleGoBack(e){
+	handleSubmit(e){
 		e.preventDefault();
-		return window.location.href = '/#/';
+
+		this.state.applicant.principal = e.target.principal.value;
+		this.state.applicant.firstName = e.target.firstName.value;
+		this.state.applicant.lastName = e.target.lastName.value;
+		this.state.applicant.middleInitial = e.target.middleInitial.value;
+		this.state.applicant.addressLine = e.target.addressLine.value;
+		this.state.applicant.city = e.target.city.value;
+		this.state.applicant.state = e.target.state.value;
+		this.state.applicant.zip = e.target.zip.value;
+		this.state.applicant.phoneNumber = e.target.phoneNumber.value;
+		this.state.applicant.prevSchool = e.target.prevSchool.value;
+		this.state.applicant.graduationYear = e.target.graduationYear.value;
+		this.state.applicant.expectedSchool = e.target.expectedSchool.value;
+		this.state.applicant.sibling = e.target.sibling.value;
+		this.state.applicant.gtAcceptance = e.target.gtAcceptance.value;
+		this.state.applicant.suffix = e.target.suffix.value;
+		this.state.applicant.preferredName = e.target.preferredName.value;
+		this.state.applicant.birthday = e.target.birthday.value;
+		this.state.applicant.gender = e.target.gender.value;
+		this.state.applicant.ethnicity = e.target.ethnicity.value;
+		this.state.applicant.grade = e.target.grade.value;
+		this.state.applicant.parentFirstName = e.target.parentFirstName.value;
+		this.state.applicant.parentLastName = e.target.parentLastName.value;
+		this.state.applicant.parentEmail = e.target.parentEmail.value;
+		this.state.applicant.parentHomeNumber = e.target.parentHomeNumber.value;
+		this.state.applicant.parentWorkNumber = e.target.parentWorkNumber.value;
+		this.state.applicant.parentCellNumber = e.target.parentCellNumber.value;
+
+		this.state.applicant.parentFirstName2 = e.target.parentFirstName2.value;
+		this.state.applicant.parentLastName2 = e.target.parentLastName2.value;
+		this.state.applicant.parentEmail2 = e.target.parentEmail2.value;
+		this.state.applicant.parentHomeNumber2 = e.target.parentHomeNumber2.value;
+		this.state.applicant.parentWorkNumber2 = e.target.parentWorkNumber2.value;
+		this.state.applicant.parentCellNumber2 = e.target.parentCellNumber2.value;
+
+		this.state.applicant.yearAccepted = e.target.yearAccepted.value;
+		this.state.applicant.gradeAccepted = e.target.gradeAccepted.value;
+		this.state.applicant.status = e.target.status.value;
+		this.state.applicant.hasGrant = e.target.hasGrant.value;
+		this.state.applicant.whichGrant = e.target.whichGrant.value;
+		this.state.applicant.mentorName = e.target.mentorName.value;
+		this.state.applicant.disability = e.target.disability.value;
+		this.state.applicant.healthConditions = e.target.healthConditions.value;
+		this.state.applicant.english = e.target.english.value;
+		this.state.applicant.cleaningHouseInfo = e.target.cleaningHouseInfo.value;
+		this.state.applicant.otherInfo = e.target.otherInfo.value;
+
+		//console.log(this.state.applicant);
+		Users.updateApplicant(this.state.applicant.username,this.state.applicant);
+		//return window.location.href = '/#/';
 	}
 
 	render() {
@@ -45,7 +95,7 @@ class AcceptedApplicantPage extends React.Component {
 							<br/>
 							<CardTitle className="center">Welcome to {this.state.applicant.firstName}'s application!</CardTitle>
 							<CardBody>
-								<Form name="form">
+								<Form name="form" onSubmit={this.handleSubmit.bind(this)}>
 									<Row form>
 										<Col md={12}>
 											<FormGroup>
@@ -336,7 +386,7 @@ class AcceptedApplicantPage extends React.Component {
 									<Row form>
 										<Col md={4}>
 											<FormGroup>
-												<Label for="yearAccepted">Home Phone Number</Label>
+												<Label for="yearAccepted">Year Accepted</Label>
 												<Input type="text" name="yearAccepted"
 												       placeholder={this.state.applicant.yearaccepted}
 												       defaultValue={this.state.applicant.yearaccepted}/>
@@ -344,18 +394,102 @@ class AcceptedApplicantPage extends React.Component {
 										</Col>
 										<Col md={4}>
 											<FormGroup>
-												<Label for="parentWorkNumber2">Work Phone Number</Label>
-												<Input type="text" name="parentWorkNumber2"
-												       placeholder={this.state.applicant.parentWorkNumber2}
-												       defaultValue={this.state.applicant.parentWorkNumber2}/>
+												<Label for="gradeAccepted">Grade When Accepted</Label>
+												<Input type="text" name="gradeAccepted"
+												       placeholder={this.state.applicant.gradeAccepted}
+												       defaultValue={this.state.applicant.gradeAccepted}/>
 											</FormGroup>
 										</Col>
 										<Col md={4}>
 											<FormGroup>
-												<Label for="parentCellNumber2">Cell Phone Number</Label>
-												<Input type="text" name="parentCellNumber2"
-												       placeholder={this.state.applicant.parentCellNumber2}
-												       defaultValue={this.state.applicant.parentCellNumber2}/>
+												<Label for="status">Status</Label>
+												<CustomInput type="select" id="status" name="status">
+													<option value="inProgram">In the Program</option>
+													<option value="graduated">Graduated</option>
+													<option value="movedAway">Moved Away</option>
+													<option value="noLongerInterested">No Longer Interested</option>
+												</CustomInput>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="hasGrant">Have a Grant?</Label>
+												<CustomInput type="select" id="hasGrant" name="hasGrant">
+													<option value="yes">Yes</option>
+													<option value="no">No</option>
+												</CustomInput>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="whichGrant">Grant Name (if applicable)</Label>
+												<Input type="text" name="whichGrant"
+												       placeholder={this.state.applicant.whichGrant}
+												       defaultValue={this.state.applicant.whichGrant}/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="english">English Language Learner?</Label>
+												<CustomInput type="select" id="english" name="english">
+													<option value="yes">Yes</option>
+													<option value="no">No</option>
+												</CustomInput>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={12}>
+											<FormGroup>
+												<Label for="mentorName">Mentor Name's (if applicable)</Label>
+												<Input type="text" name="mentorName"
+												       placeholder={this.state.applicant.mentorName}
+												       defaultValue={this.state.applicant.mentorName}/>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="disability">Disability</Label>
+												<Input type="text" name="disability"
+												       placeholder={this.state.applicant.disability}
+												       defaultValue={this.state.applicant.disability}/>
+											</FormGroup>
+										</Col>
+										<Col md={8}>
+											<FormGroup>
+												<Label for="healthConditions">Health Condition</Label>
+												<Input type="text" name="healthConditions"
+												       placeholder={this.state.applicant.healthConditions}
+												       defaultValue={this.state.applicant.healthConditions}/>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={12}>
+											<FormGroup>
+												<Label for="cleaningHouseInfo">National Clearinghouse Info</Label>
+												<Input type="text" name="cleaningHouseInfo"
+												       placeholder={this.state.applicant.cleaningHouseInfo}
+												       defaultValue={this.state.applicant.cleaningHouseInfo}/>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={12}>
+											<FormGroup>
+												<Label for="otherInfo">Additional Info</Label>
+												<Input type="text" name="otherInfo"
+												       placeholder={this.state.applicant.otherInfo}
+												       defaultValue={this.state.applicant.otherInfo}/>
 											</FormGroup>
 										</Col>
 									</Row>
