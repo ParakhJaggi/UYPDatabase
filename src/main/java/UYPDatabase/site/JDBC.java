@@ -191,13 +191,21 @@ public class JDBC {
 
     }
 
-    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
+    public void acceptApplicant(String username, String authorizeduser) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         Connection conn =this.MakeConnection();
         String q = "UPDATE usertype SET usertype = 'user' WHERE username = '"+username+"' ";
+        System.out.println(q);
         int rs = conn.prepareStatement(q).executeUpdate();
+
         String qury = "SELECT email FROM Student WHERE username = '"+username+"'";
+
         ResultSet rss = conn.prepareStatement(qury).executeQuery();
         rss.next();
+        String quey = "INSERT INTO `studentinfo` (`username`,`authorizeduser`) VALUES" +
+                "('"+ username+"', '"+authorizeduser+"');";
+        System.out.println(quey);
+        int rs2 = conn.prepareStatement(quey).executeUpdate();
+
 
         MailjetClient client;
         MailjetRequest request;
@@ -221,10 +229,10 @@ public class JDBC {
 
     }
 
-    public void addStudentInfo(UserDto user) throws SQLException, ClassNotFoundException {
+    public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
         Date date = new Date();
-        String quey = "INSERT INTO `studentinfo` (`yearaccepted`,`status`,`hasgrant`,`whichgrant`,`mentorname`,`disabilities`,`healthconditions`,`learningenglish`,`cleaninghouseinfo`,`otherinfo`,`username`) VALUES" +
-                "('"+ Calendar.getInstance().get(Calendar.YEAR)+"','"+user.getStatus()+"','"+user.getHasGrant()+"','"+user.getWhichGrant()+"','"+user.getMentorName()+"','"+user.getDisability()+"','"+user.getHealthConditions()+"','"+user.getEnglish()+"','"+user.getCleaningHouseInfo()+"','"+user.getOtherInfo()+"','"+user.getUsername()+"');";
+        String quey = "UPDATE studentinfo SET yearaccepted = '"+user.getYearAccepted()+"',status = '"+user.getStatus()+"',hasgrant = '"+user.getHasGrant()+"',whichgrant = '"+user.getWhichGrant()+"',mentorname = '"+user.getMentorName()+"',disabilities = '"+user.getDisability()+"',healthconditions = '"+user.getHealthConditions()+"',learningenglish = '"+user.getEnglish()+"',cleaninghouseinfo = '"+user.getCleaningHouseInfo()+"',otherinfo = '"+user.getOtherInfo()+"'WHERE username = '"+user.getUsername()+"';";
+        System.out.println(quey);
         Connection conn =this.MakeConnection();
         System.out.println(quey);
         int rs = conn.prepareStatement(quey).executeUpdate();
@@ -236,9 +244,9 @@ public class JDBC {
 
     }
 
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
+    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
-        String qury = "SELECT * FROM class ORDER BY level ASC;";
+        String qury = "SELECT * FROM class WHERE availability > 0 AND id NOT IN (SELECT classid from studentclass WHERE username = '"+username+"'  )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
         ResultSet rs = conn.prepareStatement(qury).executeQuery();
         while(rs.next()){
@@ -256,6 +264,26 @@ public class JDBC {
         return new ClassDto(temp);
         }
 
+    public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = '"+username+"'  )  ORDER BY level ASC;";
+        ArrayList<ClassDto> temp = new ArrayList<>();
+        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        while(rs.next()){
+            ClassDto c = new ClassDto();
+            c.setLevel(rs.getString(1));
+            c.setName(rs.getString(2));
+            c.setTimeSlot(rs.getString(3));
+            c.setClassroom(rs.getString(4));
+            c.setTeacherName(rs.getString(5));
+            c.setId(rs.getString(6));
+            temp.add(c);
+        }
+
+        System.out.println("getting list of classes " + temp);
+        return new ClassDto(temp);
+    }
+
 
 
     public void registerClass(String username, int classID) throws SQLException, ClassNotFoundException {
@@ -263,6 +291,14 @@ public class JDBC {
         System.out.println("trying to register " + username + " with id of " + classID);
         con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
                 "('" + username + "','" + classID + "');").executeUpdate();
+
+        ResultSet r = con.prepareStatement("SELECT availability FROM class WHERE id = '"+classID+"'").executeQuery();
+
+        r.next();
+        int a = r.getInt(1);
+        System.out.println(a);
+        a--;
+        con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
 
     }
 }
