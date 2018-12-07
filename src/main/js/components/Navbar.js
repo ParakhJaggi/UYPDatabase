@@ -91,12 +91,12 @@ class NavigationBar extends React.Component {
 			<Navbar fixed="top" color="dark" dark expand="md" style={{listStyleType: 'none'}}>
 				<Favicon url="https://imgur.com/AzPIQVM.png" />
 				<Helmet>
-					<title>UYPD</title>
+					<title>UYP</title>
 				</Helmet>
 
 				<NavbarBrand href="/">
 					<img src={logo} />&nbsp;
-					UYPD
+					UYP
 				</NavbarBrand>
 
 				<NavbarToggler onClick={this.toggle} />
