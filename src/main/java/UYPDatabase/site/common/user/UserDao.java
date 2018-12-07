@@ -42,6 +42,11 @@ public class UserDao {
         JDBC j = new JDBC();
         j.acceptApplicant(username);
     }
+    public void getClasses() throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.getClasses();
+    }
+
 
 }
 
