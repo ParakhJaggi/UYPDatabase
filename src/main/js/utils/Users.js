@@ -59,6 +59,10 @@ export function dropClass(username, classID){
 	return axios.post('/api/class/drop/' + username + '/' + classID);
 }
 
+export function getUsers(){
+	return axios.get('api/user/list-of-users');
+}
+
 /* Functions so far... */
 
 

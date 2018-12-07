@@ -57,5 +57,9 @@ public class UserService {
     public void dropClass(String username, Integer classID){
         userDao.dropClass(username, classID);
     }
+
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        return userDao.getUsers();
+    }
 }
 
