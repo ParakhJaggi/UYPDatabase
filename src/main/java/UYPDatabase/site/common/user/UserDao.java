@@ -63,6 +63,10 @@ public class UserDao {
         System.out.println("drop this class from the user");
     }
 
+    public void updateApplicant(UserDto userDto){
+        System.out.println("update me from the admin");
+    }
+
 
 }
 
