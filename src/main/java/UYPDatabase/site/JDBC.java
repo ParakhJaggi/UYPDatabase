@@ -246,7 +246,7 @@ public class JDBC {
 
     public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
-        String qury = "SELECT * FROM class WHERE availability > 0  ORDER BY level ASC;";
+        String qury = "SELECT * FROM class WHERE availability > 0 AND id NOT IN (SELECT classid from studentclass WHERE username = '"+username+"'  )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
         ResultSet rs = conn.prepareStatement(qury).executeQuery();
         while(rs.next()){
@@ -263,6 +263,26 @@ public class JDBC {
         System.out.println("getting list of classes " + temp);
         return new ClassDto(temp);
         }
+
+    public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = '"+username+"'  )  ORDER BY level ASC;";
+        ArrayList<ClassDto> temp = new ArrayList<>();
+        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        while(rs.next()){
+            ClassDto c = new ClassDto();
+            c.setLevel(rs.getString(1));
+            c.setName(rs.getString(2));
+            c.setTimeSlot(rs.getString(3));
+            c.setClassroom(rs.getString(4));
+            c.setTeacherName(rs.getString(5));
+            c.setId(rs.getString(6));
+            temp.add(c);
+        }
+
+        System.out.println("getting list of classes " + temp);
+        return new ClassDto(temp);
+    }
 
 
 

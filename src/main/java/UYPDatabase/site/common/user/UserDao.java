@@ -55,10 +55,9 @@ public class UserDao {
         j.registerClass(username,id);
     }
 
-    public ClassDto getMyClasses(String username){
-        ClassDto temp = new ClassDto();
-        System.out.println("give this user all of his classes");
-        return temp;
+    public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        return j.getMyClasses(username);
     }
 
     public void dropClass(String username, Integer classID){
