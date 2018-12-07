@@ -55,8 +55,8 @@ public class UserEndpoint {
     }
 
     @PostMapping(value = "/applicant-submit-info/")
-    public void updateApplicant(@RequestBody String username, @RequestBody UserDto userDto) throws SQLException, ClassNotFoundException {
-        userService.updateApplicant(username,userDto);
+    public void updateApplicant(@RequestBody UserDto userDto) throws SQLException, ClassNotFoundException {
+        userService.updateApplicant(userDto);
     }
 
 }

@@ -82,7 +82,7 @@ class AcceptedApplicantPage extends React.Component {
 		this.state.applicant.otherInfo = e.target.otherInfo.value;
 
 		//console.log(this.state.applicant);
-		Users.updateApplicant(this.state.applicant.username,this.state.applicant);
+		Users.updateApplicant(this.state.applicant);
 		//return window.location.href = '/#/';
 	}
 
