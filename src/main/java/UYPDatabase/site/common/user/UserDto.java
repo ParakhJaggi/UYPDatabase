@@ -10,20 +10,20 @@ import alloy.util.Momento;
 
 
 public class UserDto extends GuestDto {
-    private String yearaccepted;
+    private String yearAccepted;
+    private String gradeAccepted;
     private String status;
     private String hasGrant;
-    private String whatgrant;
-    private String mentorname;
-    private String healthconditions;
+    private String whichGrant;
+    private String mentorName;
 
-
-
-    private String english;
-    private String gt;
-    private String cleaninghouseinfo;
-    private String otherinfo;
     private String disability;
+    private String healthConditions;
+    private String english;
+
+    private String cleaningHouseInfo;
+    private String otherInfo;
+
     private String userType;
     private String username;
 
@@ -33,41 +33,37 @@ public class UserDto extends GuestDto {
     }
 
 
-    public UserDto(String disability, String userType, String yearaccepted,String status,String hasGrant,String whatgrant,String mentorname, String healthconditions,String english,String gt,String cleaninghouseinfo,String otherinfo) {
-        this.disability = disability;
-        this.userType = userType;
-        this.yearaccepted = yearaccepted;
+    public UserDto(String yearAccepted, String gradeAccepted, String status, String hasGrant, String whichGrant, String mentorName, String disability, String healthConditions, String english, String cleaningHouseInfo, String otherInfo, String userType, String username) {
+        this.yearAccepted = yearAccepted;
+        this.gradeAccepted = gradeAccepted;
         this.status = status;
         this.hasGrant = hasGrant;
-        this.whatgrant = whatgrant;
-        this.mentorname = mentorname;
-        this.healthconditions = healthconditions;
-        this.english = english;
-        this.gt = gt;
-        this.cleaninghouseinfo  =cleaninghouseinfo;
-        this.otherinfo = otherinfo;
-    }
-
-
-
-    public UserDto(String principal, String username, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String disability, String userType, String yearaccepted,String status,String hasGrant,String whatgrant,String mentorname, String healthconditions,String english,String gt,String cleaninghouseinfo,String otherinfo) {
-        super(principal, firstName, middleInitial, lastName, addressLine, city, state, zip, phoneNumber, password, prevSchool, graduationYear, expectedSchool, sibling, gtAcceptance, suffix, preferredName, birthday, gender, ethnicity, grade, parentFirstName, parentLastName, parentEmail, parentHomeNumber, parentWorkNumber, parentCellNumber, parentFirstName2, parentLastName2, parentEmail2, parentHomeNumber2, parentWorkNumber2, parentCellNumber2);
+        this.whichGrant = whichGrant;
+        this.mentorName = mentorName;
         this.disability = disability;
+        this.healthConditions = healthConditions;
+        this.english = english;
+        this.cleaningHouseInfo = cleaningHouseInfo;
+        this.otherInfo = otherInfo;
         this.userType = userType;
         this.username = username;
-        this.yearaccepted = yearaccepted;
+    }
+
+    public UserDto(String principal, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String yearAccepted, String gradeAccepted, String status, String hasGrant, String whichGrant, String mentorName, String disability, String healthConditions, String english, String cleaningHouseInfo, String otherInfo, String userType, String username) {
+        super(principal, firstName, middleInitial, lastName, addressLine, city, state, zip, phoneNumber, password, prevSchool, graduationYear, expectedSchool, sibling, gtAcceptance, suffix, preferredName, birthday, gender, ethnicity, grade, parentFirstName, parentLastName, parentEmail, parentHomeNumber, parentWorkNumber, parentCellNumber, parentFirstName2, parentLastName2, parentEmail2, parentHomeNumber2, parentWorkNumber2, parentCellNumber2);
+        this.yearAccepted = yearAccepted;
+        this.gradeAccepted = gradeAccepted;
         this.status = status;
         this.hasGrant = hasGrant;
-        this.whatgrant = whatgrant;
-        this.mentorname = mentorname;
-        this.healthconditions = healthconditions;
+        this.whichGrant = whichGrant;
+        this.mentorName = mentorName;
+        this.disability = disability;
+        this.healthConditions = healthConditions;
         this.english = english;
-        this.gt = gt;
-        this.cleaninghouseinfo  =cleaninghouseinfo;
-        this.otherinfo = otherinfo;
-
-
-
+        this.cleaningHouseInfo = cleaningHouseInfo;
+        this.otherInfo = otherInfo;
+        this.userType = userType;
+        this.username = username;
     }
 
     public UserDto(String principal, String username, String firstName, String middleInitial, String lastName, String addressLine, String city, String state, String zip, String phoneNumber, String password, String prevSchool, String graduationYear, String expectedSchool, String sibling, String gtAcceptance, String suffix, String preferredName, String birthday, String gender, String ethnicity, String grade, String parentFirstName, String parentLastName, String parentEmail, String parentHomeNumber, String parentWorkNumber, String parentCellNumber, String parentFirstName2, String parentLastName2, String parentEmail2, String parentHomeNumber2, String parentWorkNumber2, String parentCellNumber2, String disability, String userType) {
@@ -75,40 +71,22 @@ public class UserDto extends GuestDto {
         this.disability = disability;
         this.userType = userType;
         this.username = username;
-
-
-
     }
 
-    public String getDisability() {
-        return disability;
+    public String getYearAccepted() {
+        return yearAccepted;
     }
 
-    public void setDisability(String disability) {
-        this.disability = disability;
+    public void setYearAccepted(String yearAccepted) {
+        this.yearAccepted = yearAccepted;
     }
 
-    public String getUserType() {
-        return userType;
+    public String getGradeAccepted() {
+        return gradeAccepted;
     }
 
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getYearaccepted() {
-        return yearaccepted;
-    }
-
-    public void setYearaccepted(String yearaccepted) {
-        this.yearaccepted = yearaccepted;
+    public void setGradeAccepted(String gradeAccepted) {
+        this.gradeAccepted = gradeAccepted;
     }
 
     public String getStatus() {
@@ -127,28 +105,36 @@ public class UserDto extends GuestDto {
         this.hasGrant = hasGrant;
     }
 
-    public String getWhatgrant() {
-        return whatgrant;
+    public String getWhichGrant() {
+        return whichGrant;
     }
 
-    public void setWhatgrant(String whatgrant) {
-        this.whatgrant = whatgrant;
+    public void setWhichGrant(String whichGrant) {
+        this.whichGrant = whichGrant;
     }
 
-    public String getMentorname() {
-        return mentorname;
+    public String getMentorName() {
+        return mentorName;
     }
 
-    public void setMentorname(String mentorname) {
-        this.mentorname = mentorname;
+    public void setMentorName(String mentorName) {
+        this.mentorName = mentorName;
     }
 
-    public String getHealthconditions() {
-        return healthconditions;
+    public String getDisability() {
+        return disability;
     }
 
-    public void setHealthconditions(String healthconditions) {
-        this.healthconditions = healthconditions;
+    public void setDisability(String disability) {
+        this.disability = disability;
+    }
+
+    public String getHealthConditions() {
+        return healthConditions;
+    }
+
+    public void setHealthConditions(String healthConditions) {
+        this.healthConditions = healthConditions;
     }
 
     public String getEnglish() {
@@ -159,28 +145,38 @@ public class UserDto extends GuestDto {
         this.english = english;
     }
 
-    public String getGt() {
-        return gt;
+    public String getCleaningHouseInfo() {
+        return cleaningHouseInfo;
     }
 
-    public void setGt(String gt) {
-        this.gt = gt;
+    public void setCleaningHouseInfo(String cleaningHouseInfo) {
+        this.cleaningHouseInfo = cleaningHouseInfo;
     }
 
-    public String getCleaninghouseinfo() {
-        return cleaninghouseinfo;
+    public String getOtherInfo() {
+        return otherInfo;
     }
 
-    public void setCleaninghouseinfo(String cleaninghouseinfo) {
-        this.cleaninghouseinfo = cleaninghouseinfo;
+    public void setOtherInfo(String otherInfo) {
+        this.otherInfo = otherInfo;
     }
 
-    public String getOtherinfo() {
-        return otherinfo;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setOtherinfo(String otherinfo) {
-        this.otherinfo = otherinfo;
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
