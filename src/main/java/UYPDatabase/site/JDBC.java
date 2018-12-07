@@ -231,7 +231,7 @@ public class JDBC {
 
     public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
         Date date = new Date();
-        String quey = "UPDATE studentinfo SET yearaccepted = '"+user.getYearAccepted()+"',status = '"+user.getStatus()+"',hasgrant = '"+user.getHasGrant()+"',whichgrant = '"+user.getWhichGrant()+"',mentorname = '"+user.getMentorName()+"',disabilities = '"+user.getDisability()+"',healthconditions = '"+user.getHealthConditions()+"',learningenglish = '"+user.getEnglish()+"',cleaninghouseinfo = '"+user.getCleaningHouseInfo()+"',otherinfo = '"+user.getOtherInfo()+"'WHERE username = '"+user.getUsername()+"');";
+        String quey = "UPDATE studentinfo SET yearaccepted = '"+user.getYearAccepted()+"',status = '"+user.getStatus()+"',hasgrant = '"+user.getHasGrant()+"',whichgrant = '"+user.getWhichGrant()+"',mentorname = '"+user.getMentorName()+"',disabilities = '"+user.getDisability()+"',healthconditions = '"+user.getHealthConditions()+"',learningenglish = '"+user.getEnglish()+"',cleaninghouseinfo = '"+user.getCleaningHouseInfo()+"',otherinfo = '"+user.getOtherInfo()+"'WHERE username = '"+user.getUsername()+"';";
         System.out.println(quey);
         Connection conn =this.MakeConnection();
         System.out.println(quey);

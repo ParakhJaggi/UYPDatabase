@@ -65,8 +65,9 @@ public class UserDao {
         System.out.println("drop this class from the user");
     }
 
-    public void updateApplicant(UserDto userDto){
-        System.out.println("update me from the admin");
+    public void updateApplicant(UserDto userDto) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.updateApplicant(userDto);
     }
 
 
