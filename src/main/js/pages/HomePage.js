@@ -34,7 +34,7 @@ class HomePage extends React.Component {
 								<Col md={6} sm={6} xs={12} style={{marginBottom: 10}}>
 									<Card body>
 										<CardTitle>Apply Now!</CardTitle>
-										<CardText>Sign up for UYPD!</CardText>
+										<CardText>Sign up for UYP!</CardText>
 										<Button onClick={() => this.context.router.history.push('/apply')}>Apply</Button>
 									</Card>
 								</Col>
