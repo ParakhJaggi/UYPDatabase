@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public void updateApplicant(String username,UserDto userDto) throws SQLException, ClassNotFoundException {
-        userDao.updateUser(userDto);
+        userDao.updateApplicant(userDto);
     }
 
     public ClassDto getClasses() throws SQLException, ClassNotFoundException {
