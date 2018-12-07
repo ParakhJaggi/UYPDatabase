@@ -256,8 +256,14 @@ public class JDBC {
         return new ClassDto(temp);
         }
 
-}
 
+
+    public void registerClass(String username, int classID) throws SQLException, ClassNotFoundException {
+        Connection con = this.MakeConnection();
+        con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
+                "('" + username + "','" + classID + "');");
+    }
+}
 
 
 

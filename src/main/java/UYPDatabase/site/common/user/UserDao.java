@@ -48,6 +48,10 @@ public class UserDao {
         return j.getClasses();
     }
 
+    public void registerCLass(String username, int id) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.registerClass(username,id);
+    }
 
 }
 
