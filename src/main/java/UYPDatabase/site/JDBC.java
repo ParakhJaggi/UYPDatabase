@@ -305,6 +305,12 @@ public class JDBC {
         con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
 
     }
+
+    public void dropClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
+        Connection con = this.MakeConnection();
+        con.prepareStatement("DELETE FROM studentclass WHERE username = '"+username+"' AND classid = '"+classID+"'").executeUpdate();
+
+    }
 }
 
 

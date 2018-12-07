@@ -60,8 +60,9 @@ public class UserDao {
         return j.getMyClasses(username);
     }
 
-    public void dropClass(String username, Integer classID){
-        System.out.println("drop this class from the user");
+    public void dropClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.dropClass(username,classID);
     }
 
     public void updateApplicant(UserDto userDto) throws SQLException, ClassNotFoundException {
