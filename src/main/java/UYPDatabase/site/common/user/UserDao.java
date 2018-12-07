@@ -45,9 +45,9 @@ public class UserDao {
     }
 
 
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
+    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
-        return j.getClasses();
+        return j.getClasses(username);
     }
 
     public void registerClass(String username, int id) throws SQLException, ClassNotFoundException {
@@ -55,7 +55,7 @@ public class UserDao {
         j.registerClass(username,id);
     }
 
-    public ClassDto getClasses(String username){
+    public ClassDto getMyClasses(String username){
         ClassDto temp = new ClassDto();
         System.out.println("give this user all of his classes");
         return temp;
