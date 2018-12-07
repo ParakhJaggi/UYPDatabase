@@ -223,7 +223,7 @@ public class JDBC {
     public void addStudentInfo(UserDto user) throws SQLException, ClassNotFoundException {
         Date date = new Date();
         String quey = "INSERT INTO `studentinfo` (`yearaccepted`,`status`,`hasgrant`,`whichgrant`,`mentorname`,`disabilities`,`healthconditions`,`learningenglish`,`cleaninghouseinfo`,`otherinfo`,`username`) VALUES" +
-                "('"+ Calendar.getInstance().get(Calendar.YEAR)+"','"+user.getStatus()+"','"+user.getHasGrant()+"','"+user.getWhatgrant()+"','"+user.getMentorname()+"','"+user.getDisability()+"','"+user.getHealthconditions()+"','"+user.getEnglish()+"','"+user.getCleaninghouseinfo()+"','"+user.getOtherinfo()+"','"+user.getUsername()+"');";
+                "('"+ Calendar.getInstance().get(Calendar.YEAR)+"','"+user.getStatus()+"','"+user.getHasGrant()+"','"+user.getWhichGrant()+"','"+user.getMentorName()+"','"+user.getDisability()+"','"+user.getHealthConditions()+"','"+user.getEnglish()+"','"+user.getCleaningHouseInfo()+"','"+user.getOtherInfo()+"','"+user.getUsername()+"');";
         Connection conn =this.MakeConnection();
         System.out.println(quey);
         int rs = conn.prepareStatement(quey).executeUpdate();
