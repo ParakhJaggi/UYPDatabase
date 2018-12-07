@@ -145,6 +145,94 @@ public class JDBC {
         return new UserDto(principal,username,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,"idk",usertype);
     }
 
+    public UserDto getUserExtraDetails(String username) throws ClassNotFoundException, SQLException {
+
+        Connection conn =this.MakeConnection();
+
+        ResultSet rs = conn.prepareStatement("SELECT * FROM Student WHERE username = '"+username+"'").executeQuery();
+        rs.next();
+
+        String firstName = rs.getString(1);
+        String middleInitial = rs.getString(2);
+        String lastName = rs.getString(3);
+        String suffix = rs.getString(4);
+        String preferredName = rs.getString(5);
+
+        String addressLine = rs.getString(6);
+        String city = rs.getString(7);
+        String state = rs.getString(8);
+        String zip = rs.getString(9);
+        String birthday = rs.getString(10);
+        String gender = rs.getString(11);
+        String ethnicity = rs.getString(12);
+        String graduationYear = rs.getString(13);
+        String principal = rs.getString(14);
+
+        String phoneNumber = rs.getString(15);
+        String sibling = rs.getString(16);
+        String prevSchool = rs.getString(17);
+        String grade = rs.getString(18);
+
+        String parentFirstName = rs.getString(19);
+        String parentLastName = rs.getString(20);
+        String parentFirstName2 = rs.getString(21);
+        String parentLastName2 = rs.getString(22);
+        String gtAcceptance = rs.getString(23);
+        String password = rs.getString(24);
+        username = rs.getString(25);
+        String expectedSchool = rs.getString(26);
+
+
+        System.out.println("parent name is " + parentFirstName + " " + parentLastName);
+        ResultSet rs2 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '"+parentFirstName+"' AND lastname = '"+parentLastName+"'").executeQuery();
+        rs2.next();
+        String parentEmail = rs2.getString(3);
+        String parentHomeNumber = rs2.getString(4);
+        String parentWorkNumber = rs2.getString(5);
+        String parentCellNumber = rs2.getString(6);
+
+
+        ResultSet rs3 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '"+parentFirstName2+"' AND lastname = '"+parentLastName2+"'").executeQuery();
+        rs3.next();
+        String parentEmail2 = rs3.getString(3);
+        String parentHomeNumber2 = rs3.getString(4);
+        String parentWorkNumber2 = rs3.getString(5);
+        String parentCellNumber2 = rs3.getString(6);
+
+        ResultSet rs4 = conn.prepareStatement("SELECT * FROM usertype WHERE username = '"+username+"'").executeQuery();
+        rs4.next();
+        String usertype = rs4.getString(2);
+
+
+        ResultSet rs5 = conn.prepareStatement("SELECT * FROM studentinfo WHERE username = '"+username+"'").executeQuery();
+        rs5.next();
+
+        String yearaccepted = rs5.getString(1);
+        String status = rs5.getString(2);
+        String hasGrant = rs5.getString(3);
+        String whichGrant = rs5.getString(4);
+        String mentor = rs5.getString(5);
+        String siblingid = rs5.getString(6);
+        String disabilities = rs5.getString(7);
+        String health = rs5.getString(8);
+        String english = rs5.getString(9);
+        String gt = rs5.getString(10);
+        String cleaning = rs5.getString(11);
+        String other = rs5.getString(12);
+        String gradeAccepted = rs5.getString(13);
+        String authorizedUser = rs5.getString(14);
+
+
+
+
+        //guardian 1 info
+
+
+        //guardian 2 info
+        System.out.println("returning user details: firstName" + " " + lastName + " " + username);
+        return new UserDto(principal,username,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,gradeAccepted,usertype,hasGrant,whichGrant,mentor,disabilities,health,english,cleaning,other,usertype,authorizedUser);
+    }
+
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
         int rs = conn.prepareStatement("UPDATE Student SET firstname = '"+user.getFirstName()+"', middleinitial = '"+user.getMiddleInitial()+"' , lastname = '"+user.getLastName()+"', suffix = '"+user.getSuffix()+"' ,nameprefered = '"+user.getPreferredName()+"' , address = '"+user.getAddressLine()+"' , city = '"+user.getCity()+"' , state = '"+user.getState()+"' , zip = '"+user.getZip()+"' , birthdate = '"+user.getBirthday()+"' , gender = '"+user.getGender()+"', race = '"+user.getEthnicity()+"', graduationyear = '"+user.getGraduationYear()+"' , email = '"+user.getPrincipal()+"' , phonenumber = '"+user.getPhoneNumber()+"' ,sibling = '"+user.getSibling()+"' , previousschool = '"+user.getPrevSchool()+"' , grade = '"+user.getGrade()+"' , parent1firstname = '+"+user.getParentFirstName()+"', parent1lastname = '"+user.getParentLastName()+"' , parent2firstname = '"+user.getParentFirstName2()+"', parent2lastname = '"+user.getParentLastName2()+ "' , gtacceptance = '"+user.getGtAcceptance()+"' ,expectedschool = '"+user.getExpectedSchool()+"'  WHERE username = '"+user.getUsername()+"';").executeUpdate();
