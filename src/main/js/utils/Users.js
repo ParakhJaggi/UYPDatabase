@@ -1,3 +1,7 @@
+/*
+	Front End: Brandon Mork
+ */
+
 import Cookie from 'universal-cookie';
 import axios from 'axios';
 
