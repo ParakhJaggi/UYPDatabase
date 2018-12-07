@@ -100,8 +100,8 @@ class ViewApplicationPage extends React.Component {
 										<th scope="row">{aClass.teacherName}</th>
 										<th scope="row">{aClass.classroom}</th>
 										<th scope="row">{aClass.timeSlot}</th>
-										<th scope="row">{aClass.timeSlot}</th>
-										<th scope="row">{aClass.timeSlot}</th>
+										<th scope="row">{aClass.availability}</th>
+										<th scope="row">{aClass.capacity}</th>
 										<th><Button onClick={(e) => this.register(e,aClass.id)}>Register Class</Button></th>
 									</tr>
 								))}

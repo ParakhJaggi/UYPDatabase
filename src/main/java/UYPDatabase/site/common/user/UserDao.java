@@ -45,7 +45,7 @@ public class UserDao {
     }
 
 
-    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
+    public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getClasses(username);
     }
