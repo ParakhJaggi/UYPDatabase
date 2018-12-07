@@ -15,14 +15,14 @@ public class ClassEndpoint {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/")
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
-        return userService.getClasses();
+    @GetMapping(value = "/my/{username}")
+    public ClassDto getMyClasses(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
+        return userService.getMyClasses(username);
     }
 
-    @GetMapping(value = "/{username}")
-    public ClassDto getClasses(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
-        return userService.getClasses(username);
+    @GetMapping(value = "/not/{username}")
+    public ClassDto getNotMyClasses(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
+        return userService.getNotMyClasses(username);
     }
 
     @PostMapping(value = "/register/{username}/{classID}")

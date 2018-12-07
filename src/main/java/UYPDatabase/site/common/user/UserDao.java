@@ -45,7 +45,7 @@ public class UserDao {
     }
 
 
-    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
+    public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getClasses(username);
     }
@@ -69,6 +69,10 @@ public class UserDao {
         j.updateApplicant(userDto);
     }
 
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        UserNameListDto temp = new UserNameListDto();
+        return  temp;
+    }
 
 }
 
