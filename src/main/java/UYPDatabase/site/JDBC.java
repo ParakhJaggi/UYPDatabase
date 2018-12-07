@@ -259,8 +259,12 @@ public class JDBC {
             rs2.next();
 
             System.out.println(first+last+rs2.getString(1));
-            conn.close();
-            return new LoginDto(rs.getString(2),rs.getString(3),rs2.getString(1),true);
+
+            String a = rs.getString(2);
+            String b = rs.getString(3);
+            String c = rs2.getString(1);
+           conn.close();
+            return new LoginDto(a,b,c,true);
 
         }
        conn.close();
