@@ -6,7 +6,7 @@ import {
 	Table,
 	Col, FormGroup, Label, Input, Row, Card, CardBody, Form,
 } from 'reactstrap';
-import {getClasses} from 'js/utils/Users';
+import {getNotMyClasses} from 'js/utils/Users';
 import * as Users from 'js/utils/Users';
 import * as ReduxForm from 'redux-form';
 import PropTypes from 'prop-types';
@@ -18,7 +18,7 @@ class ViewApplicationPage extends React.Component {
 
 	constructor(props){
 		super(props);
-		getClasses()
+		getNotMyClasses(this.props.user.username)
 			.then(function (response) {
 				console.log('this is the list of classes');
 				console.log(response);
