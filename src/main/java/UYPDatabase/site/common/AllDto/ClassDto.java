@@ -10,6 +10,11 @@ public class ClassDto {
     private String teacherName;
     private String id;
 
+
+
+    private String availability;
+    private String capacity;
+
     private ArrayList<ClassDto> classes = new ArrayList<>();
 
     public ClassDto(){
@@ -26,6 +31,22 @@ public class ClassDto {
 
     public void setClasses(ArrayList<ClassDto> classes) {
         this.classes = classes;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
+    }
+
+    public String getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(String capacity) {
+        this.capacity = capacity;
     }
 
 
