@@ -6,7 +6,7 @@ import {
 	Table,
 	Col, FormGroup, Label, Input, Row, Card, CardBody, Form,
 } from 'reactstrap';
-import {getApplicants, getOnePet} from 'js/utils/Users';
+import {getClasses} from 'js/utils/Users';
 import * as Users from 'js/utils/Users';
 import * as ReduxForm from 'redux-form';
 import PropTypes from 'prop-types';
@@ -17,36 +17,34 @@ import '../../styles/pageStyles.css';
 class ViewApplicationPage extends React.Component {
 
 	constructor(props){
-		const myCookie = new Cookie();
 		super(props);
-		getApplicants()
+		getClasses()
 			.then(function (response) {
-				console.log('user has clicked editPet button');
+				console.log('this is the list of classes');
 				console.log(response);
 				const myCookie = new Cookie();
-				myCookie.set('possibleApplicants', response, {path: '/'});
+				myCookie.set('classList', response, {path: '/'});
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
 	}
 
-	viewApplication = (e) => {
+	registerForm = (e) => {
 		e.preventDefault();
-		Users.getApplicant(e.target.username.value)
-			.then(function (response) {
-				const myCookie = new Cookie();
-				myCookie.set('currentApplicant', response, {path: '/'});
-				window.location.href = '/#/current-application';
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		Users.registerClass(this.props.user.username, e.target.id.value);
 	};
+
+	register = (e, classID) => {
+		e.preventDefault();
+		Users.registerClass(this.props.user.username, classID);
+	};
+
+
 
 	render() {
 		const myCookie = new Cookie();
-		const applicationList = myCookie.get('possibleApplicants');
+		const classList = myCookie.get('classList');
 
 		return (
 			<div style={{marginTop: 100}}>
@@ -56,7 +54,7 @@ class ViewApplicationPage extends React.Component {
 							<Col lg={12} md={12} sm={12} xs={12}>
 								<Card>
 									<CardBody>
-										<Form name="form" onSubmit={this.viewApplication.bind(this)}>
+										<Form name="form" onSubmit={this.registerForm.bind(this)}>
 											<Row form>
 												<Col md={12}>
 													<FormGroup>
@@ -87,13 +85,20 @@ class ViewApplicationPage extends React.Component {
 									<th>Teacher</th>
 									<th>Classroom</th>
 									<th>Timeslot</th>
+									<th> </th>
 								</tr>
 								</thead>
 								<tbody>
-								{ _.isDefined(applicationList.usernameList) &&
-								applicationList.usernameList.map(applicant => (
-									<tr key={applicant}>
-										<th scope="row">{applicant}</th>
+								{ _.isDefined(classList.classes) &&
+								classList.classes.map(aClass => (
+									<tr key={aClass}>
+										<th scope="row">{aClass.id}</th>
+										<th scope="row">{aClass.level}</th>
+										<th scope="row">{aClass.name}</th>
+										<th scope="row">{aClass.teacherName}</th>
+										<th scope="row">{aClass.classroom}</th>
+										<th scope="row">{aClass.timeSlot}</th>
+										<th><Button onClick={(e) => this.register(e,aClass.id)}>Register Class</Button></th>
 									</tr>
 								))}
 								</tbody>
