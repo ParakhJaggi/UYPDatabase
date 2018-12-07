@@ -67,6 +67,10 @@ public class UserDao {
         System.out.println("update me from the admin");
     }
 
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        UserNameListDto temp = new UserNameListDto();
+        return  temp;
+    }
 
 }
 

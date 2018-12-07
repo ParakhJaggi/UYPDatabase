@@ -13,17 +13,39 @@ import PropTypes from 'prop-types';
 import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
+import { CSVLink , CSVDownload} from 'react-csv';
 
 class MyClasses extends React.Component {
 
 	constructor(props){
 		super(props);
+		this.state = {
+			csvFile: null,
+			headers: [
+				{ label: 'Class ID', key: 'id' },
+				{ label: 'Level', key: 'level' },
+				{ label: 'Name', key: 'name' }
+			],
+			data: []
+
+		};
 		getMyClasses(this.props.user.username)
 			.then(function (response) {
 				console.log('this is the list of classes');
 				console.log(response);
 				const myCookie = new Cookie();
 				myCookie.set('classList', response, {path: '/'});
+				// const mappingFunction = classes => (
+				// 	classes.id + ' ' + classes.name);
+				// const names = response.classes.map(mappingFunction);
+				for(let i=0;i<response.classes.length;i++){
+					this.state.data.push({
+						ClassID: response.classes.id,
+						Level: response.classes.level,
+						Name: response.classes.name
+					});
+				}
+				console.log(this.state.data);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -105,6 +127,16 @@ class MyClasses extends React.Component {
 							</React.Fragment>
 						</Table>
 					</Container>
+					<Card>
+						<CSVLink
+							data={this.state.data}
+							filename={'my-file.csv'}
+							className="btn btn-primary"
+							target="_blank"
+						>
+							Download me
+						</CSVLink>
+					</Card>
 				</React.Fragment>
 			</div>
 		);
