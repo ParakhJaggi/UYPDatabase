@@ -32,6 +32,11 @@ public class UserEndpoint {
         return userService.getUserDetails(username);
     }
 
+    @GetMapping(value = "/applicant/{username}")
+    public UserDto getApplicantDetails(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
+        return userService.getUserDetails(username);
+    }
+
     @PostMapping(value = "/update-profile")
     public void updateUser(@RequestBody UserDto userDto) throws SQLException, ClassNotFoundException {
         userService.updateUser(userDto);

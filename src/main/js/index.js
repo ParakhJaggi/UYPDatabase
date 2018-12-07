@@ -9,20 +9,12 @@ import HomePage from './pages/HomePage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
-import ReportPage from './pages/ReportPage';
-import FindSitterPage from './pages/FindSitterPage';
-import SearchJobPage from './pages/SearchJobPage';
-import ReviewJobPage from './pages/ReviewJobPage';
-import AcceptJobPage from './pages/AcceptJobPage';
-import EditPetPage from './pages/EditPetPage';
-import ViewSitterPage from './pages/ViewSitterPage';
-import MyJobPage from 'js/pages/MyJobPage';
-import MainReviewPage from './pages/MainReviewPage.js';
 import ApplyPage from 'js/pages/ApplyPage';
 import ExportPage from 'js/pages/ExportPage';
 import RegisterClassPage from 'js/pages/RegisterClassPage';
 import ViewApplicationPage from 'js/pages/ViewApplicationPage';
 import CurrentApplicantPage from 'js/pages/CurrentApplicantPage';
+import AcceptedApplicantPage from 'js/pages/AcceptedApplicantPage';
 
 class Index extends React.Component {
 
@@ -42,6 +34,7 @@ class Index extends React.Component {
 					<NavigationBar/>
 					<HashRouter>
 						<Switch>
+
 							<Route exact path='/' component={HomePage} />
 
 							<Route exact path='/register' render={(props) =>
@@ -54,10 +47,6 @@ class Index extends React.Component {
 
 							<Route exact path='/profile-page' render={(props) =>
 								<ProfilePage {...props}/>}
-							/>
-
-							<Route exact path='/accept-job-page' render={(props) =>
-								<AcceptJobPage {...props}/>}
 							/>
 
                             <Route exact path='/apply' render={(props) =>
@@ -80,20 +69,16 @@ class Index extends React.Component {
 								<CurrentApplicantPage {...props}/>}
 							/>
 
-							<Route exact path='/rating-page' component={MainReviewPage} />
-							<Route exact path='/report-page' component={ReportPage} />
-							<Route exact path='/find-sitter' component={FindSitterPage} />
-							<Route exact path='/search-job' component={SearchJobPage}/>
-							<Route exact path='/review-job-page' component={ReviewJobPage}/>
-							<Route exact path='/edit-pet-page' component={EditPetPage}/>
-							<Route exact path='/view-sitter-page' component={ViewSitterPage}/>
-							<Route exact path='/my-job-page' component={MyJobPage}/>
+							<Route exact path='/accept-application' render={(props) =>
+								<AcceptedApplicantPage {...props}/>}
+							/>
+
                             <Route exact path='/apply-page' component={ApplyPage}/>
                             <Route exact path='/export-page' component={ExportPage}/>
                             <Route exact path='/register-class-page' component={RegisterClassPage}/>
                             <Route exact path='/view-application-page' component={ViewApplicationPage}/>
 							<Route exact path='/current-application-page' component={CurrentApplicantPage}/>
-
+							<Route exact path='/accept-application-page' component={AcceptedApplicantPage}/>
 
 						</Switch>
 					</HashRouter>
