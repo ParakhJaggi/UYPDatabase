@@ -41,8 +41,10 @@ public class UserDao {
     public void acceptApplicant(String username, String authorizedPerson) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         System.out.println("Accept the applicant with username " + username + " authorized by " + authorizedPerson);
         JDBC j = new JDBC();
-        j.acceptApplicant(username);
+        j.acceptApplicant(username,authorizedPerson);
     }
+
+
     public ClassDto getClasses() throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getClasses();
