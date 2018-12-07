@@ -67,8 +67,8 @@ public class UserEndpoint {
     }
 
     @GetMapping(value = "/extra/details/{username}")
-    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
-        return userService.getUserExtraDetails();
+    public UserDto getUserExtraDetails(@PathVariable ("username")String username) throws SQLException, ClassNotFoundException{
+        return userService.getUserExtraDetails(username);
     }
 
 }

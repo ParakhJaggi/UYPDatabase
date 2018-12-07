@@ -62,8 +62,8 @@ public class UserService {
         return userDao.getRegisteredUsers();
     }
 
-    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
-        return userDao.getUserExtraDetails();
+    public UserDto getUserExtraDetails(String username ) throws SQLException, ClassNotFoundException{
+        return userDao.getUserExtraDetails(username);
     }
 }
 

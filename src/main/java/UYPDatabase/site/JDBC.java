@@ -398,6 +398,14 @@ public class JDBC {
         Connection con = this.MakeConnection();
         con.prepareStatement("DELETE FROM studentclass WHERE username = '"+username+"' AND classid = '"+classID+"'").executeUpdate();
 
+        ResultSet r = con.prepareStatement("SELECT availability FROM class WHERE id = '"+classID+"'").executeQuery();
+
+        r.next();
+        int a = r.getInt(1);
+        System.out.println(a);
+        a++;
+        con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
+
     }
 
     public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
