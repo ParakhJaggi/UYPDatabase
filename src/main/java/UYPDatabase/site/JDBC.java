@@ -191,13 +191,21 @@ public class JDBC {
 
     }
 
-    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
+    public void acceptApplicant(String username, String authorizeduser) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         Connection conn =this.MakeConnection();
         String q = "UPDATE usertype SET usertype = 'user' WHERE username = '"+username+"' ";
+        System.out.println(q);
         int rs = conn.prepareStatement(q).executeUpdate();
+
         String qury = "SELECT email FROM Student WHERE username = '"+username+"'";
+
         ResultSet rss = conn.prepareStatement(qury).executeQuery();
         rss.next();
+        String quey = "INSERT INTO `studentinfo` (`username`,`authorizeduser`) VALUES" +
+                "('"+ username+"', '"+authorizeduser+"');";
+        System.out.println(quey);
+        int rs2 = conn.prepareStatement(quey).executeUpdate();
+
 
         MailjetClient client;
         MailjetRequest request;
@@ -221,10 +229,10 @@ public class JDBC {
 
     }
 
-    public void addStudentInfo(UserDto user) throws SQLException, ClassNotFoundException {
+    public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
         Date date = new Date();
-        String quey = "INSERT INTO `studentinfo` (`yearaccepted`,`status`,`hasgrant`,`whichgrant`,`mentorname`,`disabilities`,`healthconditions`,`learningenglish`,`cleaninghouseinfo`,`otherinfo`,`username`) VALUES" +
-                "('"+ Calendar.getInstance().get(Calendar.YEAR)+"','"+user.getStatus()+"','"+user.getHasGrant()+"','"+user.getWhichGrant()+"','"+user.getMentorName()+"','"+user.getDisability()+"','"+user.getHealthConditions()+"','"+user.getEnglish()+"','"+user.getCleaningHouseInfo()+"','"+user.getOtherInfo()+"','"+user.getUsername()+"');";
+        String quey = "UPDATE studentinfo SET yearaccepted = '"+user.getYearAccepted()+"',status = '"+user.getStatus()+"',hasgrant = '"+user.getHasGrant()+"',whichgrant = '"+user.getWhichGrant()+"',mentorname = '"+user.getMentorName()+"',disabilities = '"+user.getDisability()+"',healthconditions = '"+user.getHealthConditions()+"',learningenglish = '"+user.getEnglish()+"',cleaninghouseinfo = '"+user.getCleaningHouseInfo()+"',otherinfo = '"+user.getOtherInfo()+"'WHERE username = '"+user.getUsername()+"');";
+        System.out.println(quey);
         Connection conn =this.MakeConnection();
         System.out.println(quey);
         int rs = conn.prepareStatement(quey).executeUpdate();
