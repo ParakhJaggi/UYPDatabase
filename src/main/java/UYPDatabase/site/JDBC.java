@@ -1,6 +1,7 @@
 package UYPDatabase.site;
 
 
+import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.guest.GuestDto;
@@ -235,8 +236,28 @@ public class JDBC {
 
     }
 
-
-
+    public ClassDto showClasses() throws SQLException, ClassNotFoundException {
+        Connection conn =this.MakeConnection();
+        String qury = "SELECT * FROM class ORDER BY level ASC;";
+        ArrayList<ClassDto> temp = new ArrayList<>();
+        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        while(rs.next()){
+            ClassDto c = new ClassDto();
+            c.setLevel(rs.getString(1));
+            c.setName(rs.getString(2));
+            c.setTimeSlot(rs.getString(3));
+            c.setClassroom(rs.getString(4));
+            c.setTeacherName(rs.getString(5));
+            c.setId(rs.getString(6));
+            temp.add(c);
+            }
+        return new ClassDto(temp);
+        }
 
 }
+
+
+
+
+
 
