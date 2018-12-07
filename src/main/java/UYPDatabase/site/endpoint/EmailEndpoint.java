@@ -26,7 +26,7 @@ public class EmailEndpoint {
                 .property(Email.FROMEMAIL, "parakh_jaggi@baylor.edu")
                 .property(Email.FROMNAME, "Group 4 admin")
                 .property(Email.SUBJECT, "Test Email!")
-                .property(Email.TEXTPART, "Dear User, This is a test email!")
+                .property(Email.TEXTPART, "Dear User,\n\tYou have been accepted! Welcome to UYP. \n Your new user name is testusername ")
                 .property(Email.RECIPIENTS, new JSONArray()
                         .put(new JSONObject()
                                 .put("Email",email)));

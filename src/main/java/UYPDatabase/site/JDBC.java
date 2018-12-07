@@ -5,6 +5,14 @@ import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.guest.GuestDto;
 import UYPDatabase.site.common.user.UserDto;
+import com.mailjet.client.MailjetClient;
+import com.mailjet.client.MailjetRequest;
+import com.mailjet.client.MailjetResponse;
+import com.mailjet.client.errors.MailjetException;
+import com.mailjet.client.errors.MailjetSocketTimeoutException;
+import com.mailjet.client.resource.Email;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -182,10 +190,31 @@ public class JDBC {
 
     }
 
-    public void acceptApplicant(String usernmae) throws SQLException, ClassNotFoundException {
+    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         Connection conn =this.MakeConnection();
-        String q = "UPDATE usertype SET usertype = 'user' WHERE username = '"+usernmae+"' ";
+        String q = "UPDATE usertype SET usertype = 'user' WHERE username = '"+username+"' ";
         int rs = conn.prepareStatement(q).executeUpdate();
+        String qury = "SELECT email FROM Student WHERE username = '"+username+"'";
+        ResultSet rss = conn.prepareStatement(qury).executeQuery();
+        rss.next();
+
+        MailjetClient client;
+        MailjetRequest request;
+        MailjetResponse response;
+        client = new MailjetClient("141f6e47ca4cc452b41aaa540312bc7a", "d8acde824e69d34ac0c55def4a1fbf12");
+        request = new MailjetRequest(Email.resource)
+                .property(Email.FROMEMAIL, "parakh_jaggi@baylor.edu")
+                .property(Email.FROMNAME, "UYP Database Admin")
+                .property(Email.SUBJECT, "You have been accepted!")
+                .property(Email.TEXTPART, "Dear User,\n\tYou have been accepted! Welcome to UYP. \nYour new user name is "+username+" ")
+                .property(Email.RECIPIENTS, new JSONArray()
+                        .put(new JSONObject()
+                                .put("Email",rss.getString(1))));
+
+
+        response = client.post(request);
+
+
 
 
 

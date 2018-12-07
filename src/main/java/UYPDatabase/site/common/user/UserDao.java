@@ -4,6 +4,8 @@ package UYPDatabase.site.common.user;
 import UYPDatabase.site.JDBC;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
+import com.mailjet.client.errors.MailjetException;
+import com.mailjet.client.errors.MailjetSocketTimeoutException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -35,7 +37,7 @@ public class UserDao {
         return j.getPossibleApplicants();
     }
 
-    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException {
+    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         System.out.println("Accept the applicant with username " + username);
         JDBC j = new JDBC();
         j.acceptApplicant(username);
