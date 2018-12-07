@@ -311,6 +311,18 @@ public class JDBC {
         con.prepareStatement("DELETE FROM studentclass WHERE username = '"+username+"' AND classid = '"+classID+"'").executeUpdate();
 
     }
+
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        ArrayList<String> s = new ArrayList<>();
+        Connection con = this.MakeConnection();
+        ResultSet r  = con.prepareStatement("SELECT username FROM studentinfo"  ).executeQuery();
+        while(r.next()){
+            s.add(r.getString(1));
+
+        }
+        return new UserNameListDto(s);
+
+    }
 }
 
 
