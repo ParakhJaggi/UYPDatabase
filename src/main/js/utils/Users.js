@@ -36,9 +36,9 @@ export function getApplicant(username){
 	return axios.get('/api/user/applicant/' + username);
 }
 
-export function updateApplicant(username, userInfo){
+export function updateApplicant(userInfo){
 	console.log('user has entered acceptance info');
-	return axios.post('/api/user/applicant-submit-info/', username, userInfo);
+	return axios.post('/api/user/applicant-submit-info/', userInfo);
 }
 
 export function getClasses(){
