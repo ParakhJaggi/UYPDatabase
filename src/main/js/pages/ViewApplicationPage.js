@@ -32,40 +32,32 @@ class ViewApplicationPage extends React.Component {
             });
     }
 
-    handleAddPet = (e, name) => {
-        e.preventDefault();
-        const myCookie = new Cookie();
-        getOnePet(this.props.user.principal, name)
-            .then(function (response) {
-                console.log('user has clicked editPet button');
-                console.log(response);
-                myCookie.set('currentPet', response, {path: '/'});
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        this.context.router.history.push('/edit-pet-page');
-    };
-
     viewApplication = (e) => {
         e.preventDefault();
-        const myCookie = new Cookie();
-        Users.getUserDetails(e.target.username.value)
+        Users.getApplicant(e.target.username.value)
 	        .then(function (response) {
-		        myCookie.set('currentApplicant', response, {path: '/'})
-			        .then(() => {
-				        window.location.href = '/#/current-applicant-page';
-			        });
+		        const myCookie = new Cookie();
+		        myCookie.set('currentApplicant', response, {path: '/'});
+                window.location.href = '/#/current-application';
 	        })
 	        .catch(function (error) {
 		        console.log(error);
 	        });
     };
 
-    acceptApplicant(e){
-        e.preventDefault();
-        Users.acceptApplicant(e.target.username.value);
-    }
+	acceptApplicant = (e) => {
+		e.preventDefault();
+		Users.acceptApplicant(e.target.username.value);
+		Users.getApplicant(e.target.username.value)
+			.then(function (response) {
+				const myCookie = new Cookie();
+				myCookie.set('currentApplicant', response, {path: '/'});
+				window.location.href = '/#/accept-application';
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
 
     render() {
         const myCookie = new Cookie();

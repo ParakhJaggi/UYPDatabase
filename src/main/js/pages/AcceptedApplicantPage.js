@@ -18,7 +18,7 @@ import * as ReduxForm from 'redux-form';
 import Cookie from 'universal-cookie';
 
 
-class CurrentApplicantPage extends React.Component {
+class AcceptedApplicantPage extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -33,7 +33,7 @@ class CurrentApplicantPage extends React.Component {
 
 	handleGoBack(e){
 		e.preventDefault();
-		return window.location.href = '/#/view-application';
+		return window.location.href = '/#/';
 	}
 
 	render() {
@@ -332,8 +332,35 @@ class CurrentApplicantPage extends React.Component {
 											</FormGroup>
 										</Col>
 									</Row>
+
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="yearAccepted">Home Phone Number</Label>
+												<Input type="text" name="yearAccepted"
+												       placeholder={this.state.applicant.yearAccepted}
+												       defaultValue={this.state.applicant.yearAccepted}/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentWorkNumber2">Work Phone Number</Label>
+												<Input type="text" name="parentWorkNumber2"
+												       placeholder={this.state.applicant.parentWorkNumber2}
+												       defaultValue={this.state.applicant.parentWorkNumber2}/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentCellNumber2">Cell Phone Number</Label>
+												<Input type="text" name="parentCellNumber2"
+												       placeholder={this.state.applicant.parentCellNumber2}
+												       defaultValue={this.state.applicant.parentCellNumber2}/>
+											</FormGroup>
+										</Col>
+									</Row>
 									<br/>
-									<Button onClick={(e) => this.handleGoBack(e)}>Go Back</Button>
+									<Button>Submit Changes</Button>
 								</Form>
 							</CardBody>
 						</Card>
@@ -344,9 +371,9 @@ class CurrentApplicantPage extends React.Component {
 	}
 }
 
-CurrentApplicantPage = ReduxForm.reduxForm({form: 'profile'})(CurrentApplicantPage);
+AcceptedApplicantPage = ReduxForm.reduxForm({form: 'profile'})(AcceptedApplicantPage);
 
-CurrentApplicantPage = connect(
+AcceptedApplicantPage = connect(
 	state => ({
 		authentication: Users.State.getAuthentication(state),
 		user: Users.State.getUser(state)
@@ -356,6 +383,6 @@ CurrentApplicantPage = connect(
 		getUserDetails: () => dispatch(Users.Actions.getUserDetails()),
 		updateUserDetails: user => dispatch(Users.Actions.updateUserDetails(user))
 	})
-)(CurrentApplicantPage);
+)(AcceptedApplicantPage);
 
-export default CurrentApplicantPage;
+export default AcceptedApplicantPage;
