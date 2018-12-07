@@ -59,4 +59,9 @@ public class UserEndpoint {
         userService.updateApplicant(userDto);
     }
 
+    @GetMapping(value = "/api/user/list-of-users")
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        return userService.getUsers();
+    }
+
 }

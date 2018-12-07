@@ -42,8 +42,8 @@ public class UserService {
         userDao.updateApplicant(userDto);
     }
 
-    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
-        return userDao.getClasses(username);
+    public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
+        return userDao.getNotMyClasses(username);
     }
 
     public void registerClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
@@ -56,6 +56,10 @@ public class UserService {
 
     public void dropClass(String username, Integer classID){
         userDao.dropClass(username, classID);
+    }
+
+    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+        return userDao.getUsers();
     }
 }
 
