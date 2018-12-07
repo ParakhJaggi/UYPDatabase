@@ -42,16 +42,16 @@ public class UserService {
         userDao.updateApplicant(userDto);
     }
 
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
-        return userDao.getClasses();
+    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
+        return userDao.getClasses(username);
     }
 
     public void registerClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
         userDao.registerClass(username, classID);
     }
 
-    public ClassDto getClasses(String username){
-        return userDao.getClasses(username);
+    public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
+        return userDao.getMyClasses(username);
     }
 
     public void dropClass(String username, Integer classID){

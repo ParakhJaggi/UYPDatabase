@@ -41,11 +41,13 @@ public class UserDao {
     public void acceptApplicant(String username, String authorizedPerson) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         System.out.println("Accept the applicant with username " + username + " authorized by " + authorizedPerson);
         JDBC j = new JDBC();
-        j.acceptApplicant(username);
+        j.acceptApplicant(username,authorizedPerson);
     }
-    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
+
+
+    public ClassDto getClasses(String username) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
-        return j.getClasses();
+        return j.getClasses(username);
     }
 
     public void registerClass(String username, int id) throws SQLException, ClassNotFoundException {
@@ -53,18 +55,18 @@ public class UserDao {
         j.registerClass(username,id);
     }
 
-    public ClassDto getClasses(String username){
-        ClassDto temp = new ClassDto();
-        System.out.println("give this user all of his classes");
-        return temp;
+    public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        return j.getMyClasses(username);
     }
 
     public void dropClass(String username, Integer classID){
         System.out.println("drop this class from the user");
     }
 
-    public void updateApplicant(UserDto userDto){
-        System.out.println("update me from the admin");
+    public void updateApplicant(UserDto userDto) throws SQLException, ClassNotFoundException {
+        JDBC j = new JDBC();
+        j.updateApplicant(userDto);
     }
 
     public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
