@@ -16,6 +16,8 @@ import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class JDBC {
@@ -220,7 +222,17 @@ public class JDBC {
 
     }
 
-    public void addStudentInfo(){
+    public void addStudentInfo(UserDto user) throws SQLException, ClassNotFoundException {
+        Date date = new Date();
+        String quey = "INSERT INTO `studentinfo` (`yearaccepted`,`status`,`hasgrant`,`whichgrant`,`mentorname`,`siblingid`,`disabilities`,`healthconditions`,`learningenglish`,`gt`,`cleaninghouseinfo`,`otherinfo`,`username`) VALUES" +
+                "('"+ Calendar.getInstance().get(Calendar.YEAR)+"','"+user.getStatus()+"','"+user.getHasGrant()+"','"+user.getWhatgrant()+"','"+user.getMentorname()+"','"+user.getSibling()+"','"+user.getDisability()+"','"+user.getHealthconditions()+"','"+user.getEnglish()+"','"+user.getGt()+"','"+user.getCleaninghouseinfo()+"','"+user.getOtherinfo()+"','"+user.getUsername()+"');";
+        Connection conn =this.MakeConnection();
+        System.out.println(quey);
+        int rs = conn.prepareStatement(quey).executeUpdate();
+
+
+
+
 
     }
 
