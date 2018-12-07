@@ -1,5 +1,6 @@
 /*
 	Front End: Brandon Mork
+	99.9%
  */
 
 import Cookie from 'universal-cookie';
