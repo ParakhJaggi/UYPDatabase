@@ -320,6 +320,7 @@ public class JDBC {
             s.add(r.getString(1));
 
         }
+        System.out.println(s);
         return new UserNameListDto(s);
 
     }
