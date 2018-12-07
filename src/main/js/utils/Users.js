@@ -41,6 +41,16 @@ export function updateApplicant(username, userInfo){
 	return axios.post('/api/user/applicant-submit-info/', username, userInfo);
 }
 
+export function getClasses(){
+	console.log('user is getting all of the classes');
+	return axios.get('/api/class/');
+}
+
+export function registerClass(username, classID){
+	console.log('user is trying to register for class with username ' + username + ' and class id of ' + classID);
+	return axios.post('/api/class/register', username, classID);
+}
+
 /* Functions so far... */
 
 

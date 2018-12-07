@@ -3,6 +3,7 @@ package UYPDatabase.site.common.user;
 import java.sql.SQLException;
 import java.util.List;
 
+import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
 import UYPDatabase.site.common.user.UserDao;
@@ -41,8 +42,12 @@ public class UserService {
         userDao.updateUser(userDto);
     }
 
-    public void getClasses() throws SQLException, ClassNotFoundException {
-        userDao.getClasses();
+    public ClassDto getClasses() throws SQLException, ClassNotFoundException {
+        return userDao.getClasses();
+    }
+
+    public void registerClass(String username, Integer classID){
+        userDao.registerClass(username, classID);
     }
 }
 
