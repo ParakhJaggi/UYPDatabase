@@ -34,8 +34,8 @@ public class UserService {
         return userDao.getPossibleApplicants();
     }
 
-    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
-        userDao.acceptApplicant(username);
+    public void acceptApplicant(String username, String authorizedPerson) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
+        userDao.acceptApplicant(username, authorizedPerson);
     }
 
     public void updateApplicant(String username,UserDto userDto) throws SQLException, ClassNotFoundException {
@@ -46,8 +46,16 @@ public class UserService {
         return userDao.getClasses();
     }
 
-    public void registerClass(String username, Integer classID){
+    public void registerClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
         userDao.registerClass(username, classID);
+    }
+
+    public ClassDto getClasses(String username){
+        return userDao.getClasses(username);
+    }
+
+    public void dropClass(String username, Integer classID){
+        userDao.dropClass(username, classID);
     }
 }
 

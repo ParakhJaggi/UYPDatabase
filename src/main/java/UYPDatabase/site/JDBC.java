@@ -260,8 +260,10 @@ public class JDBC {
 
     public void registerClass(String username, int classID) throws SQLException, ClassNotFoundException {
         Connection con = this.MakeConnection();
+        System.out.println("trying to register " + username + " with id of " + classID);
         con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
-                "('" + username + "','" + classID + "');");
+                "('" + username + "','" + classID + "');").executeUpdate();
+
     }
 }
 

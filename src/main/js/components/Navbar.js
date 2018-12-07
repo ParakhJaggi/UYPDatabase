@@ -52,13 +52,19 @@ class NavigationBar extends React.Component {
                     <NavLink href="#/view-application">View Applications</NavLink>
                 </NavItem>
 
-                <NavItem>
-                    <NavLink href="#/register-class">Register for Classes</NavLink>
-                </NavItem>
-
-                <NavItem>
-                    <NavLink href="#/export">Export Schedule</NavLink>
-                </NavItem>
+				<UncontrolledDropdown nav inNavbar>
+					<DropdownToggle nav caret>
+						Classes
+					</DropdownToggle>
+					<DropdownMenu right>
+						<DropdownItem href="#/register-class">
+							Register
+						</DropdownItem>
+						<DropdownItem href="#/my-classes">
+							Schedule
+						</DropdownItem>
+					</DropdownMenu>
+				</UncontrolledDropdown>
 
                 <NavItem>
                     <NavLink href="#/profile-page">My Profile</NavLink>

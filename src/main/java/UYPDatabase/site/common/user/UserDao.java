@@ -38,8 +38,8 @@ public class UserDao {
         return j.getPossibleApplicants();
     }
 
-    public void acceptApplicant(String username) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
-        System.out.println("Accept the applicant with username " + username);
+    public void acceptApplicant(String username, String authorizedPerson) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
+        System.out.println("Accept the applicant with username " + username + " authorized by " + authorizedPerson);
         JDBC j = new JDBC();
         j.acceptApplicant(username);
     }
@@ -48,10 +48,21 @@ public class UserDao {
         return j.getClasses();
     }
 
-    public void registerCLass(String username, int id) throws SQLException, ClassNotFoundException {
+    public void registerClass(String username, int id) throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         j.registerClass(username,id);
     }
+
+    public ClassDto getClasses(String username){
+        ClassDto temp = new ClassDto();
+        System.out.println("give this user all of his classes");
+        return temp;
+    }
+
+    public void dropClass(String username, Integer classID){
+        System.out.println("drop this class from the user");
+    }
+
 
 }
 
