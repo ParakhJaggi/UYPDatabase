@@ -10,8 +10,6 @@ public class ClassDto {
     private String teacherName;
     private String id;
 
-
-
     private String availability;
     private String capacity;
 

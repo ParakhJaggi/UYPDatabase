@@ -70,9 +70,15 @@ public class UserDao {
         j.updateApplicant(userDto);
     }
 
-    public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
+    public UserNameListDto getRegisteredUsers() throws SQLException, ClassNotFoundException {
         JDBC j = new JDBC();
         return j.getUsers();
+    }
+
+    public UserDto getUserExtraDetails() throws SQLException, ClassNotFoundException{
+        //gimme gimme
+        UserDto temp = new UserDto();
+        return temp;
     }
 
 }

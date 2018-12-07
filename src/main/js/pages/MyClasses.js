@@ -120,6 +120,8 @@ class MyClasses extends React.Component {
 										<th scope="row">{aClass.teacherName}</th>
 										<th scope="row">{aClass.classroom}</th>
 										<th scope="row">{aClass.timeSlot}</th>
+										<th scope="row">{aClass.availability}</th>
+										<th scope="row">{aClass.capacity}</th>
 										<th><Button onClick={(e) => this.dropClass(e,aClass.id)}>Drop Class</Button></th>
 									</tr>
 								))}

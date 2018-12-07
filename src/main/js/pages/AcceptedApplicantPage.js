@@ -93,7 +93,7 @@ class AcceptedApplicantPage extends React.Component {
 					<Col lg={12} md={12} sm={12} xs={12}>
 						<Card>
 							<br/>
-							<CardTitle className="center">Welcome to {this.state.applicant.firstName}'s application!</CardTitle>
+							<CardTitle className="center">Welcome to {this.state.applicant.firstName}'s Profile!</CardTitle>
 							<CardBody>
 								<Form name="form" onSubmit={this.handleSubmit.bind(this)}>
 									<Row form>

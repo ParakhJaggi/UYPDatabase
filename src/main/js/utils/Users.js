@@ -13,7 +13,13 @@ export function loginUser(username, password){
 }
 
 export function getUserDetails(username) {
-    return axios.get('/api/user/' + username);
+	console.log('user is trying to get user details for ' + username);
+    return axios.get('/api/user/details/' + username);
+}
+
+export function getUserExtraDetails(username) {
+	console.log('user is trying to get user extra details for ' + username);
+	return axios.get('/api/user/extra/details/' + username);
 }
 
 export function updateUserDetails(user){
@@ -41,14 +47,14 @@ export function updateApplicant(userInfo){
 	return axios.post('/api/user/applicant-submit-info/', userInfo);
 }
 
-export function getClasses(){
+export function getNotMyClasses(username){
 	console.log('user is getting all of the classes');
-	return axios.get('/api/class/');
+	return axios.get('/api/class/not/' + username);
 }
 
 export function getMyClasses(username){
 	console.log('user is getting all of the classes for a particular user');
-	return axios.get('/api/class/' + username);
+	return axios.get('/api/class/my/' + username);
 }
 
 export function registerClass(username, classID){
@@ -59,8 +65,9 @@ export function dropClass(username, classID){
 	return axios.post('/api/class/drop/' + username + '/' + classID);
 }
 
-export function getUsers(){
-	return axios.get('api/user/list-of-users');
+export function getRegisteredUsers(){
+	console.log('getting a list of registered users');
+	return axios.get('/api/user/list-of-users');
 }
 
 /* Functions so far... */
