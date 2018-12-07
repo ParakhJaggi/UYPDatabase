@@ -81,7 +81,7 @@ class AcceptedApplicantPage extends React.Component {
 		this.state.applicant.cleaningHouseInfo = e.target.cleaningHouseInfo.value;
 		this.state.applicant.otherInfo = e.target.otherInfo.value;
 
-		//console.log(this.state.applicant);
+		console.log(this.state.applicant);
 		Users.updateApplicant(this.state.applicant);
 		//return window.location.href = '/#/';
 	}
