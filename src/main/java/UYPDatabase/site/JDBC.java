@@ -40,6 +40,8 @@ public class JDBC {
             System.out.println(s);
         }
 
+        conn.close();
+
 
     }
     public void addStudent(GuestDto guest) throws ClassNotFoundException, SQLException {
@@ -74,8 +76,8 @@ public class JDBC {
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
                 " ('"+username+"','guest');";
         rs = conn.prepareStatement(q4).executeUpdate();
-
-
+        System.out.println(q4);
+        conn.close();
     }
 
     public UserDto getUserDetails(String username) throws ClassNotFoundException, SQLException {
@@ -142,6 +144,7 @@ public class JDBC {
 
         //guardian 2 info
         System.out.println("returning user details: firstName" + " " + lastName + " " + username);
+        conn.close();
         return new UserDto(principal,username,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,"",usertype);
     }
 
@@ -230,12 +233,14 @@ public class JDBC {
 
         //guardian 2 info
         System.out.println("returning user details: firstName" + " " + lastName + " " + username);
+        conn.close();
         return new UserDto(principal,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,yearaccepted,gradeAccepted,status,hasGrant,whichGrant,mentor,disabilities,health,english,cleaning,other,usertype,username,authorizedUser);
     }
 
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
         Connection conn =this.MakeConnection();
         int rs = conn.prepareStatement("UPDATE Student SET firstname = '"+user.getFirstName()+"', middleinitial = '"+user.getMiddleInitial()+"' , lastname = '"+user.getLastName()+"', suffix = '"+user.getSuffix()+"' ,nameprefered = '"+user.getPreferredName()+"' , address = '"+user.getAddressLine()+"' , city = '"+user.getCity()+"' , state = '"+user.getState()+"' , zip = '"+user.getZip()+"' , birthdate = '"+user.getBirthday()+"' , gender = '"+user.getGender()+"', race = '"+user.getEthnicity()+"', graduationyear = '"+user.getGraduationYear()+"' , email = '"+user.getPrincipal()+"' , phonenumber = '"+user.getPhoneNumber()+"' ,sibling = '"+user.getSibling()+"' , previousschool = '"+user.getPrevSchool()+"' , grade = '"+user.getGrade()+"' , parent1firstname = '+"+user.getParentFirstName()+"', parent1lastname = '"+user.getParentLastName()+"' , parent2firstname = '"+user.getParentFirstName2()+"', parent2lastname = '"+user.getParentLastName2()+ "' , gtacceptance = '"+user.getGtAcceptance()+"' ,expectedschool = '"+user.getExpectedSchool()+"'  WHERE username = '"+user.getUsername()+"';").executeUpdate();
+        conn.close();
 
     }
 
@@ -254,9 +259,15 @@ public class JDBC {
             rs2.next();
 
             System.out.println(first+last+rs2.getString(1));
-            return new LoginDto(rs.getString(2),rs.getString(3),rs2.getString(1),true);
+
+            String a = rs.getString(2);
+            String b = rs.getString(3);
+            String c = rs2.getString(1);
+           conn.close();
+            return new LoginDto(a,b,c,true);
 
         }
+       conn.close();
        return new LoginDto("","","",false);
 
 
@@ -274,6 +285,7 @@ public class JDBC {
             }
         }
         System.out.println(temp.toString());
+        conn.close();
 
         return new UserNameListDto(temp);
 
@@ -310,6 +322,7 @@ public class JDBC {
 
 
         response = client.post(request);
+        conn.close();
 
 
 
@@ -324,7 +337,7 @@ public class JDBC {
         System.out.println(quey);
         int rs = conn.prepareStatement(quey).executeUpdate();
 
-
+        conn.close();
 
 
 
@@ -350,6 +363,7 @@ public class JDBC {
             }
 
         System.out.println("getting list of classes " + temp);
+        conn.close();
         return new ClassDto(temp);
         }
 
@@ -370,7 +384,7 @@ public class JDBC {
             c.setCapacity(rs.getString(8));
             temp.add(c);
         }
-
+        conn.close();
         System.out.println("getting list of classes " + temp);
         return new ClassDto(temp);
     }
@@ -390,7 +404,7 @@ public class JDBC {
         System.out.println(a);
         a--;
         con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
-
+        con.close();
     }
 
     public void dropClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
@@ -404,7 +418,7 @@ public class JDBC {
         System.out.println(a);
         a++;
         con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
-
+        con.close();
     }
 
     public UserNameListDto getUsers() throws SQLException, ClassNotFoundException {
@@ -416,7 +430,16 @@ public class JDBC {
 
         }
         System.out.println(s);
+        con.close();
         return new UserNameListDto(s);
+
+    }
+
+
+    public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
+        Connection con = this.MakeConnection();
+        con.prepareStatement("INSERT INTO `class` (`level`,`name`,`timeslot`,`classroom`,`teachername`,`id`,`availability `,`capacity`) VALUES" +
+                "('"+c.getLevel()+"','"+c.getName()+"','"+c.getTimeSlot()+"','"+c.getClassroom()+"','"+c.getTeacherName()+"','"+c.getId()+"','"+c.getAvailability()+"','"+c.getCapacity()+"');");
 
     }
 }
