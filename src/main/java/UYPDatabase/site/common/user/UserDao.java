@@ -80,6 +80,10 @@ public class UserDao {
         return new JDBC().getUserExtraDetails(username);
     }
 
+    public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
+        new JDBC().makeClass(c);
+    }
+
 }
 
 
