@@ -6,7 +6,7 @@ import {
 	Table,
 	Col, FormGroup, Label, Input, Row, Card, CardBody, Form,
 } from 'reactstrap';
-import {getMyClasses} from 'js/utils/Users';
+import {getClassCSVData, getMyClasses} from 'js/utils/Users';
 import * as Users from 'js/utils/Users';
 import * as ReduxForm from 'redux-form';
 import PropTypes from 'prop-types';
@@ -14,6 +14,8 @@ import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
 import { CSVLink , CSVDownload} from 'react-csv';
+import * as Papa from 'papaparse';
+import DelayRender from 'js/alloy/utils/DelayRender';
 
 class MyClasses extends React.Component {
 
@@ -26,12 +28,22 @@ class MyClasses extends React.Component {
 				{ label: 'Level', key: 'level' },
 				{ label: 'Name', key: 'name' }
 			],
-			data: [[]]
+			data: [
+				{ label: 'Class ID', key: 'id' },
+				{ label: 'Level', key: 'level' },
+				{ label: 'Name', key: 'name' }
+			],
+			csv: null
 		};
 
-		this.state.data = Users.getClassCSVData()
+
+		getClassCSVData()
 			.then(function (response) {
-				console.log(response.csv);
+				console.log(response);
+				const myCookie = new Cookie();
+				myCookie.set('csvFile', response, {path: '/'});
+				console.log('look at this');
+				console.log(response);
 			});
 
 		getMyClasses(this.props.user.username)
@@ -40,7 +52,6 @@ class MyClasses extends React.Component {
 				console.log(response);
 				const myCookie = new Cookie();
 				myCookie.set('classList', response, {path: '/'});
-				console.log(this.state.data);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -64,6 +75,23 @@ class MyClasses extends React.Component {
 	render() {
 		const myCookie = new Cookie();
 		const classList = myCookie.get('classList');
+		let csvList = myCookie.get('csvFile');
+		console.log('this is the current cookie render');
+		console.log(csvList);
+		let temp = Users.getClassCSVData()
+			.then(function (response) {
+				// csvList = Papa.unparse(response.csv, {
+				// 	quotes: true
+				// });
+				console.log(csvList);
+			});
+		console.log('testing');
+
+
+
+
+		//const unique = Array.from(new Set(temp.csv.map()))
+
 
 		return (
 			<div style={{marginTop: 100}}>
@@ -128,7 +156,7 @@ class MyClasses extends React.Component {
 					</Container>
 					<Card>
 						<CSVLink
-							data={this.state.headers}
+							data={csvList}
 							filename={'my-file.csv'}
 							className="btn btn-primary"
 							target="_blank"
