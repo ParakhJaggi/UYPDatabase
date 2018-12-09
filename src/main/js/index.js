@@ -15,6 +15,7 @@ import CurrentApplicantPage from 'js/pages/CurrentApplicantPage';
 import AcceptedApplicantPage from 'js/pages/AcceptedApplicantPage';
 import MyClasses from 'js/pages/MyClasses';
 import ViewUserPage from 'js/pages/ViewUserPage';
+import CreateClassPage from 'js/pages/CreateClassPage';
 
 class Index extends React.Component {
 
@@ -71,13 +72,17 @@ class Index extends React.Component {
 								<ViewUserPage {...props}/>}
 							/>
 
+							<Route exact path='/create-class' render={(props) =>
+								<CreateClassPage {...props}/>}
+							/>
+
                             <Route exact path='/apply-page' component={ApplyPage}/>
                             <Route exact path='/view-application-page' component={ViewApplicationPage}/>
 							<Route exact path='/current-application-page' component={CurrentApplicantPage}/>
 							<Route exact path='/accept-application-page' component={AcceptedApplicantPage}/>
 							<Route exact path='/my-classes-page' component={MyClasses}/>
 							<Route exact path='/view-user-page' component={ViewUserPage}/>
-
+							<Route exact path='/create-class-page' component={CreateClassPage}/>
 
 						</Switch>
 					</HashRouter>

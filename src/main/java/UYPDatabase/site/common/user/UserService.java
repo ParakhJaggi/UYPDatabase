@@ -71,7 +71,8 @@ public class UserService {
         userDao.makeClass(c);
     }
 
-    public ArrayList<ArrayList<String>> getClassCSVData(){
+    public ArrayList<ArrayList<String>> getClassCSVData() {
         return userDao.getClassCSVData();
+    }
 }
 

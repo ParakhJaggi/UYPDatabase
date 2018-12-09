@@ -36,7 +36,7 @@ public class ClassEndpoint {
         userService.dropClass(username, classID);
     }
 
-    @PostMapping(value = "/make/class")
+    @PostMapping(value = "/create/class")
     public void makeClass(@PathVariable ClassDto c) throws SQLException, ClassNotFoundException {
         userService.makeClass(c);
     }

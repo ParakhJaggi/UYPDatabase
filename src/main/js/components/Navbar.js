@@ -69,6 +69,9 @@ class NavigationBar extends React.Component {
 			</React.Fragment>;
 		} else if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'admin') {
 			return <React.Fragment>
+				<NavItem>
+					<NavLink href="#/create-class">Create Class</NavLink>
+				</NavItem>
                 <NavItem>
                     <NavLink href="#/view-application">View Applications</NavLink>
                 </NavItem>

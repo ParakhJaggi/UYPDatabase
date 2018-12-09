@@ -76,6 +76,11 @@ export function getRegisteredUsers(){
 	return axios.get('/api/user/list-of-users');
 }
 
+export function createClass(classDto){
+	console.log('admin is creating a class');
+	return axios.post('api/class/create-class', classDto);
+}
+
 /* Functions so far... */
 
 
