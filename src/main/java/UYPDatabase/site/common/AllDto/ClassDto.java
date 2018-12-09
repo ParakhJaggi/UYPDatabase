@@ -3,6 +3,21 @@ package UYPDatabase.site.common.AllDto;
 import java.util.ArrayList;
 
 public class ClassDto {
+    @Override
+    public String toString() {
+        return "ClassDto{" +
+                "level='" + level + '\'' +
+                ", name='" + name + '\'' +
+                ", timeSlot='" + timeSlot + '\'' +
+                ", classroom='" + classroom + '\'' +
+                ", teacherName='" + teacherName + '\'' +
+                ", id='" + id + '\'' +
+                ", availability='" + availability + '\'' +
+                ", capacity='" + capacity + '\'' +
+                ", classes=" + classes +
+                '}';
+    }
+
     private String level;
     private String name;
     private String timeSlot;

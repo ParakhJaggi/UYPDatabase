@@ -433,8 +433,8 @@ public class JDBC {
     public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
         Connection con = this.MakeConnection();
         con.prepareStatement("INSERT INTO `class` (`level`,`name`,`timeslot`,`classroom`,`teachername`,`id`,`availability `,`capacity`) VALUES" +
-                "('" + c.getLevel() + "','" + c.getName() + "','" + c.getTimeSlot() + "','" + c.getClassroom() + "','" + c.getTeacherName() + "','" + c.getId() + "','" + c.getAvailability() + "','" + c.getCapacity() + "');");
-
+                "('" + c.getLevel() + "','" + c.getName() + "','" + c.getTimeSlot() + "','" + c.getClassroom() + "','" + c.getTeacherName() + "','" + c.getId() + "','" + c.getAvailability() + "','" + c.getCapacity() + "');").executeQuery();
+        System.out.println(c.toString());
     }
 
 
