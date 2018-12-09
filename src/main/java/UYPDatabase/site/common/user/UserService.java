@@ -65,5 +65,9 @@ public class UserService {
     public UserDto getUserExtraDetails(String username ) throws SQLException, ClassNotFoundException{
         return userDao.getUserExtraDetails(username);
     }
+
+    public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
+        userDao.makeClass(c);
+    }
 }
 
