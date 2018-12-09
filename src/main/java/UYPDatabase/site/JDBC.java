@@ -438,7 +438,7 @@ public class JDBC {
     }
 
 
-    public CSVDto makeCSV() throws SQLException, ClassNotFoundException{
+    public ArrayList<ArrayList<String>> makeCSV() throws SQLException, ClassNotFoundException{
         System.out.println("here");
         ArrayList<ArrayList<String>> temp = new ArrayList<>();
         ArrayList<String> a = new ArrayList<>();
@@ -468,7 +468,7 @@ public class JDBC {
         }
         con.close();
         System.out.println(temp.toString());
-        return new CSVDto(temp);
+        return new temp;
     }
 
 }
