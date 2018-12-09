@@ -1,5 +1,6 @@
 package UYPDatabase.site.endpoint;
 
+import UYPDatabase.site.common.AllDto.CSVDto;
 import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.user.UserService;
 
@@ -41,7 +42,8 @@ public class ClassEndpoint {
         userService.makeClass(c);
     }
 
-    public ArrayList<ArrayList<String>> getClassCSVData(){
+    @GetMapping(value = "/create-csv")
+    public CSVDto getClassCSVData() throws SQLException, ClassNotFoundException {
         return userService.getClassCSVData();
     }
 }
