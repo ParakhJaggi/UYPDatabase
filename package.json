@@ -74,6 +74,7 @@
     "lodash": "^4.17.4",
     "moment": "^2.22.2",
     "npm": "^6.4.1",
+    "papaparse": "^4.6.2",
     "prop-types": "^15.6.2",
     "react": "16.6.0",
     "react-available-times": "^1.2.1",
