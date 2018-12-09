@@ -26,30 +26,27 @@ class MyClasses extends React.Component {
 				{ label: 'Level', key: 'level' },
 				{ label: 'Name', key: 'name' }
 			],
-			data: []
-
+			data: [[]]
 		};
+
+		this.state.data = Users.getClassCSVData()
+			.then(function (response) {
+				console.log(response.csv);
+			});
+
 		getMyClasses(this.props.user.username)
 			.then(function (response) {
 				console.log('this is the list of classes');
 				console.log(response);
 				const myCookie = new Cookie();
 				myCookie.set('classList', response, {path: '/'});
-				// const mappingFunction = classes => (
-				// 	classes.id + ' ' + classes.name);
-				// const names = response.classes.map(mappingFunction);
-				for(let i=0;i<response.classes.length;i++){
-					this.state.data.push({
-						ClassID: response.classes.id,
-						Level: response.classes.level,
-						Name: response.classes.name
-					});
-				}
 				console.log(this.state.data);
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
+
+		this.state.data = this.state.headers;
 	}
 
 	dropClassForm = (e) => {

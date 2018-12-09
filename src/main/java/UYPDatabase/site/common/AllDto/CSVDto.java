@@ -3,6 +3,10 @@ package UYPDatabase.site.common.AllDto;
 import java.util.ArrayList;
 
 public class CSVDto {
+    private ArrayList<ArrayList<String>> csv;
+
+
+
     public CSVDto(ArrayList<ArrayList<String>> a ){
         this.csv = a;
     }
@@ -13,7 +17,4 @@ public class CSVDto {
     public void setCsv(ArrayList<ArrayList<String>> csv) {
         this.csv = csv;
     }
-
-    private ArrayList<ArrayList<String>> csv = new ArrayList<>();
-
 }

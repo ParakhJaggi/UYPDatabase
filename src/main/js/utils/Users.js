@@ -81,6 +81,9 @@ export function createClass(classDto){
 	return axios.post('api/class/create-class', classDto);
 }
 
+export function getClassCSVData(){
+	return axios.get('api/class/get-csv');
+}
 /* Functions so far... */
 
 
