@@ -2,6 +2,7 @@ package UYPDatabase.site.common.user;
 
 
 import UYPDatabase.site.JDBC;
+import UYPDatabase.site.common.AllDto.CSVDto;
 import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
@@ -84,9 +85,9 @@ public class UserDao {
         new JDBC().makeClass(c);
     }
 
-    public ArrayList<ArrayList<String>> getClassCSVData() {
-        ArrayList<ArrayList<String>> temp = new ArrayList<>();
-        return temp;
+    public CSVDto getClassCSVData() throws SQLException, ClassNotFoundException{
+        return new JDBC().makeCSV();
+
     }
 
 }
