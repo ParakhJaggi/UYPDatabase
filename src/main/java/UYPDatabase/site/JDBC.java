@@ -39,7 +39,6 @@ public class JDBC {
             String s = rs.getString(1);
             System.out.println(s);
         }
-
         conn.close();
 
 
@@ -76,6 +75,7 @@ public class JDBC {
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
                 " ('"+username+"','guest');";
         rs = conn.prepareStatement(q4).executeUpdate();
+
         System.out.println(q4);
         conn.close();
     }
@@ -234,6 +234,7 @@ public class JDBC {
         //guardian 2 info
         System.out.println("returning user details: firstName" + " " + lastName + " " + username);
         conn.close();
+
         return new UserDto(principal,firstName,middleInitial,lastName,addressLine,city,state,zip,phoneNumber,password,prevSchool,graduationYear,expectedSchool,sibling,gtAcceptance,suffix,preferredName,birthday,gender,ethnicity,grade,parentFirstName,parentLastName,parentEmail,parentHomeNumber,parentWorkNumber,parentCellNumber,parentFirstName2,parentLastName2,parentEmail2,parentHomeNumber2,parentWorkNumber2,parentCellNumber2,yearaccepted,gradeAccepted,status,hasGrant,whichGrant,mentor,disabilities,health,english,cleaning,other,usertype,username,authorizedUser);
     }
 
@@ -287,6 +288,7 @@ public class JDBC {
         System.out.println(temp.toString());
         conn.close();
 
+
         return new UserNameListDto(temp);
 
     }
@@ -322,12 +324,8 @@ public class JDBC {
 
 
         response = client.post(request);
+
         conn.close();
-
-
-
-
-
     }
 
     public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
@@ -337,10 +335,8 @@ public class JDBC {
         System.out.println(quey);
         int rs = conn.prepareStatement(quey).executeUpdate();
 
+
         conn.close();
-
-
-
 
     }
 
@@ -364,6 +360,7 @@ public class JDBC {
 
         System.out.println("getting list of classes " + temp);
         conn.close();
+
         return new ClassDto(temp);
         }
 
@@ -404,6 +401,7 @@ public class JDBC {
         System.out.println(a);
         a--;
         con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
+
         con.close();
     }
 
@@ -418,6 +416,7 @@ public class JDBC {
         System.out.println(a);
         a++;
         con.prepareStatement("UPDATE class SET availability = '"+a+"' WHERE id = '"+classID+"'").executeUpdate();
+
         con.close();
     }
 
