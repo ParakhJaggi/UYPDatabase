@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import UYPDatabase.site.common.AllDto.CSVDto;
 import UYPDatabase.site.common.AllDto.ClassDto;
 import UYPDatabase.site.common.AllDto.LoginDto;
 import UYPDatabase.site.common.AllDto.UserNameListDto;
@@ -70,8 +71,8 @@ public class UserService {
     public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
         userDao.makeClass(c);
     }
-
-    public ArrayList<ArrayList<String>> getClassCSVData() {
+    
+    public CSVDto getClassCSVData() throws SQLException, ClassNotFoundException {
         return userDao.getClassCSVData();
     }
 }
