@@ -10,7 +10,10 @@ import axios from 'axios';
 /* Functions so far... */
 export function applyForWeb(guest) {
 	console.log('using is trying to apply!');
-	return axios.post('/api/guest/apply', guest);
+	return axios.post('/api/guest/apply', guest)
+		.catch(error => {
+			return new Error('test');
+		});
 }
 
 export function loginUser(username, password) {

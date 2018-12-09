@@ -247,7 +247,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="gtAcceptance">Accepted to a school-based GT program?</Label>
-												<CustomInput type="select" id="level" name="level">
+												<CustomInput type="select" id="gtAcceptance" name="gtAcceptance">
 													<option value="yes">Yes</option>
 													<option value="no">No</option>
 													<option value="unsure">Unsure</option>

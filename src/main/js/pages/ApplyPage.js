@@ -1,29 +1,23 @@
 import React from 'react';
 import {
-	Card,
-	CardBody,
 	CardTitle,
-	Col
+	FormGroup,
+	Container,
+	CardBody,
+	Button,
+	Input,
+	Label,
+	Card,
+	Form,
+	Row,
+	Col, CustomInput,
 } from 'reactstrap';
-import * as Validation from 'js/alloy/utils/validation';
 import * as ReduxForm from 'redux-form';
-import * as Bessemer from 'js/alloy/bessemer/components';
 import * as Users from 'js/utils/Users';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-
-const schoolOptions = [
-	{value: 'public', label: 'Public School'},
-	{value: 'private', label: 'Private School'},
-	{value: 'home', label: 'Home School'}
-];
-
-const gtOptions = [
-	{value: 'No', label: 'No'},
-	{value: 'Yes', label: 'Yes'},
-	{value: 'Unsure', label: 'Unsure'}
-];
+import ReactNotification from 'react-notifications-component';
 
 
 // @TODO Add some sort of validation for if principal is already taken
@@ -37,164 +31,368 @@ class ApplyPage extends React.Component {
 			label: null
 		};
 
-		this.onSubmit = this.onSubmit.bind(this);
+		this.addNotification = this.addNotification.bind(this);
+		this.notificationDOMRef = React.createRef();
 	}
 
-	onSubmit = user => {
-		Users.applyForWeb(user);
-		console.log(user);
-		// return window.location.href = '/#/';
-	};
+
+	addNotification() {
+		this.notificationDOMRef.current.addNotification({
+			title: 'Error',
+			message: 'Invalid data input',
+			type: 'success',
+			insert: 'top',
+			container: 'bottom-center',
+			animationIn: ['animated', 'fadeIn'],
+			animationOut: ['animated', 'fadeOut'],
+			dismiss: { duration: 2000 },
+			dismissable: { click: true }
+		});
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+
+		let newUser = {
+			'principal': e.target.principal.value,
+			'firstName': e.target.firstName.value,
+			'lastName': e.target.lastName.value,
+			'middleInitial': e.target.middleInitial.value,
+			'addressLine': e.target.addressLine.value,
+			'city': e.target.city.value,
+			'zip': e.target.zip.value,
+			'phoneNumber': e.target.phoneNumber.value,
+			'prevSchool': e.target.prevSchool.value,
+			'graduationYear': e.target.graduationYear.value,
+			'expectedSchool': e.target.expectedSchool.value,
+			'sibling': e.target.sibling.value,
+			'gtAcceptance': e.target.gtAcceptance.value,
+			'suffix': e.target.suffix.value,
+			'preferredName': e.target.preferredName.value,
+			'birthday': e.target.birthday.value,
+			'gender': e.target.gender.value,
+			'ethnicity': e.target.ethnicity.value,
+			'grade': e.target.grade.value,
+			'parentFirstName': e.target.parentFirstName.value,
+			'parentLastName': e.target.parentLastName.value,
+			'parentEmail': e.target.parentEmail.value,
+			'parentHomeNumber': e.target.parentHomeNumber.value,
+			'parentWorkNumber': e.target.parentWorkNumber.value,
+			'parentCellNumber': e.target.parentCellNumber.value,
+			'parentFirstName2': e.target.parentFirstName2.value,
+			'parentLastName2': e.target.parentLastName2.value,
+			'parentEmail2': e.target.parentEmail2.value,
+			'parentHomeNumber2': e.target.parentHomeNumber2.value,
+			'parentWorkNumber2': e.target.parentWorkNumber2.value,
+			'parentCellNumber2': e.target.parentCellNumber2.value
+		};
+
+		console.log(newUser);
+		try {
+			Users.applyForWeb(newUser);
+			console.log('error');
+		}
+		catch(e){
+			this.addNotification();
+		}
+		console.log(newUser);
+
+		//return window.location.href = '/#/';
+	}
 
 	render() {
-		let {handleSubmit} = this.props;
-
 		return (
-			<div style={{marginTop: 100}} className="center">
-				<Col md="10" sm="12">
-					<Card>
-						<br/>
-						<CardTitle className="center">Register</CardTitle>
-						<CardBody>
-							<form name="form" onSubmit={handleSubmit(form => this.onSubmit(form))}>
+			<Container style={{marginTop: 80, marginBottom: 20}}>
+				<Row>
+					<Col lg={12} md={12} sm={12} xs={12}>
+						<Card>
+							<br/>
+							<CardTitle className="center">Apply for UYPD!</CardTitle>
+							<CardBody>
+								<h6 className="center">Fill in the required form below.</h6>
+								<Form name="form" onSubmit={this.handleSubmit.bind(this)}>
+									<Row form>
+										<Col md={12}>
+											<FormGroup>
+												<Label for="principal">Email</Label>
+												<Input type="email" name="principal" required
+												       placeholder="sample@example.edu"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<Row form>
+										<Col md={5}>
+											<FormGroup>
+												<Label for="firstName">First Name</Label>
+												<Input type="text" name="firstName" required
+												       placeholder="John"/>
+											</FormGroup>
+										</Col>
+										<Col md={2}>
+											<FormGroup>
+												<Label for="middleInitial">Middle Initial</Label>
+												<Input type="text" name="middleInitial" required
+												       placeholder="K"/>
+											</FormGroup>
+										</Col>
+										<Col md={5}>
+											<FormGroup>
+												<Label for="lastName">Last Name</Label>
+												<Input type="text" name="lastName" required
+												       placeholder="Doe"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<Row form>
+										<Col md={5}>
+											<FormGroup>
+												<Label for="preferredName">Preferred Name</Label>
+												<Input type="text" name="preferredName" required
+												       placeholder="Johnny"/>
+											</FormGroup>
+										</Col>
+										<Col md={2}>
+											<FormGroup>
+												<Label for="suffix">Suffix</Label>
+												<Input type="text" name="suffix" required
+												       placeholder="Mr"/>
+											</FormGroup>
+										</Col>
+										<Col md={5}>
+											<FormGroup>
+												<Label for="phoneNumber">Phone Number</Label>
+												<Input type="number" name="phoneNumber" required
+												       placeholder="1231231234"/>
+											</FormGroup>
+										</Col>
+									</Row>
 
-								<Bessemer.Field name="principal" friendlyName="Email Address" placeholder="test@web.com"
-								                validators={[Validation.requiredValidator, Validation.emailValidator]}/>
+									<FormGroup>
+										<Label for="password">Password</Label>
+										<Input type="password" name="password" required
+										       placeholder="Password"/>
+									</FormGroup>
 
-								<Bessemer.Field name="suffix" friendlyName="Suffix" placeholder="Sr"
-								                validators={[Validation.requiredValidator]}/>
+									<FormGroup>
+										<Label for="addressLine">Address</Label>
+										<Input type="number" name="addressLine" required
+										       placeholder="1001 Main St"/>
+									</FormGroup>
 
-								<Bessemer.Field name="firstName" friendlyName="First Name" placeholder="John"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="middleInitial" friendlyName="Middle Initial" placeholder="K"/>
-
-								<Bessemer.Field name="lastName" friendlyName="Last Name" placeholder="Doe"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="preferredName" friendlyName="Preferred Name" placeholder="Johnny"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="addressLine" friendlyName="Address Line" placeholder="123 Main St"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="city" friendlyName="City" placeholder="Dallas"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="state" friendlyName="State" placeholder="TX"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="zip" friendlyName="Zip Code" placeholder="12345"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="phoneNumber" friendlyName="Phone Number"
-								                placeholder="281-123-1234"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="password" friendlyName="Password"
-								                validators={[Validation.requiredValidator, Validation.passwordValidator]}
-								                field={<input className="form-control" type="password"/>}/>
-
-								<Bessemer.Field name="birthday" friendlyName="Birthday" placeholder="1111-11-30"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="gender" friendlyName="Gender" placeholder="Female"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="race" friendlyName="Ethnicity" placeholder="Native American"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="prevSchool" friendlyName="Previous School Information"
-								                validator={[Validation.requiredValidator]}
-								                field={<Bessemer.Select options={schoolOptions}/>}/>
-
-								<Bessemer.Field name="graduationYear"
-								                friendlyName="Expected graduation year (from high school)"
-								                placeholder="2020"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="grade" friendlyName="Expected Grade" placeholder="95"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="expectedSchool" friendlyName="Expected high school (if known)"
-								                placeholder="Seven Lakes High School"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="sibling" friendlyName="Any siblings in the program?"
-								                placeholder="John Doe"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="gtAcceptance"
-								                friendlyName="Accepted to a school-based GT program?"
-								                validator={[Validation.requiredValidator]}
-								                field={<Bessemer.Select options={gtOptions}/>}/>
-
-
-								<br/>
-								Information about the Parent/Guardian 1:
-								<Bessemer.Field name="parentFirstName" friendlyName="Parent First Name"
-								                placeholder="John"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="parentLastName" friendlyName="Parent Last Name" placeholder="Doe"
-								                validators={[Validation.requiredValidator]}/>
-
-								<Bessemer.Field name="parentEmail" friendlyName="Parent email"
-								                placeholder="test@web.com"
-								                validators={[Validation.requiredValidator, Validation.emailValidator]}/>
-
-								<Bessemer.Field name="parentHomeNumber" friendlyName="Parent Home Phone Number"
-								                placeholder="281-123-1234"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="parentWorkNumber" friendlyName="Parent Work Phone Number"
-								                placeholder="281-123-1234"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="parentCellNumber" friendlyName="Parent Cell Phone Number"
-								                placeholder="281-123-1234"
-								                validators={[Validation.requiredValidator]}
-								                field={<input className="form-control" type="number"/>}/>
-
-								<br/>
-								Information about the Parent/Guardian 2:
-								<Bessemer.Field name="parentFirstName2" friendlyName="Parent First Name"
-								                placeholder="John"/>
-
-								<Bessemer.Field name="parentLastName2" friendlyName="Parent Last Name"
-								                placeholder="Doe"/>
-
-								<Bessemer.Field name="parentEmail2" friendlyName="Parent email"
-								                placeholder="test@web.com"/>
-
-
-								<Bessemer.Field name="parentHomeNumber2" friendlyName="Parent Home Phone Number"
-								                placeholder="281-123-1234"
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="parentWorkNumber2" friendlyName="Parent Work Phone Number"
-								                placeholder="281-123-1234"
-								                field={<input className="form-control" type="number"/>}/>
-
-								<Bessemer.Field name="parentCellNumber2" friendlyName="Parent Cell Phone Number"
-								                placeholder="281-123-1234"
-								                field={<input className="form-control" type="number"/>}/>
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="city">City</Label>
+												<Input type="text" name="city" required
+												       placeholder="Waco"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="state">State</Label>
+												<Input type="text" name="state" required
+												       placeholder="Texas"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="zip">Zip</Label>
+												<Input type="number" name="zip" required
+												       placeholder="12345"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="birthday">Birthday</Label>
+												<Input type="date" name="birthday" required/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="gender">Gender</Label>
+												<Input type="text" name="gender" required
+												       placeholder="Gender"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="ethnicity">Ethnicity</Label>
+												<Input type="text" name="ethnicity" required
+												       placeholder="Ethnicity"/>
+											</FormGroup>
+										</Col>
+									</Row>
 
 
-								<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}
-								     className="center">
-									<Bessemer.Button>Apply</Bessemer.Button>
-								</div>
-							</form>
-						</CardBody>
-					</Card>
-				</Col>
-			</div>
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="prevSchool">Previous School Information</Label>
+												<Input type="text" name="prevSchool" required
+												       placeholder="School"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="graduationYear">Expected graduation year</Label>
+												<Input type="number" name="graduationYear" required
+												       placeholder="Year"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="grade">Expected Grade Level</Label>
+												<CustomInput type="select" id="grade" name="grade">
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</CustomInput>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="gtAcceptance">Accepted to a school-based GT program?</Label>
+												<CustomInput type="select" id="gtAcceptance" name="gtAcceptance">
+													<option value="yes">Yes</option>
+													<option value="no">No</option>
+													<option value="unsure">Unsure</option>
+
+
+												</CustomInput>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="sibling">Any siblings in the program?</Label>
+												<Input type="text" name="sibling" required
+												       placeholder="Sarah Doe"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="expectedSchool">Expected High School</Label>
+												<Input type="text" name="expectedSchool" required
+												       placeholder="School"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<br/>
+									Parent/Guardian 1
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentFirstName">First Name</Label>
+												<Input type="text" name="parentFirstName" required
+												       placeholder="Lane"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentLastName">Last Name</Label>
+												<Input type="text" name="parentLastName" required
+												       placeholder="Doe"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentEmail">Email</Label>
+												<Input type="email" name="parentEmail" required
+												       placeholder="Lane@sample.com"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentHomeNumber">Home Phone Number</Label>
+												<Input type="number" name="parentHomeNumber" required
+												       placeholder="1231231234"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentWorkNumber">Work Phone Number</Label>
+												<Input type="number" name="parentWorkNumber" required
+												       placeholder="1231231235"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentCellNumber">Cell Phone Number</Label>
+												<Input type="number" name="parentCellNumber" required
+												       placeholder="1231231236"/>
+											</FormGroup>
+										</Col>
+									</Row>
+
+									<br/>
+									Parent/Guardian 2
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentFirstName2">First Name</Label>
+												<Input type="text" name="parentFirstName2"
+												       placeholder="Greg"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentLastName2">Last Name</Label>
+												<Input type="text" name="parentLastName2"
+												       placeholder="Doe"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentEmail2">Email</Label>
+												<Input type="email" name="parentEmail2"
+												       placeholder="Greg@sample.com"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<Row form>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentHomeNumber2">Home Phone Number</Label>
+												<Input type="number" name="parentHomeNumber2"
+												       placeholder="1231231238"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentWorkNumber2">Work Phone Number</Label>
+												<Input type="number" name="parentWorkNumber2"
+												       placeholder="1231231239"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="parentCellNumber2">Cell Phone Number</Label>
+												<Input type="number" name="parentCellNumber2"
+												       placeholder="1231231230"/>
+											</FormGroup>
+										</Col>
+									</Row>
+									<br/>
+									<Button>Submit Changes</Button>
+									<ReactNotification ref={this.notificationDOMRef}/>
+								</Form>
+							</CardBody>
+						</Card>
+					</Col>
+				</Row>
+			</Container>
 		);
 	}
 }
