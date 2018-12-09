@@ -354,7 +354,7 @@ public class JDBC {
             temp.add(c);
         }
 
-        System.out.println("getting list of classes " + temp);
+        //System.out.println("getting list of classes " + temp);
         conn.close();
 
         return new ClassDto(temp);
@@ -378,7 +378,7 @@ public class JDBC {
             temp.add(c);
         }
         conn.close();
-        System.out.println("getting list of classes " + temp);
+        //System.out.println("getting list of classes " + temp);
         return new ClassDto(temp);
     }
 
@@ -439,6 +439,7 @@ public class JDBC {
 
 
     public CSVDto makeCSV() throws SQLException, ClassNotFoundException{
+        System.out.println("here");
         ArrayList<ArrayList<String>> temp = new ArrayList<>();
         ArrayList<String> a = new ArrayList<>();
         a.add("level");
@@ -454,18 +455,19 @@ public class JDBC {
         Connection con = this.MakeConnection();
         ResultSet r = con.prepareStatement("SELECT * FROM class").executeQuery();
         while(r.next()){
-            a.clear();
-            a.add(r.getString(1));
-            a.add(r.getString(2));
-            a.add(r.getString(3));
-            a.add(r.getString(4));
-            a.add(r.getString(5));
-            a.add(r.getString(6));
-            a.add(r.getString(7));
-            temp.add(a);
-        }
+            ArrayList<String> b = new ArrayList<>();
 
+            b.add(r.getString(1));
+            b.add(r.getString(2));
+            b.add(r.getString(3));
+            b.add(r.getString(4));
+            b.add(r.getString(5));
+            b.add(r.getString(7));
+            b.add(r.getString(8));
+            temp.add(b);
+        }
         con.close();
+        System.out.println(temp.toString());
         return new CSVDto(temp);
     }
 
