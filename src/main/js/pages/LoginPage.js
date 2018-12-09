@@ -12,7 +12,6 @@ import * as Users from '../utils/Users';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import {loginUser} from 'js/utils/Users';
 import Cookie from 'universal-cookie';
 
 class LoginPage extends React.Component {
@@ -22,7 +21,7 @@ class LoginPage extends React.Component {
         let authTemp = {
         	'loginSuccees': false
 		};
-        const auth = myCookie.set('authentication', authTemp, {path: '/'});
+        myCookie.set('authentication', authTemp, {path: '/'});
         super(props);
 	}
 
