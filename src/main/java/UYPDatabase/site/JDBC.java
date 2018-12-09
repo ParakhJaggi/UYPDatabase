@@ -76,7 +76,7 @@ public class JDBC {
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
                 " ('"+username+"','guest');";
         rs = conn.prepareStatement(q4).executeUpdate();
-
+        System.out.println(q4);
         conn.close();
     }
 
@@ -432,6 +432,14 @@ public class JDBC {
         System.out.println(s);
         con.close();
         return new UserNameListDto(s);
+
+    }
+
+
+    public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
+        Connection con = this.MakeConnection();
+        con.prepareStatement("INSERT INTO `class` (`level`,`name`,`timeslot`,`classroom`,`teachername`,`id`,`availability `,`capacity`) VALUES" +
+                "('"+c.getLevel()+"','"+c.getName()+"','"+c.getTimeSlot()+"','"+c.getClassroom()+"','"+c.getTeacherName()+"','"+c.getId()+"','"+c.getAvailability()+"','"+c.getCapacity()+"');");
 
     }
 }
