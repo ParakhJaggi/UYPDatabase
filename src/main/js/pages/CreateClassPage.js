@@ -28,7 +28,8 @@ class CreateClassPage extends React.Component {
 				'name': null,
 				'teacherName': null,
 				'timeSlot': null,
-				'classroom': null
+				'classroom': null,
+				'capacity': null
 			}
 		};
 	}
@@ -41,6 +42,7 @@ class CreateClassPage extends React.Component {
 		this.state.classDto.teacherName = e.target.teacherName.value;
 		this.state.classDto.timeSlot = e.target.timeSlot.value;
 		this.state.classDto.classroom = e.target.classroom.value;
+		this.state.classDto.capacity = e.target.capacity.value;
 
 		Users.createClass(this.state.classDto);
 	};
@@ -99,6 +101,12 @@ class CreateClassPage extends React.Component {
 											<FormGroup>
 												<Label for="timeSlot">Timeslot</Label>
 												<Input type="time" name="timeSlot"/>
+											</FormGroup>
+										</Col>
+										<Col md={4}>
+											<FormGroup>
+												<Label for="capacity">Capacity</Label>
+												<Input type="number" name="capacity"/>
 											</FormGroup>
 										</Col>
 									</Row>

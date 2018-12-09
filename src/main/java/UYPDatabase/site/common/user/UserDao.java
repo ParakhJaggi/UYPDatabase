@@ -82,6 +82,7 @@ public class UserDao {
     }
 
     public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
+        System.out.println("i should be making a class " + c);
         new JDBC().makeClass(c);
     }
 

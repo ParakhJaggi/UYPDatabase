@@ -37,12 +37,12 @@ public class ClassEndpoint {
         userService.dropClass(username, classID);
     }
 
-    @PostMapping(value = "/create/class")
-    public void makeClass(@PathVariable ClassDto c) throws SQLException, ClassNotFoundException {
+    @PostMapping(value = "/create-class")
+    public void makeClass(@RequestBody ClassDto c) throws SQLException, ClassNotFoundException {
         userService.makeClass(c);
     }
 
-    @GetMapping(value = "/create-csv")
+    @GetMapping(value = "/get-csv")
     public CSVDto getClassCSVData() throws SQLException, ClassNotFoundException {
         return userService.getClassCSVData();
     }

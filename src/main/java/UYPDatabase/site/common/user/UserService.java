@@ -71,7 +71,7 @@ public class UserService {
     public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
         userDao.makeClass(c);
     }
-    
+
     public CSVDto getClassCSVData() throws SQLException, ClassNotFoundException {
         return userDao.getClassCSVData();
     }
