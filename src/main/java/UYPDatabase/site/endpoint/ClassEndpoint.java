@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/api/class")
@@ -38,6 +39,9 @@ public class ClassEndpoint {
     @PostMapping(value = "/make/class")
     public void makeClass(@PathVariable ClassDto c) throws SQLException, ClassNotFoundException {
         userService.makeClass(c);
+    }
 
+    public ArrayList<ArrayList<String>> getClassCSVData(){
+        return userService.getClassCSVData();
     }
 }

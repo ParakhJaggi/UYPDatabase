@@ -84,6 +84,11 @@ public class UserDao {
         new JDBC().makeClass(c);
     }
 
+    public ArrayList<ArrayList<String>> getClassCSVData() {
+        ArrayList<ArrayList<String>> temp = new ArrayList<>();
+        return temp;
+    }
+
 }
 
 
