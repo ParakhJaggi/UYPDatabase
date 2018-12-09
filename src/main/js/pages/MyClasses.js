@@ -13,9 +13,7 @@ import PropTypes from 'prop-types';
 import Cookie from 'universal-cookie';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import { CSVLink , CSVDownload} from 'react-csv';
-import * as Papa from 'papaparse';
-import DelayRender from 'js/alloy/utils/DelayRender';
+import { CSVLink} from 'react-csv';
 
 class MyClasses extends React.Component {
 
@@ -76,22 +74,6 @@ class MyClasses extends React.Component {
 		const myCookie = new Cookie();
 		const classList = myCookie.get('classList');
 		let csvList = myCookie.get('csvFile');
-		console.log('this is the current cookie render');
-		console.log(csvList);
-		let temp = Users.getClassCSVData()
-			.then(function (response) {
-				// csvList = Papa.unparse(response.csv, {
-				// 	quotes: true
-				// });
-				console.log(csvList);
-			});
-		console.log('testing');
-
-
-
-
-		//const unique = Array.from(new Set(temp.csv.map()))
-
 
 		return (
 			<div style={{marginTop: 100}}>
