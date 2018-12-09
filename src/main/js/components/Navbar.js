@@ -13,9 +13,9 @@ import {
 	Navbar,
 	Nav,
 } from 'reactstrap';
-import { Helmet } from 'react-helmet';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import {Helmet} from 'react-helmet';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faPaw} from '@fortawesome/free-solid-svg-icons';
 import * as Users from '../utils/Users';
 import Cookie from 'universal-cookie';
 import Favicon from 'react-favicon';
@@ -41,8 +41,8 @@ class NavigationBar extends React.Component {
 		const myCookie = new Cookie();
 		myCookie.remove('authentication', {path: '/'});
 		myCookie.remove('user', {path: '/'});
-        window.location.href = '/';
-    };
+		window.location.href = '/';
+	};
 
 	static checkUserStatus() {
 		const myCookie = new Cookie();
@@ -62,9 +62,9 @@ class NavigationBar extends React.Component {
 					</DropdownMenu>
 				</UncontrolledDropdown>
 
-                <NavItem>
-                    <NavLink href="#/profile-page">My Profile</NavLink>
-                </NavItem>
+				<NavItem>
+					<NavLink href="#/profile-page">My Profile</NavLink>
+				</NavItem>
 
 			</React.Fragment>;
 		} else if (myCookie.get('authentication') && myCookie.get('authentication').userType === 'admin') {
@@ -72,21 +72,20 @@ class NavigationBar extends React.Component {
 				<NavItem>
 					<NavLink href="#/create-class">Create Class</NavLink>
 				</NavItem>
-                <NavItem>
-                    <NavLink href="#/view-application">View Applications</NavLink>
-                </NavItem>
+				<NavItem>
+					<NavLink href="#/view-application">View Applications</NavLink>
+				</NavItem>
 				<NavItem>
 					<NavLink href="#/view-user">View Registered Users</NavLink>
 				</NavItem>
 
 			</React.Fragment>;
 
-		}
-		else {
-			return 	<React.Fragment>
-                <NavItem>
-                    <NavLink href="#/apply">Apply</NavLink>
-                </NavItem>
+		} else {
+			return <React.Fragment>
+				<NavItem>
+					<NavLink href="#/apply">Apply</NavLink>
+				</NavItem>
 				<NavItem>
 					<NavLink href="#/login">Login</NavLink>
 				</NavItem>
@@ -97,20 +96,20 @@ class NavigationBar extends React.Component {
 	render() {
 		return (
 			<Navbar fixed="top" color="dark" dark expand="md" style={{listStyleType: 'none'}}>
-				<Favicon url="https://imgur.com/AzPIQVM.png" />
+				<Favicon url="https://imgur.com/AzPIQVM.png"/>
 				<Helmet>
 					<title>UYP</title>
 				</Helmet>
 
 				<NavbarBrand href="/">
-					<img src={logo} />&nbsp;
+					<img src={logo}/>&nbsp;
 					UYP
 				</NavbarBrand>
 
-				<NavbarToggler onClick={this.toggle} />
+				<NavbarToggler onClick={this.toggle}/>
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
-                        {NavigationBar.checkUserStatus()}
+						{NavigationBar.checkUserStatus()}
 						{_.isDefined(this.props.user) &&
 						<NavItem>
 							<NavLink onClick={this.logout} href="#">Logout</NavLink>
