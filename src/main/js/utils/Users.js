@@ -8,19 +8,19 @@ import Cookie from 'universal-cookie';
 import axios from 'axios';
 
 /* Functions so far... */
-export function applyForWeb(guest){
+export function applyForWeb(guest) {
 	console.log('using is trying to apply!');
 	return axios.post('/api/guest/apply', guest);
 }
 
-export function loginUser(username, password){
-    console.log('user is trying to login with ' + username +' ' + password);
-    return axios.get('api/user/login/' + username + '/' + password);
+export function loginUser(username, password) {
+	console.log('user is trying to login with ' + username + ' ' + password);
+	return axios.get('api/user/login/' + username + '/' + password);
 }
 
 export function getUserDetails(username) {
 	console.log('user is trying to get user details for ' + username);
-    return axios.get('/api/user/details/' + username);
+	return axios.get('/api/user/details/' + username);
 }
 
 export function getUserExtraDetails(username) {
@@ -28,73 +28,71 @@ export function getUserExtraDetails(username) {
 	return axios.get('/api/user/extra/details/' + username);
 }
 
-export function updateUserDetails(user){
-    console.log('user has just requested their profile to be updated with this info');
+export function updateUserDetails(user) {
+	console.log('user has just requested their profile to be updated with this info');
 	return axios.post('/api/user/update-profile', user);
 }
 
-export function getApplicants(){
+export function getApplicants() {
 	console.log('user is trying to get a list of all possible applicants');
 	return axios.get('/api/user/possible-applicants');
 }
 
-export function acceptApplicant(username, authorizedPerson){
+export function acceptApplicant(username, authorizedPerson) {
 	console.log('user is trying to accept applicant');
 	return axios.post('/api/user/accept/' + username + '/' + authorizedPerson);
 }
 
-export function getApplicant(username){
+export function getApplicant(username) {
 	console.log('user is trying to get applicant details');
 	return axios.get('/api/user/applicant/' + username);
 }
 
-export function updateApplicant(userInfo){
+export function updateApplicant(userInfo) {
 	console.log('user has entered acceptance info');
 	return axios.post('/api/user/applicant-submit-info/', userInfo);
 }
 
-export function getNotMyClasses(username){
+export function getNotMyClasses(username) {
 	console.log('user is getting all of the classes');
 	return axios.get('/api/class/not/' + username);
 }
 
-export function getMyClasses(username){
+export function getMyClasses(username) {
 	console.log('user is getting all of the classes for a particular user');
 	return axios.get('/api/class/my/' + username);
 }
 
-export function registerClass(username, classID){
+export function registerClass(username, classID) {
 	return axios.post('/api/class/register/' + username + '/' + classID);
 }
 
-export function dropClass(username, classID){
+export function dropClass(username, classID) {
 	return axios.post('/api/class/drop/' + username + '/' + classID);
 }
 
-export function getRegisteredUsers(){
+export function getRegisteredUsers() {
 	console.log('getting a list of registered users');
 	return axios.get('/api/user/list-of-users');
 }
 
-export function createClass(classDto){
+export function createClass(classDto) {
 	console.log('admin is creating a class');
 	return axios.post('api/class/create-class', classDto);
 }
 
-export function getClassCSVData(){
+export function getClassCSVData() {
 	return axios.get('api/class/get-csv');
 }
+
 /* Functions so far... */
-
-
-
 
 
 export function register(user) {
 	return axios.post('/api/user/register', user);
 }
 
-export function registerPet(pet){
+export function registerPet(pet) {
 	return axios.post('/api/pets/add-pet', pet)
 		.then(function (response) {
 			console.log(response);
@@ -104,33 +102,33 @@ export function registerPet(pet){
 		});
 }
 
-export function getPets(principal){
+export function getPets(principal) {
 	console.log(principal);
 	console.log('GETTING PETS AGAIN!!!');
 	return axios.get('/api/pets/get-pets/' + principal);
 }
 
 //used for editing pet
-export function getOnePet(principal, name){
+export function getOnePet(principal, name) {
 	console.log('In the User.js with ' + name + ' with principal ' + principal);
 
 	return axios.get('/api/pets/' + principal + '/' + name);
 }
 
-export function updatePet(pet){
+export function updatePet(pet) {
 	return axios.post('/api/pets/edit-pet/', pet);
 }
 
-export function deletePet(principal, name){
+export function deletePet(principal, name) {
 	console.log(name);
 	return axios.post('/api/pets/delete-pet/' + principal + '/' + name);
 }
 
 
-export function postJob(job){
+export function postJob(job) {
 	console.log('this is from the axios call, this is the job object');
 	console.log(job);
-	return axios.post('api/jobs/post-job' , job)
+	return axios.post('api/jobs/post-job', job)
 
 		.then(function (response) {
 			console.log(response);
@@ -140,12 +138,12 @@ export function postJob(job){
 		});
 }
 
-export function getJob(id){
+export function getJob(id) {
 	console.log('getting a job with id ' + id);
 	return axios.get('api/jobs/get-job/' + id);
 }
 
-export function updateJobDetails(frontEndJob){
+export function updateJobDetails(frontEndJob) {
 	let backEndJob;
 	getJob(frontEndJob.jobID)
 		.then(function (response) {
@@ -172,25 +170,25 @@ export function updateJobDetails(frontEndJob){
 				'preferences': backEndJob.preferences
 			};
 
-			if(job.sitterPrincipal == null && frontEndJob.sitterPrincipal != null)
+			if (job.sitterPrincipal == null && frontEndJob.sitterPrincipal != null)
 				job.sitterPrincipal = frontEndJob.sitterPrincipal;
 
 			console.log('this should send an accepted job to back end');
 			console.log(job);
 
-			return axios.post('api/jobs/update-job' , job);
+			return axios.post('api/jobs/update-job', job);
 		})
 		.catch(function (error) {
 			console.log(error);
 		});
 }
 
-export function quitJob(jobID, id){
+export function quitJob(jobID, id) {
 	console.log('quitting the job with ids ' + jobID + ' ' + id);
 	return axios.post('/api/jobs/quit-job/' + jobID + '/' + id);
 }
 
-export function updateUser(user){
+export function updateUser(user) {
 	console.log('we are now calling an axios post');
 	console.log(user);
 	let newUser = {
@@ -243,10 +241,10 @@ export function updateUser(user){
 // 	);
 // }
 
-export function getSitterInfo(principal){
+export function getSitterInfo(principal) {
 	console.log('trying to get sitter info with principal ' + principal);
-	principal = principal.replace('@','%40');
-	principal = principal.replace('.','*');
+	principal = principal.replace('@', '%40');
+	principal = principal.replace('.', '*');
 	console.log('trying to get sitter info with principal ' + principal);
 	return axios.get('/api/user/sitter/' + principal);
 }
@@ -267,7 +265,7 @@ State.getApplicants = state => {
 };
 
 
-export { State };
+export {State};
 
 let Actions = {};
 
@@ -304,8 +302,8 @@ Actions.authenticate = (username, password) => {
 	return (dispatch) => {
 		return loginUser(username, password).then(
 			response => {
-                const myCookie = new Cookie();
-                myCookie.set('authentication', response, {path: '/'});
+				const myCookie = new Cookie();
+				myCookie.set('authentication', response, {path: '/'});
 
 				return getUserDetails(username).then(user => {
 					console.log('this is the user i am setting for props');
@@ -318,11 +316,11 @@ Actions.authenticate = (username, password) => {
 };
 
 Actions.updateUserDetails = (user) => {
-    console.log('I am updating front end to the newest user!!');
-    console.log(user);
-    return (dispatch) => {
-    	dispatch(Actions.setUser(user));
-    };
+	console.log('I am updating front end to the newest user!!');
+	console.log(user);
+	return (dispatch) => {
+		dispatch(Actions.setUser(user));
+	};
 };
 
 Actions.getUserDetails = (username) => {
@@ -361,7 +359,7 @@ Actions.setApplicant = applicants => {
 	return {type: Actions.Types.SET_APPLICANTS, applicants};
 };
 
-export { Actions };
+export {Actions};
 
 let Reducers = {};
 
@@ -388,4 +386,4 @@ Reducers.user = (user = null, action) => {
 };
 
 
-export { Reducers };
+export {Reducers};

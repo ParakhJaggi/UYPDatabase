@@ -17,16 +17,16 @@ import Cookie from 'universal-cookie';
 class LoginPage extends React.Component {
 
 	constructor(props) {
-        const myCookie = new Cookie();
-        let authTemp = {
-        	'loginSuccees': false
+		const myCookie = new Cookie();
+		let authTemp = {
+			'loginSuccees': false
 		};
-        myCookie.set('authentication', authTemp, {path: '/'});
-        super(props);
+		myCookie.set('authentication', authTemp, {path: '/'});
+		super(props);
 	}
 
 	onSubmit = ({username, password}) => {
-		this.props.authenticate(username,password)
+		this.props.authenticate(username, password)
 			.then(function () {
 				window.location.href = '/';
 			})
@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
 
 
 	render() {
-		let { handleSubmit } = this.props;
+		let {handleSubmit} = this.props;
 
 		return (
 			<div style={{marginTop: 100}} className='center'>
@@ -48,12 +48,14 @@ class LoginPage extends React.Component {
 						<CardBody>
 							<form name='form' onSubmit={handleSubmit(form => this.onSubmit(form))}>
 								<Bessemer.Field name='username' friendlyName='Username'
-												validators={[Validation.requiredValidator]}
-												field={<input className='form-control' type='text' placeholder='JohnDoe123' /> }/>
+								                validators={[Validation.requiredValidator]}
+								                field={<input className='form-control' type='text'
+								                              placeholder='JohnDoe123'/>}/>
 
 								<Bessemer.Field name='password' friendlyName='Password'
-												validators={[Validation.requiredValidator, Validation.passwordValidator]}
-												field={<input className='form-control' type='password' placeholder='Password' />} />
+								                validators={[Validation.requiredValidator, Validation.passwordValidator]}
+								                field={<input className='form-control' type='password'
+								                              placeholder='Password'/>}/>
 
 								<Bessemer.Button>Sign In</Bessemer.Button>
 							</form>
