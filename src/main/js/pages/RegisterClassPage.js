@@ -59,7 +59,7 @@ class ViewApplicationPage extends React.Component {
 												<Col md={12}>
 													<FormGroup>
 														<Label for="id">Enter Class ID to regiser</Label>
-														<Input type="text" name="id"
+														<Input type="number" name="id"
 														       placeholder= "Class ID"/>
 													</FormGroup>
 												</Col>

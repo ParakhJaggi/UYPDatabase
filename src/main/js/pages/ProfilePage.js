@@ -10,7 +10,7 @@ import {
 	Card,
 	Form,
 	Row,
-	Col,
+	Col, CustomInput,
 } from 'reactstrap';
 import * as Users from '../utils/Users';
 import connect from 'react-redux/es/connect/connect';
@@ -88,7 +88,7 @@ class ProfilePage extends React.Component {
 										<Col md={12}>
 											<FormGroup>
 												<Label for="principal">Email</Label>
-												<Input type="text" name="principal"
+												<Input type="email" name="principal"
 												       placeholder={this.props.user.principal}
 												       defaultValue={this.props.user.principal}/>
 											</FormGroup>
@@ -140,7 +140,7 @@ class ProfilePage extends React.Component {
 										<Col md={5}>
 											<FormGroup>
 												<Label for="phoneNumber">Phone Number</Label>
-												<Input type="text" name="phoneNumber"
+												<Input type="number" name="phoneNumber"
 												       placeholder={this.props.user.phoneNumber}
 												       defaultValue={this.props.user.phoneNumber}/>
 											</FormGroup>
@@ -149,7 +149,7 @@ class ProfilePage extends React.Component {
 
 									<FormGroup>
 										<Label for="addressLine">Address</Label>
-										<Input type="text" name="addressLine"
+										<Input type="number" name="addressLine"
 										       placeholder={this.props.user.addressLine}
 										       defaultValue={this.props.user.addressLine}/>
 									</FormGroup>
@@ -174,7 +174,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="zip">Zip</Label>
-												<Input type="text" name="zip"
+												<Input type="number" name="zip"
 												       placeholder={this.props.user.zip}
 												       defaultValue={this.props.user.zip}/>
 											</FormGroup>
@@ -184,7 +184,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="birthday">Birthday</Label>
-												<Input type="text" name="birthday"
+												<Input type="date" name="birthday"
 												       placeholder={this.props.user.birthday}
 												       defaultValue={this.props.user.birthday}/>
 											</FormGroup>
@@ -220,17 +220,25 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="graduationYear">Expected graduation year</Label>
-												<Input type="text" name="graduationYear"
+												<Input type="number" name="graduationYear"
 												       placeholder={this.props.user.graduationYear}
 												       defaultValue={this.props.user.graduationYear}/>
 											</FormGroup>
 										</Col>
 										<Col md={4}>
 											<FormGroup>
-												<Label for="grade">Expected Grade</Label>
-												<Input type="text" name="grade"
-												       placeholder={this.props.user.grade}
-												       defaultValue={this.props.user.grade}/>
+												<Label for="grade">Expected Grade Level</Label>
+												<CustomInput type="select" id="grade" name="grade">
+													<option value="4">4</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+													<option value="10">10</option>
+													<option value="11">11</option>
+													<option value="12">12</option>
+												</CustomInput>
 											</FormGroup>
 										</Col>
 									</Row>
@@ -239,9 +247,13 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="gtAcceptance">Accepted to a school-based GT program?</Label>
-												<Input type="text" name="gtAcceptance"
-												       placeholder={this.props.user.gtAcceptance}
-												       defaultValue={this.props.user.gtAcceptance}/>
+												<CustomInput type="select" id="level" name="level">
+													<option value="yes">Yes</option>
+													<option value="no">No</option>
+													<option value="unsure">Unsure</option>
+
+
+												</CustomInput>
 											</FormGroup>
 										</Col>
 										<Col md={4}>
@@ -283,7 +295,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentEmail">Email</Label>
-												<Input type="text" name="parentEmail"
+												<Input type="email" name="parentEmail"
 												       placeholder={this.props.user.parentEmail}
 												       defaultValue={this.props.user.parentEmail}/>
 											</FormGroup>
@@ -293,7 +305,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentHomeNumber">Home Phone Number</Label>
-												<Input type="text" name="parentHomeNumber"
+												<Input type="number" name="parentHomeNumber"
 												       placeholder={this.props.user.parentHomeNumber}
 												       defaultValue={this.props.user.parentHomeNumber}/>
 											</FormGroup>
@@ -301,7 +313,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentWorkNumber">Work Phone Number</Label>
-												<Input type="text" name="parentWorkNumber"
+												<Input type="number" name="parentWorkNumber"
 												       placeholder={this.props.user.parentWorkNumber}
 												       defaultValue={this.props.user.parentWorkNumber}/>
 											</FormGroup>
@@ -309,7 +321,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentCellNumber">Cell Phone Number</Label>
-												<Input type="text" name="parentCellNumber"
+												<Input type="number" name="parentCellNumber"
 												       placeholder={this.props.user.parentCellNumber}
 												       defaultValue={this.props.user.parentCellNumber}/>
 											</FormGroup>
@@ -338,7 +350,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentEmail2">Email</Label>
-												<Input type="text" name="parentEmail2"
+												<Input type="email" name="parentEmail2"
 												       placeholder={this.props.user.parentEmail2}
 												       defaultValue={this.props.user.parentEmail2}/>
 											</FormGroup>
@@ -348,7 +360,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentHomeNumber2">Home Phone Number</Label>
-												<Input type="text" name="parentHomeNumber2"
+												<Input type="number" name="parentHomeNumber2"
 												       placeholder={this.props.user.parentHomeNumber2}
 												       defaultValue={this.props.user.parentHomeNumber2}/>
 											</FormGroup>
@@ -356,7 +368,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentWorkNumber2">Work Phone Number</Label>
-												<Input type="text" name="parentWorkNumber2"
+												<Input type="number" name="parentWorkNumber2"
 												       placeholder={this.props.user.parentWorkNumber2}
 												       defaultValue={this.props.user.parentWorkNumber2}/>
 											</FormGroup>
@@ -364,7 +376,7 @@ class ProfilePage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="parentCellNumber2">Cell Phone Number</Label>
-												<Input type="text" name="parentCellNumber2"
+												<Input type="number" name="parentCellNumber2"
 												       placeholder={this.props.user.parentCellNumber2}
 												       defaultValue={this.props.user.parentCellNumber2}/>
 											</FormGroup>
