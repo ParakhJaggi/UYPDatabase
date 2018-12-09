@@ -143,7 +143,7 @@ class MyClasses extends React.Component {
 							className="btn btn-primary"
 							target="_blank"
 						>
-							Download me
+							Download the full student schedule!
 						</CSVLink>
 					</Card>
 				</React.Fragment>
