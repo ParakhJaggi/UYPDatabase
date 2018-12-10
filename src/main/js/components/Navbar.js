@@ -33,6 +33,12 @@ export function addNotification(message) {
 	});
 }
 
+export function successNotification(message) {
+	toast.success(message, {
+		position: toast.POSITION.TOP_CENTER
+	});
+}
+
 // @TODO Set isOpen state to false when link is clicked (user is redirected) Maybe? Consider it.
 class NavigationBar extends React.Component {
 

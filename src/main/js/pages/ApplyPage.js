@@ -80,7 +80,8 @@ class ApplyPage extends React.Component {
 			'parentEmail2': e.target.parentEmail2.value,
 			'parentHomeNumber2': e.target.parentHomeNumber2.value,
 			'parentWorkNumber2': e.target.parentWorkNumber2.value,
-			'parentCellNumber2': e.target.parentCellNumber2.value
+			'parentCellNumber2': e.target.parentCellNumber2.value,
+			'password': e.target.password.value
 		};
 
 		console.log(newUser);
@@ -92,8 +93,6 @@ class ApplyPage extends React.Component {
 			this.addNotification();
 		}
 		console.log(newUser);
-
-		//return window.location.href = '/#/';
 	}
 
 	render() {
@@ -241,15 +240,9 @@ class ApplyPage extends React.Component {
 											<FormGroup>
 												<Label for="grade">Expected Grade Level</Label>
 												<CustomInput type="select" id="grade" name="grade">
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
+													<option value="1">4-5</option>
+													<option value="2">6-8</option>
+													<option value="3">9-12</option>
 												</CustomInput>
 											</FormGroup>
 										</Col>

@@ -114,6 +114,8 @@ class MyClasses extends React.Component {
 									<th>Teacher</th>
 									<th>Classroom</th>
 									<th>Timeslot</th>
+									<th>Availability</th>
+									<th>Capacity</th>
 									<th> </th>
 								</tr>
 								</thead>

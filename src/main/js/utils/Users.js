@@ -7,11 +7,15 @@
 import Cookie from 'universal-cookie';
 import axios from 'axios';
 import {addNotification} from '../components/Navbar';
+import {successNotification} from 'js/components/Navbar';
 
 /* Functions so far... */
 export function applyForWeb(guest) {
 	console.log('using is trying to apply!');
 	return axios.post('/api/guest/apply', guest)
+		.then(() => {
+			successNotification('Application Succussful!');
+		})
 		.catch(error => {
 			addNotification('Invalid input in the form, please verify the information!');
 			return new Error('test');
@@ -40,6 +44,9 @@ export function getUserExtraDetails(username) {
 export function updateUserDetails(user) {
 	console.log('user has just requested their profile to be updated with this info');
 	return axios.post('/api/user/update-profile', user)
+		.then(() => {
+			successNotification('Profile Updated!');
+		})
 		.catch(error => {
 			addNotification('Invalid input in the form, please verify the information!');
 			return new Error('test');
@@ -68,6 +75,9 @@ export function getApplicant(username) {
 export function updateApplicant(userInfo) {
 	console.log('user has entered acceptance info');
 	return axios.post('/api/user/applicant-submit-info/', userInfo)
+		.then(() => {
+			successNotification('Update Successful!');
+		})
 		.catch(error => {
 			addNotification('Invalid input in the from, please verify the information!');
 			return new Error('test');
@@ -86,6 +96,9 @@ export function getMyClasses(username) {
 
 export function registerClass(username, classID) {
 	return axios.post('/api/class/register/' + username + '/' + classID)
+		.then(() => {
+			successNotification('Registered for the class!');
+		})
 		.catch(error => {
 			addNotification('Invalid class, please verify the information!');
 			return new Error('test');
@@ -93,7 +106,14 @@ export function registerClass(username, classID) {
 }
 
 export function dropClass(username, classID) {
-	return axios.post('/api/class/drop/' + username + '/' + classID);
+	return axios.post('/api/class/drop/' + username + '/' + classID)
+		.then(() => {
+			successNotification('Dropped the Class!');
+		})
+		.catch(error => {
+			addNotification('Invalid class, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function getRegisteredUsers() {
@@ -104,6 +124,9 @@ export function getRegisteredUsers() {
 export function createClass(classDto) {
 	console.log('admin is creating a class');
 	return axios.post('api/class/create-class', classDto)
+		.then(() => {
+			successNotification('Class Created!');
+		})
 		.catch(error => {
 			addNotification('Invalid input in the from, please verify the information!');
 			return new Error('test');
@@ -159,7 +182,8 @@ Actions.authenticate = (username, password) => {
 			response => {
 				const myCookie = new Cookie();
 				myCookie.set('authentication', response, {path: '/'});
-
+				console.log('the auth cookie is');
+				console.log(response);
 				return getUserDetails(username).then(user => {
 					console.log('this is the user i am setting for props');
 					console.log(user);

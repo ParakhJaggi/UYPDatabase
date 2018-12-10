@@ -237,7 +237,7 @@ public class JDBC {
 
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        int rs = conn.prepareStatement("UPDATE Student SET firstname = '" + user.getFirstName() + "', middleinitial = '" + user.getMiddleInitial() + "' , lastname = '" + user.getLastName() + "', suffix = '" + user.getSuffix() + "' ,nameprefered = '" + user.getPreferredName() + "' , address = '" + user.getAddressLine() + "' , city = '" + user.getCity() + "' , state = '" + user.getState() + "' , zip = '" + user.getZip() + "' , birthdate = '" + user.getBirthday() + "' , gender = '" + user.getGender() + "', race = '" + user.getEthnicity() + "', graduationyear = '" + user.getGraduationYear() + "' , email = '" + user.getPrincipal() + "' , phonenumber = '" + user.getPhoneNumber() + "' ,sibling = '" + user.getSibling() + "' , previousschool = '" + user.getPrevSchool() + "' , grade = '" + user.getGrade() + "' , parent1firstname = '+" + user.getParentFirstName() + "', parent1lastname = '" + user.getParentLastName() + "' , parent2firstname = '" + user.getParentFirstName2() + "', parent2lastname = '" + user.getParentLastName2() + "' , gtacceptance = '" + user.getGtAcceptance() + "' ,expectedschool = '" + user.getExpectedSchool() + "'  WHERE username = '" + user.getUsername() + "';").executeUpdate();
+        int rs = conn.prepareStatement("UPDATE Student SET firstname = '" + user.getFirstName() + "', middleinitial = '" + user.getMiddleInitial() + "' , lastname = '" + user.getLastName() + "', suffix = '" + user.getSuffix() + "' ,nameprefered = '" + user.getPreferredName() + "' , address = '" + user.getAddressLine() + "' , city = '" + user.getCity() + "' , state = '" + user.getState() + "' , zip = '" + user.getZip() + "' , birthdate = '" + user.getBirthday() + "' , gender = '" + user.getGender() + "', race = '" + user.getEthnicity() + "', graduationyear = '" + user.getGraduationYear() + "' , email = '" + user.getPrincipal() + "' , phonenumber = '" + user.getPhoneNumber() + "' ,sibling = '" + user.getSibling() + "' , previousschool = '" + user.getPrevSchool() + "' , grade = '" + user.getGrade() + "' , parent1firstname = '" + user.getParentFirstName() + "', parent1lastname = '" + user.getParentLastName() + "' , parent2firstname = '" + user.getParentFirstName2() + "', parent2lastname = '" + user.getParentLastName2() + "' , gtacceptance = '" + user.getGtAcceptance() + "' ,expectedschool = '" + user.getExpectedSchool() + "'  WHERE username = '" + user.getUsername() + "';").executeUpdate();
         conn.close();
 
     }
@@ -251,6 +251,7 @@ public class JDBC {
         String pass = rs.getString(1);
         String first = rs.getString(2);
         String last = rs.getString(3);
+        System.out.println("");
         boolean loggedin = (pass.equals(password));
         if (loggedin) {
             ResultSet rs2 = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = '" + username + "'").executeQuery();
@@ -266,7 +267,9 @@ public class JDBC {
 
         }
         conn.close();
-        return new LoginDto("", "", "", false);
+        //return new LoginDto("", "", "", false);
+        SQLException error = new SQLException();
+        throw error;
 
 
     }

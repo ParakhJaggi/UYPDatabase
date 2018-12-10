@@ -149,7 +149,7 @@ class ProfilePage extends React.Component {
 
 									<FormGroup>
 										<Label for="addressLine">Address</Label>
-										<Input type="number" name="addressLine"
+										<Input type="text" name="addressLine"
 										       placeholder={this.props.user.addressLine}
 										       defaultValue={this.props.user.addressLine}/>
 									</FormGroup>
@@ -229,15 +229,9 @@ class ProfilePage extends React.Component {
 											<FormGroup>
 												<Label for="grade">Expected Grade Level</Label>
 												<CustomInput type="select" id="grade" name="grade">
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
+													<option value="1">4-5</option>
+													<option value="2">6-8</option>
+													<option value="3">9-12</option>
 												</CustomInput>
 											</FormGroup>
 										</Col>
