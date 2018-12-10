@@ -22,8 +22,22 @@ import Favicon from 'react-favicon';
 import logo from '../logo.png';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
+import {toast, ToastContainer} from 'react-toastify';
+
 
 library.add(faPaw);
+
+export function addNotification(message) {
+	toast.error(message, {
+		position: toast.POSITION.TOP_CENTER
+	});
+}
+
+export function successNotification(message) {
+	toast.success(message, {
+		position: toast.POSITION.TOP_CENTER
+	});
+}
 
 // @TODO Set isOpen state to false when link is clicked (user is redirected) Maybe? Consider it.
 class NavigationBar extends React.Component {
@@ -34,6 +48,7 @@ class NavigationBar extends React.Component {
 		this.state = {
 			isOpen: false
 		};
+
 	}
 
 	logout = () => {
@@ -106,6 +121,8 @@ class NavigationBar extends React.Component {
 					UYP
 				</NavbarBrand>
 
+
+
 				<NavbarToggler onClick={this.toggle}/>
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
@@ -116,6 +133,7 @@ class NavigationBar extends React.Component {
 						</NavItem>}
 					</Nav>
 				</Collapse>
+				<ToastContainer/>
 			</Navbar>
 		);
 	}

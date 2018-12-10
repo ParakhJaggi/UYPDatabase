@@ -6,7 +6,7 @@ import {
 	Table,
 	Col, FormGroup, Label, Input, Row, Card, CardBody, Form,
 } from 'reactstrap';
-import {getApplicants, getOnePet} from 'js/utils/Users';
+import {getApplicants} from 'js/utils/Users';
 import * as Users from 'js/utils/Users';
 import * as ReduxForm from 'redux-form';
 import PropTypes from 'prop-types';

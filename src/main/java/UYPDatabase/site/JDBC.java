@@ -359,6 +359,7 @@ public class JDBC {
         String pass = rs.getString(1);
         String first = rs.getString(2);
         String last = rs.getString(3);
+        System.out.println("");
         boolean loggedin = (pass.equals(password));
         if (loggedin) {
             p = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = ?");
@@ -376,7 +377,9 @@ public class JDBC {
 
         }
         conn.close();
-        return new LoginDto("", "", "", false);
+        //return new LoginDto("", "", "", false);
+        SQLException error = new SQLException();
+        throw error;
 
 
     }

@@ -30,6 +30,8 @@ class AcceptedApplicantPage extends React.Component {
 		this.state = {
 			applicant: currentApplicant
 		};
+		console.log('this is the accepted variable');
+		console.log(this.state.applicant.yearAccepted);
 	}
 
 	handleSubmit(e){
@@ -240,9 +242,11 @@ class AcceptedApplicantPage extends React.Component {
 										<Col md={4}>
 											<FormGroup>
 												<Label for="grade">Expected Grade</Label>
-												<Input type="text" name="grade"
-												       placeholder={this.state.applicant.grade}
-												       defaultValue={this.state.applicant.grade}/>
+												<CustomInput type="select" id="grade" name="grade">
+													<option value="1">4-5</option>
+													<option value="2">6-8</option>
+													<option value="3">9-12</option>
+												</CustomInput>
 											</FormGroup>
 										</Col>
 									</Row>
@@ -388,8 +392,8 @@ class AcceptedApplicantPage extends React.Component {
 											<FormGroup>
 												<Label for="yearAccepted">Year Accepted</Label>
 												<Input type="text" name="yearAccepted"
-												       placeholder={this.state.applicant.yearaccepted}
-												       defaultValue={this.state.applicant.yearaccepted}/>
+												       placeholder={this.state.applicant.yearAccepted}
+												       defaultValue={this.state.applicant.yearAccepted}/>
 											</FormGroup>
 										</Col>
 										<Col md={4}>

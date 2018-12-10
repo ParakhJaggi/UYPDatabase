@@ -17,7 +17,6 @@ import * as Users from 'js/utils/Users';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import ReactNotification from 'react-notifications-component';
 
 
 // @TODO Add some sort of validation for if principal is already taken
@@ -26,10 +25,7 @@ class ApplyPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			value: null,
-			label: null
-		};
+		this.state = {};
 
 		this.addNotification = this.addNotification.bind(this);
 		this.notificationDOMRef = React.createRef();
@@ -84,7 +80,10 @@ class ApplyPage extends React.Component {
 			'parentEmail2': e.target.parentEmail2.value,
 			'parentHomeNumber2': e.target.parentHomeNumber2.value,
 			'parentWorkNumber2': e.target.parentWorkNumber2.value,
-			'parentCellNumber2': e.target.parentCellNumber2.value
+			'parentCellNumber2': e.target.parentCellNumber2.value,
+			'password': e.target.password.value,
+			'state': e.target.state.value
+
 		};
 
 		console.log(newUser);
@@ -96,8 +95,6 @@ class ApplyPage extends React.Component {
 			this.addNotification();
 		}
 		console.log(newUser);
-
-		//return window.location.href = '/#/';
 	}
 
 	render() {
@@ -175,7 +172,7 @@ class ApplyPage extends React.Component {
 
 									<FormGroup>
 										<Label for="addressLine">Address</Label>
-										<Input type="number" name="addressLine" required
+										<Input type="text" name="addressLine" required
 										       placeholder="1001 Main St"/>
 									</FormGroup>
 
@@ -245,15 +242,9 @@ class ApplyPage extends React.Component {
 											<FormGroup>
 												<Label for="grade">Expected Grade Level</Label>
 												<CustomInput type="select" id="grade" name="grade">
-													<option value="4">4</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
+													<option value="1">4-5</option>
+													<option value="2">6-8</option>
+													<option value="3">9-12</option>
 												</CustomInput>
 											</FormGroup>
 										</Col>
@@ -386,7 +377,6 @@ class ApplyPage extends React.Component {
 									</Row>
 									<br/>
 									<Button>Submit Changes</Button>
-									<ReactNotification ref={this.notificationDOMRef}/>
 								</Form>
 							</CardBody>
 						</Card>
