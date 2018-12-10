@@ -133,8 +133,8 @@ export function createClass(classDto) {
 		});
 }
 
-export function getClassCSVData() {
-	return axios.get('api/class/get-csv');
+export function getClassCSVData(username) {
+	return axios.get('api/class/get-csv/' + username);
 }
 
 /* Functions so far... */

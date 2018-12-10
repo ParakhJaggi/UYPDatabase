@@ -42,9 +42,10 @@ public class ClassEndpoint {
         userService.makeClass(c);
     }
 
-    @GetMapping(value = "/get-csv")
-    public ArrayList<ArrayList<String>> getClassCSVData() throws SQLException, ClassNotFoundException {
-        System.out.println(userService.getClassCSVData());
-        return userService.getClassCSVData();
+    @GetMapping(value = "/get-csv/{username}")
+    public ArrayList<ArrayList<String>> getClassCSVData(@PathVariable("username") String username) throws SQLException, ClassNotFoundException {
+        return userService.getClassCSVData(username);
     }
+
+
 }

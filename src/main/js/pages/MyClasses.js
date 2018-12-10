@@ -35,7 +35,7 @@ class MyClasses extends React.Component {
 		};
 
 
-		getClassCSVData()
+		getClassCSVData(this.props.user.username)
 			.then(function (response) {
 				console.log(response);
 				const myCookie = new Cookie();
