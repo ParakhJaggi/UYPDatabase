@@ -6,19 +6,25 @@
 
 import Cookie from 'universal-cookie';
 import axios from 'axios';
+import {addNotification} from '../components/Navbar';
 
 /* Functions so far... */
 export function applyForWeb(guest) {
 	console.log('using is trying to apply!');
 	return axios.post('/api/guest/apply', guest)
 		.catch(error => {
+			addNotification('Invalid input in the form, please verify the information!');
 			return new Error('test');
 		});
 }
 
 export function loginUser(username, password) {
 	console.log('user is trying to login with ' + username + ' ' + password);
-	return axios.get('api/user/login/' + username + '/' + password);
+	return axios.get('api/user/login/' + username + '/' + password)
+		.catch(error => {
+			addNotification('Invalid login, please try again!');
+			return new Error('test');
+		});
 }
 
 export function getUserDetails(username) {
@@ -33,7 +39,11 @@ export function getUserExtraDetails(username) {
 
 export function updateUserDetails(user) {
 	console.log('user has just requested their profile to be updated with this info');
-	return axios.post('/api/user/update-profile', user);
+	return axios.post('/api/user/update-profile', user)
+		.catch(error => {
+			addNotification('Invalid input in the form, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function getApplicants() {
@@ -43,7 +53,11 @@ export function getApplicants() {
 
 export function acceptApplicant(username, authorizedPerson) {
 	console.log('user is trying to accept applicant');
-	return axios.post('/api/user/accept/' + username + '/' + authorizedPerson);
+	return axios.post('/api/user/accept/' + username + '/' + authorizedPerson)
+		.catch(error => {
+			addNotification('Invalid input in the form, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function getApplicant(username) {
@@ -53,7 +67,11 @@ export function getApplicant(username) {
 
 export function updateApplicant(userInfo) {
 	console.log('user has entered acceptance info');
-	return axios.post('/api/user/applicant-submit-info/', userInfo);
+	return axios.post('/api/user/applicant-submit-info/', userInfo)
+		.catch(error => {
+			addNotification('Invalid input in the from, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function getNotMyClasses(username) {
@@ -67,7 +85,11 @@ export function getMyClasses(username) {
 }
 
 export function registerClass(username, classID) {
-	return axios.post('/api/class/register/' + username + '/' + classID);
+	return axios.post('/api/class/register/' + username + '/' + classID)
+		.catch(error => {
+			addNotification('Invalid class, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function dropClass(username, classID) {
@@ -81,7 +103,11 @@ export function getRegisteredUsers() {
 
 export function createClass(classDto) {
 	console.log('admin is creating a class');
-	return axios.post('api/class/create-class', classDto);
+	return axios.post('api/class/create-class', classDto)
+		.catch(error => {
+			addNotification('Invalid input in the from, please verify the information!');
+			return new Error('test');
+		});
 }
 
 export function getClassCSVData() {
@@ -90,167 +116,6 @@ export function getClassCSVData() {
 
 /* Functions so far... */
 
-
-export function register(user) {
-	return axios.post('/api/user/register', user);
-}
-
-export function registerPet(pet) {
-	return axios.post('/api/pets/add-pet', pet)
-		.then(function (response) {
-			console.log(response);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
-
-export function getPets(principal) {
-	console.log(principal);
-	console.log('GETTING PETS AGAIN!!!');
-	return axios.get('/api/pets/get-pets/' + principal);
-}
-
-//used for editing pet
-export function getOnePet(principal, name) {
-	console.log('In the User.js with ' + name + ' with principal ' + principal);
-
-	return axios.get('/api/pets/' + principal + '/' + name);
-}
-
-export function updatePet(pet) {
-	return axios.post('/api/pets/edit-pet/', pet);
-}
-
-export function deletePet(principal, name) {
-	console.log(name);
-	return axios.post('/api/pets/delete-pet/' + principal + '/' + name);
-}
-
-
-export function postJob(job) {
-	console.log('this is from the axios call, this is the job object');
-	console.log(job);
-	return axios.post('api/jobs/post-job', job)
-
-		.then(function (response) {
-			console.log(response);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
-
-export function getJob(id) {
-	console.log('getting a job with id ' + id);
-	return axios.get('api/jobs/get-job/' + id);
-}
-
-export function updateJobDetails(frontEndJob) {
-	let backEndJob;
-	getJob(frontEndJob.jobID)
-		.then(function (response) {
-			backEndJob = response;
-			console.log('this is what backendJob looks like');
-			console.log(backEndJob);
-
-			let job = {
-				'id': backEndJob.id,
-				'jobID': backEndJob.jobID,
-				'ownerPrincipal': backEndJob.ownerPrincipal,
-				'sitterPrincipal': backEndJob.sitterPrincipal,
-				'pets': backEndJob.pets,
-				'startDate': backEndJob.startDate,
-				'endDate': backEndJob.endDate,
-				'maxPay': backEndJob.maxPay,
-				'addressLine1': backEndJob.addressLine1,
-				'addressLine2': backEndJob.addressLine2,
-				'city': backEndJob.city,
-				'state': backEndJob.state,
-				'zip': backEndJob.zip,
-				'accepted': 'yes',
-				'finished': 'no',
-				'preferences': backEndJob.preferences
-			};
-
-			if (job.sitterPrincipal == null && frontEndJob.sitterPrincipal != null)
-				job.sitterPrincipal = frontEndJob.sitterPrincipal;
-
-			console.log('this should send an accepted job to back end');
-			console.log(job);
-
-			return axios.post('api/jobs/update-job', job);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
-
-export function quitJob(jobID, id) {
-	console.log('quitting the job with ids ' + jobID + ' ' + id);
-	return axios.post('/api/jobs/quit-job/' + jobID + '/' + id);
-}
-
-export function updateUser(user) {
-	console.log('we are now calling an axios post');
-	console.log(user);
-	let newUser = {
-		'principal': user.principal,
-		'firstName': user.firstName,
-		'middleName': user.middleName,
-		'lastName': user.lastName,
-		'addressLine1': user.addressLine1,
-		'addressLine2': user.addressLine2,
-		'state': user.state,
-		'city': user.city,
-		'zip': user.zip,
-		'phoneNumber': user.phoneNumber,
-		'userType': user.userType,
-		'password': user.password,
-		'sumRatings': user.sumRatings,
-		'numRatings': user.numRatings,
-	};
-
-	console.log('In updateUse()');
-	console.log(newUser);
-
-	let backEndUser = getUserDetails();
-
-	return axios.post('/api/user/update-user/', backEndUser)
-		.then(function (response) {
-			console.log('This is a response:');
-			console.log(response);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
-}
-
-// export function authenticate(username, password) {
-// 	return axios(
-// 		{
-// 			method: 'post',
-// 			url: '/oauth/token',
-// 			params: {
-// 				'grant_type': 'password',
-// 				username,
-// 				password
-// 			},
-// 			auth: {
-// 				username: 'rceiwx2ja6',
-// 				password: 'k8akj8q570'
-// 			}
-// 		}
-// 	);
-// }
-
-export function getSitterInfo(principal) {
-	console.log('trying to get sitter info with principal ' + principal);
-	principal = principal.replace('@', '%40');
-	principal = principal.replace('.', '*');
-	console.log('trying to get sitter info with principal ' + principal);
-	return axios.get('/api/user/sitter/' + principal);
-}
 
 
 let State = {};
@@ -278,13 +143,7 @@ Actions.Types = {
 	SET_APPLICANTS: 'SET_APPLICANTS'
 };
 
-Actions.getPets = principal => {
-	return (dispatch) => {
-		return getPets(principal).then((pets) => {
-			return dispatch(Actions.setPets(pets));
-		});
-	};
-};
+
 Actions.getApplicants = () => {
 	return (dispatch) => {
 		return getApplicants().then((applicants => {
@@ -293,13 +152,6 @@ Actions.getApplicants = () => {
 	};
 };
 
-Actions.register = user => {
-	return (dispatch) => {
-		return register(user).then(() => {
-			return dispatch(Actions.authenticate(user.principal, user.password));
-		});
-	};
-};
 
 Actions.authenticate = (username, password) => {
 	return (dispatch) => {
@@ -365,17 +217,6 @@ Actions.setApplicant = applicants => {
 export {Actions};
 
 let Reducers = {};
-
-// Reducers.authentication = (authentication = null, action) => {
-// 	switch (action.type) {
-// 		case Actions.Types.SET_AUTHENTICATION: {
-// 			return action.authentication;
-// 		}
-// 		default: {
-// 			return authentication;
-// 		}
-// 	}
-// };
 
 Reducers.user = (user = null, action) => {
 	switch (action.type) {

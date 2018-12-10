@@ -17,7 +17,6 @@ import * as Users from 'js/utils/Users';
 import PropTypes from 'prop-types';
 import connect from 'react-redux/es/connect/connect';
 import '../../styles/pageStyles.css';
-import ReactNotification from 'react-notifications-component';
 
 
 // @TODO Add some sort of validation for if principal is already taken
@@ -26,10 +25,7 @@ class ApplyPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			value: null,
-			label: null
-		};
+		this.state = {};
 
 		this.addNotification = this.addNotification.bind(this);
 		this.notificationDOMRef = React.createRef();
@@ -175,7 +171,7 @@ class ApplyPage extends React.Component {
 
 									<FormGroup>
 										<Label for="addressLine">Address</Label>
-										<Input type="number" name="addressLine" required
+										<Input type="text" name="addressLine" required
 										       placeholder="1001 Main St"/>
 									</FormGroup>
 
@@ -386,7 +382,6 @@ class ApplyPage extends React.Component {
 									</Row>
 									<br/>
 									<Button>Submit Changes</Button>
-									<ReactNotification ref={this.notificationDOMRef}/>
 								</Form>
 							</CardBody>
 						</Card>
