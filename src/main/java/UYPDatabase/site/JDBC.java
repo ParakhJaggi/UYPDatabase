@@ -91,7 +91,7 @@ public class JDBC {
 
         p.executeUpdate();
 
-        if(guest.getParentEmail().equals("null")) {
+        if(!guest.getParentEmail().equals("")) {
             String q2 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
                     "(?,?,?,?,?,?);";
 
@@ -108,7 +108,7 @@ public class JDBC {
         }
         //System.out.println(q2);
 
-        if(guest.getParentEmail2().equals("null")) {
+        if(!guest.getParentEmail2().equals("")) {
             String q3 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
                     "(?,?,?,?,?,?);";
 
@@ -472,9 +472,15 @@ public class JDBC {
 
     public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        String qury = "SELECT * FROM class WHERE availability > 0 AND id NOT IN (SELECT classid from studentclass WHERE username = ?  )  ORDER BY level ASC;";
+
+        PreparedStatement p = conn.prepareStatement("SELECT grade FROM Student WHERE username = ? ");
+        p.setString(1,username);
+        ResultSet r = p.executeQuery();
+        r.next();
+        String g = r.getString(1);
+        String qury = "SELECT * FROM class WHERE availability > 0 AND level = '"+g+"' AND id NOT IN (SELECT classid from studentclass WHERE username = ?    )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
-        PreparedStatement p = conn.prepareStatement(qury);
+        p = conn.prepareStatement(qury);
         p.setString(1,username);
         ResultSet rs = p.executeQuery();
         while (rs.next()) {
@@ -593,7 +599,7 @@ public class JDBC {
     }
 
 
-    public ArrayList<ArrayList<String>> makeCSV() throws SQLException, ClassNotFoundException{
+    public ArrayList<ArrayList<String>> makeCSV(String username) throws SQLException, ClassNotFoundException{
         System.out.println("here");
         ArrayList<ArrayList<String>> temp = new ArrayList<>();
         ArrayList<String> a = new ArrayList<>();
@@ -608,10 +614,12 @@ public class JDBC {
         temp.add(a);
 
         Connection con = this.MakeConnection();
-        ResultSet r = con.prepareStatement("SELECT * FROM class").executeQuery();
+        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = ?  )  ORDER BY level ASC;";
+        PreparedStatement p  = con.prepareStatement(qury);
+        p.setString(1,username);
+        ResultSet r = p.executeQuery();
         while(r.next()){
             ArrayList<String> b = new ArrayList<>();
-
             b.add(r.getString(1));
             b.add(r.getString(2));
             b.add(r.getString(3));
