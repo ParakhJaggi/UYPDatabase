@@ -267,23 +267,33 @@ public class JDBC {
 
         System.out.println("parent name is " + parentFirstName + " " + parentLastName);
         ResultSet rs2 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '" + parentFirstName + "' AND lastname = '" + parentLastName + "'").executeQuery();
-        rs2.next();
-        String parentEmail = rs2.getString(3);
-        String parentHomeNumber = rs2.getString(4);
-        String parentWorkNumber = rs2.getString(5);
-        String parentCellNumber = rs2.getString(6);
+        String parentEmail ="";
+        String parentHomeNumber="" ;
+        String parentWorkNumber="";
+        String parentCellNumber ="";
+        while(rs2.next()) {
+            parentEmail = rs2.getString(3);
+            parentHomeNumber = rs2.getString(4);
+            parentWorkNumber = rs2.getString(5);
+            parentCellNumber = rs2.getString(6);
+        }
 
 
         ResultSet rs3 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '" + parentFirstName2 + "' AND lastname = '" + parentLastName2 + "'").executeQuery();
-        rs3.next();
-        String parentEmail2 = rs3.getString(3);
-        String parentHomeNumber2 = rs3.getString(4);
-        String parentWorkNumber2 = rs3.getString(5);
-        String parentCellNumber2 = rs3.getString(6);
+        String parentEmail2 ="";
+        String parentHomeNumber2="" ;
+        String parentWorkNumber2="";
+        String parentCellNumber2 ="";
+        while(rs3.next()) {
+             parentEmail2 = rs3.getString(3);
+            parentHomeNumber2 = rs3.getString(4);
+            parentWorkNumber2 = rs3.getString(5);
+            parentCellNumber2 = rs3.getString(6);
+        }
 
-        ResultSet rs4 = conn.prepareStatement("SELECT * FROM usertype WHERE username = '" + username + "'").executeQuery();
-        rs4.next();
-        String usertype = rs4.getString(2);
+            ResultSet rs4 = conn.prepareStatement("SELECT * FROM usertype WHERE username = '" + username + "'").executeQuery();
+            rs4.next();
+            String usertype = rs4.getString(2);
 
 
         ResultSet rs5 = conn.prepareStatement("SELECT * FROM studentinfo WHERE username = '" + username + "'").executeQuery();
@@ -423,6 +433,7 @@ public class JDBC {
         System.out.println(quey);
         p = conn.prepareStatement(quey);
         p.setString(1,username);
+        p.setString(2,authorizeduser);
         p.executeUpdate();
 
 
