@@ -592,7 +592,7 @@ public class JDBC {
         p.setString(3,c.getTimeSlot());
         p.setString(4,c.getClassroom());
         p.setString(5,c.getTeacherName());
-        p.setString(6,c.getAvailability());
+        p.setString(6,c.getCapacity());
         p.setString(7,c.getCapacity());
         p.executeUpdate();
         System.out.println(c.toString());
