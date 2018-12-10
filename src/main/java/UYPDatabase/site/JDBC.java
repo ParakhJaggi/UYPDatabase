@@ -48,33 +48,90 @@ public class JDBC {
     public void addStudent(GuestDto guest) throws ClassNotFoundException, SQLException {
         System.out.println("test");
         Connection conn = this.MakeConnection();
-        String query = "INSERT INTO `Student` (`firstname`,`middleinitial`,`lastname`,`suffix`,`nameprefered`,`address`,`city`,`state`,`zip`,`birthdate`,`gender`,`race`,`graduationyear`,`email`,`phonenumber`,`sibling`,`previousschool`,`grade`,`parent1firstname`,`parent1lastname`,`parent2firstname`,`parent2lastname`,`gtacceptance`,`password`, `expectedschool`) VALUES" +
-                "('" + guest.getFirstName() + "','" + guest.getMiddleInitial() + "','" + guest.getLastName() + "','" + guest.getSuffix() + "','" + guest.getPreferredName() + "','" + guest.getAddressLine() + "','" + guest.getCity() + "','" + guest.getState() + "','" + guest.getZip() + "','" + guest.getBirthday() + "','" + guest.getGender() + "','" + guest.getEthnicity() + "','" + guest.getGraduationYear() + "','" + guest.getPrincipal() + "','" + guest.getPhoneNumber() + "','" + guest.getSibling() + "','" + guest.getPrevSchool() + "','12','" + guest.getParentFirstName() + "','" + guest.getParentLastName() + "','" + guest.getParentFirstName2() + "','" + guest.getParentLastName2() + "','" + guest.getGtAcceptance() + "','" + guest.getPassword() + "','" + guest.getExpectedSchool() + "');";
+       // String query = "INSERT INTO `Student` (`firstname`,`middleinitial`,`lastname`,`suffix`,`nameprefered`,`address`,`city`,`state`,`zip`,`birthdate`,`gender`,`race`,`graduationyear`,`email`,`phonenumber`,`sibling`,`previousschool`,`grade`,`parent1firstname`,`parent1lastname`,`parent2firstname`,`parent2lastname`,`gtacceptance`,`password`, `expectedschool`) VALUES" +
+        //        "('" + guest.getFirstName() + "','" + guest.getMiddleInitial() + "','" + guest.getLastName() + "','" + guest.getSuffix() + "','" + guest.getPreferredName() + "','" + guest.getAddressLine() + "','" + guest.getCity() + "','" + guest.getState() + "','" + guest.getZip() + "','" + guest.getBirthday() + "','" + guest.getGender() + "','" + guest.getEthnicity() + "','" + guest.getGraduationYear() + "','" + guest.getPrincipal() + "','" + guest.getPhoneNumber() + "','" + guest.getSibling() + "','" + guest.getPrevSchool() + "','12','" + guest.getParentFirstName() + "','" + guest.getParentLastName() + "','" + guest.getParentFirstName2() + "','" + guest.getParentLastName2() + "','" + guest.getGtAcceptance() + "','" + guest.getPassword() + "','" + guest.getExpectedSchool() + "');";
+         String query = "INSERT INTO `Student` (`firstname`,`middleinitial`,`lastname`,`suffix`,`nameprefered`,`address`,`city`,`state`,`zip`,`birthdate`,`gender`,`race`,`graduationyear`,`email`,`phonenumber`,`sibling`,`previousschool`,`grade`,`parent1firstname`,`parent1lastname`,`parent2firstname`,`parent2lastname`,`gtacceptance`,`password`, `expectedschool`) VALUES" +
+                "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
         System.out.println(query);
-        int rs = conn.prepareStatement(query).executeUpdate();
+        PreparedStatement p  = conn.prepareStatement(query);
+        p.setString(1,guest.getFirstName());
+        p.setString(2,guest.getMiddleInitial());
+        p.setString(3,guest.getLastName());
+        p.setString(4,guest.getSuffix());
+        p.setString(5,guest.getPreferredName());
+        p.setString(6,guest.getAddressLine());
+        p.setString(7,guest.getCity());
+        p.setString(8,guest.getState());
+        p.setString(9,guest.getZip());
+        p.setString(10,guest.getBirthday());
+        p.setString(11,guest.getGender());
+        p.setString(12,guest.getEthnicity());
+        p.setString(13,guest.getGraduationYear());
+        p.setString(14,guest.getPrincipal());
+        p.setString(15,guest.getPhoneNumber());
+        p.setString(16,guest.getSibling());
+        p.setString(17,guest.getPrevSchool());
+        p.setString(18,guest.getGrade());
+        p.setString(19,guest.getParentFirstName());
+        p.setString(20,guest.getParentLastName());
+        p.setString(21,guest.getParentFirstName2());
+        p.setString(22,guest.getParentLastName2());
+        p.setString(23,guest.getGtAcceptance());
+        p.setString(24,guest.getPassword());
+        p.setString(25,guest.getExpectedSchool());
 
-
+        System.out.println(p.toString());
+        int rs = p.executeUpdate();
         String username = guest.getFirstName() + guest.getLastName() + (int) (Math.random() * 1000000);
         System.out.println(username);
 
-        rs = conn.prepareStatement("UPDATE Student SET username = '" + username + "' WHERE email = '" + guest.getPrincipal() + "'").executeUpdate();
+         p = conn.prepareStatement("UPDATE Student SET username = ? WHERE email = ?");
+         p.setString(1,username);
+         p.setString(2,guest.getPrincipal());
 
+        p.executeUpdate();
 
-        String q2 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
-                "('" + guest.getParentFirstName() + "','" + guest.getParentLastName() + "','" + guest.getParentEmail() + "','" + guest.getParentHomeNumber() + "','" + guest.getParentWorkNumber() + "','" + guest.getParentCellNumber() + "');";
+        if(!guest.getParentEmail().equals("")) {
+            String q2 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
+                    "(?,?,?,?,?,?);";
+
+            p = conn.prepareStatement(q2);
+
+            p.setString(1, guest.getParentFirstName());
+            p.setString(2, guest.getParentLastName());
+            p.setString(3, guest.getParentEmail());
+            p.setString(4, guest.getParentHomeNumber());
+            p.setString(5, guest.getParentWorkNumber());
+            p.setString(6, guest.getParentCellNumber());
+
+            p.executeUpdate();
+        }
         //System.out.println(q2);
 
-        rs = conn.prepareStatement(q2).executeUpdate();
+        if(!guest.getParentEmail2().equals("")) {
+            String q3 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
+                    "(?,?,?,?,?,?);";
 
-        String q3 = "INSERT INTO `parent` (`firstname`,`lastname`,`email`,`homenumber`,`worknumber`,`cellnumber`) VALUES" +
-                "('" + guest.getParentFirstName2() + "','" + guest.getParentLastName2() + "','" + guest.getParentEmail2() + "','" + guest.getParentHomeNumber2() + "','" + guest.getParentWorkNumber2() + "','" + guest.getParentCellNumber2() + "');";
-        rs = conn.prepareStatement(q3).executeUpdate();
+            p = conn.prepareStatement(q3);
+
+            p.setString(1, guest.getParentFirstName2());
+            p.setString(2, guest.getParentLastName2());
+            p.setString(3, guest.getParentEmail2());
+            p.setString(4, guest.getParentHomeNumber2());
+            p.setString(5, guest.getParentWorkNumber2());
+            p.setString(6, guest.getParentCellNumber2());
+
+            p.executeUpdate();
+        }
+
+
         // System.out.println(q3);
 
         String q4 = "INSERT INTO `usertype` (`username`,`usertype`) VALUES" +
-                " ('" + username + "','guest');";
-        rs = conn.prepareStatement(q4).executeUpdate();
-
+                " (?,'guest');";
+        p = conn.prepareStatement(q4);
+        p.setString(1,username);
+        p.executeUpdate();
         System.out.println(q4);
         conn.close();
     }
@@ -83,7 +140,10 @@ public class JDBC {
 
         Connection conn = this.MakeConnection();
 
-        ResultSet rs = conn.prepareStatement("SELECT * FROM Student WHERE username = '" + username + "'").executeQuery();
+        PreparedStatement p = conn.prepareStatement("SELECT * FROM Student WHERE username = ?");
+        p.setString(1,username);
+        ResultSet rs = p.executeQuery();
+
         rs.next();
 
         String firstName = rs.getString(1);
@@ -117,23 +177,41 @@ public class JDBC {
         String expectedSchool = rs.getString(26);
 
 
+
         System.out.println("parent name is " + parentFirstName + " " + parentLastName);
-        ResultSet rs2 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '" + parentFirstName + "' AND lastname = '" + parentLastName + "'").executeQuery();
-        rs2.next();
-        String parentEmail = rs2.getString(3);
-        String parentHomeNumber = rs2.getString(4);
-        String parentWorkNumber = rs2.getString(5);
-        String parentCellNumber = rs2.getString(6);
+         p = conn.prepareStatement("SELECT * FROM parent WHERE firstname = ? AND lastname = ?");
+         p.setString(1,parentFirstName);
+         p.setString(2,parentLastName);
+         ResultSet rs2 = p.executeQuery();
+        String parentEmail = "";
+        String parentHomeNumber = "";
+        String parentWorkNumber = "";
+        String parentCellNumber = "";
+        while(rs2.next()) {
+            parentEmail = rs2.getString(3);
+            parentHomeNumber = rs2.getString(4);
+            parentWorkNumber = rs2.getString(5);
+            parentCellNumber = rs2.getString(6);
+        }
 
+        p = conn.prepareStatement("SELECT * FROM parent WHERE firstname = ? AND lastname = ?");
+        p.setString(1,parentFirstName2);
+        p.setString(2,parentLastName2);
+        ResultSet rs3 = p.executeQuery();
+        String parentEmail2 = "";
+        String parentHomeNumber2 = "";
+        String parentWorkNumber2 = "";
+        String parentCellNumber2 = "";
+        while(rs3.next()) {
+            parentEmail = rs3.getString(3);
+            parentHomeNumber = rs3.getString(4);
+            parentWorkNumber = rs3.getString(5);
+            parentCellNumber = rs3.getString(6);
+        }
 
-        ResultSet rs3 = conn.prepareStatement("SELECT * FROM parent WHERE firstname = '" + parentFirstName2 + "' AND lastname = '" + parentLastName2 + "'").executeQuery();
-        rs3.next();
-        String parentEmail2 = rs3.getString(3);
-        String parentHomeNumber2 = rs3.getString(4);
-        String parentWorkNumber2 = rs3.getString(5);
-        String parentCellNumber2 = rs3.getString(6);
-
-        ResultSet rs4 = conn.prepareStatement("SELECT * FROM usertype WHERE username = '" + username + "'").executeQuery();
+        p =  conn.prepareStatement("SELECT * FROM usertype WHERE username = ?");
+        p.setString(1,username);
+        ResultSet rs4 = p.executeQuery();
         rs4.next();
         String usertype = rs4.getString(2);
 
@@ -151,7 +229,9 @@ public class JDBC {
 
         Connection conn = this.MakeConnection();
 
-        ResultSet rs = conn.prepareStatement("SELECT * FROM Student WHERE username = '" + username + "'").executeQuery();
+        PreparedStatement p = conn.prepareStatement("SELECT * FROM Student WHERE username = ?");
+        p.setString(1,username);
+        ResultSet rs = p.executeQuery();
         rs.next();
 
         String firstName = rs.getString(1);
@@ -237,15 +317,43 @@ public class JDBC {
 
     public void updateuser(UserDto user) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        int rs = conn.prepareStatement("UPDATE Student SET firstname = '" + user.getFirstName() + "', middleinitial = '" + user.getMiddleInitial() + "' , lastname = '" + user.getLastName() + "', suffix = '" + user.getSuffix() + "' ,nameprefered = '" + user.getPreferredName() + "' , address = '" + user.getAddressLine() + "' , city = '" + user.getCity() + "' , state = '" + user.getState() + "' , zip = '" + user.getZip() + "' , birthdate = '" + user.getBirthday() + "' , gender = '" + user.getGender() + "', race = '" + user.getEthnicity() + "', graduationyear = '" + user.getGraduationYear() + "' , email = '" + user.getPrincipal() + "' , phonenumber = '" + user.getPhoneNumber() + "' ,sibling = '" + user.getSibling() + "' , previousschool = '" + user.getPrevSchool() + "' , grade = '" + user.getGrade() + "' , parent1firstname = '" + user.getParentFirstName() + "', parent1lastname = '" + user.getParentLastName() + "' , parent2firstname = '" + user.getParentFirstName2() + "', parent2lastname = '" + user.getParentLastName2() + "' , gtacceptance = '" + user.getGtAcceptance() + "' ,expectedschool = '" + user.getExpectedSchool() + "'  WHERE username = '" + user.getUsername() + "';").executeUpdate();
+        PreparedStatement p = conn.prepareStatement("UPDATE Student SET firstname = ?, middleinitial = ? , lastname = ?, suffix = ? ,nameprefered =? , address = ? , city = ? , state = ? , zip = ? , birthdate = ? , gender = ?, race = ?, graduationyear = ? , email =? , phonenumber = ? ,sibling = ? , previousschool = ? , grade = ? , parent1firstname =?, parent1lastname = ? , parent2firstname = ?, parent2lastname = ? , gtacceptance = ? ,expectedschool = ?  WHERE username = ?;");
+
+        p.setString(1,user.getFirstName());
+        p.setString(2,user.getMiddleInitial());
+        p.setString(3,user.getLastName());
+        p.setString(4,user.getSuffix());
+        p.setString(5,user.getPreferredName());
+        p.setString(6,user.getAddressLine());
+        p.setString(7,user.getCity());
+        p.setString(8,user.getState());
+        p.setString(9,user.getZip());
+        p.setString(10,user.getBirthday());
+        p.setString(11,user.getGender());
+        p.setString(12,user.getEthnicity());
+        p.setString(13,user.getGraduationYear());
+        p.setString(14,user.getPrincipal());
+        p.setString(15,user.getPhoneNumber());
+        p.setString(16,user.getSibling());
+        p.setString(17,user.getPrevSchool());
+        p.setString(18,user.getGrade());
+        p.setString(19,user.getParentFirstName());
+        p.setString(20,user.getParentLastName());
+        p.setString(21,user.getParentFirstName2());
+        p.setString(22,user.getParentLastName2());
+        p.setString(23,user.getGtAcceptance());
+        p.setString(24,user.getExpectedSchool());
+        p.setString(25,user.getUsername());
+        p.executeUpdate();
         conn.close();
 
     }
 
     public LoginDto login(String username, String password) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        ResultSet rs = conn.prepareStatement("SELECT password, firstname,lastname FROM Student WHERE username = '" + username + "'").executeQuery();
-        System.out.println("SELECT password, firstname,lastname FROM Student WHERE username = '" + username + "'");
+        PreparedStatement p = conn.prepareStatement("SELECT password, firstname,lastname FROM Student WHERE username = ?");
+        p.setString(1,username);
+        ResultSet rs = p.executeQuery();
 
         rs.next();
         String pass = rs.getString(1);
@@ -254,7 +362,9 @@ public class JDBC {
         System.out.println("");
         boolean loggedin = (pass.equals(password));
         if (loggedin) {
-            ResultSet rs2 = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = '" + username + "'").executeQuery();
+            p = conn.prepareStatement("SELECT usertype FROM usertype WHERE username = ?");
+            p.setString(1,username);
+            ResultSet rs2 = p.executeQuery();
             rs2.next();
 
             System.out.println(first + last + rs2.getString(1));
@@ -294,18 +404,26 @@ public class JDBC {
 
     public void acceptApplicant(String username, String authorizeduser) throws SQLException, ClassNotFoundException, MailjetSocketTimeoutException, MailjetException {
         Connection conn = this.MakeConnection();
-        String q = "UPDATE usertype SET usertype = 'user' WHERE username = '" + username + "' ";
+        String q = "UPDATE usertype SET usertype = 'user' WHERE username =? ";
+
         System.out.println(q);
-        int rs = conn.prepareStatement(q).executeUpdate();
+        PreparedStatement p = conn.prepareStatement(q);
+        p.setString(1,username);
+        p.executeUpdate();
 
-        String qury = "SELECT email FROM Student WHERE username = '" + username + "'";
+        String qury = "SELECT email FROM Student WHERE username =?";
 
-        ResultSet rss = conn.prepareStatement(qury).executeQuery();
+        p = conn.prepareStatement(qury);
+        p.setString(1, username);
+        ResultSet rss = p.executeQuery();
         rss.next();
         String quey = "INSERT INTO `studentinfo` (`username`,`authorizeduser`) VALUES" +
-                "('" + username + "', '" + authorizeduser + "');";
+                "(?, ?);";
+
         System.out.println(quey);
-        int rs2 = conn.prepareStatement(quey).executeUpdate();
+        p = conn.prepareStatement(quey);
+        p.setString(1,username);
+        p.executeUpdate();
 
 
         MailjetClient client;
@@ -328,22 +446,43 @@ public class JDBC {
     }
 
     public void updateApplicant(UserDto user) throws SQLException, ClassNotFoundException {
-        String quey = "UPDATE studentinfo SET yearaccepted = '" + user.getYearAccepted() + "',status = '" + user.getStatus() + "',hasgrant = '" + user.getHasGrant() + "',whichgrant = '" + user.getWhichGrant() + "',mentorname = '" + user.getMentorName() + "',disabilities = '" + user.getDisability() + "',healthconditions = '" + user.getHealthConditions() + "',learningenglish = '" + user.getEnglish() + "',cleaninghouseinfo = '" + user.getCleaningHouseInfo() + "',otherinfo = '" + user.getOtherInfo() + "'WHERE username = '" + user.getUsername() + "';";
+        String quey = "UPDATE studentinfo SET yearaccepted = ?,status =?, hasgrant = ? ,whichgrant = ? ,mentorname = ?,disabilities = ?,healthconditions = ?,learningenglish = ?,cleaninghouseinfo = ?,otherinfo = ?WHERE username = ?;";
         System.out.println(quey);
+
         Connection conn = this.MakeConnection();
+
         System.out.println(quey);
-        int rs = conn.prepareStatement(quey).executeUpdate();
+        PreparedStatement p  = conn.prepareStatement(quey);
+        p.setString(1,user.getYearAccepted());
+        p.setString(2,user.getStatus());
+        p.setString(3,user.getHasGrant());
+        p.setString(4,user.getWhichGrant());
+        p.setString(5,user.getMentorName());
+        p.setString(6,user.getDisability());
+        p.setString(7,user.getHealthConditions());
+        p.setString(8,user.getEnglish());
+        p.setString(9,user.getCleaningHouseInfo());
+        p.setString(10,user.getOtherInfo());
+        p.setString(11,user.getUsername());
 
-
+        p.executeUpdate();
         conn.close();
 
     }
 
     public ClassDto getNotMyClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        String qury = "SELECT * FROM class WHERE availability > 0 AND id NOT IN (SELECT classid from studentclass WHERE username = '" + username + "'  )  ORDER BY level ASC;";
+
+        PreparedStatement p = conn.prepareStatement("SELECT grade FROM Student WHERE username = ? ");
+        p.setString(1,username);
+        ResultSet r = p.executeQuery();
+        r.next();
+        String g = r.getString(1);
+        String qury = "SELECT * FROM class WHERE availability > 0 AND level = '"+g+"' AND id NOT IN (SELECT classid from studentclass WHERE username = ?    )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
-        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        p = conn.prepareStatement(qury);
+        p.setString(1,username);
+        ResultSet rs = p.executeQuery();
         while (rs.next()) {
             ClassDto c = new ClassDto();
             c.setLevel(rs.getString(1));
@@ -365,9 +504,11 @@ public class JDBC {
 
     public ClassDto getMyClasses(String username) throws SQLException, ClassNotFoundException {
         Connection conn = this.MakeConnection();
-        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = '" + username + "'  )  ORDER BY level ASC;";
+        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = ?  )  ORDER BY level ASC;";
         ArrayList<ClassDto> temp = new ArrayList<>();
-        ResultSet rs = conn.prepareStatement(qury).executeQuery();
+        PreparedStatement p  = conn.prepareStatement(qury);
+        p.setString(1,username);
+        ResultSet rs = p.executeQuery();
         while (rs.next()) {
             ClassDto c = new ClassDto();
             c.setLevel(rs.getString(1));
@@ -389,8 +530,12 @@ public class JDBC {
     public void registerClass(String username, int classID) throws SQLException, ClassNotFoundException {
         Connection con = this.MakeConnection();
         System.out.println("trying to register " + username + " with id of " + classID);
-        con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
-                "('" + username + "','" + classID + "');").executeUpdate();
+        PreparedStatement p = con.prepareStatement("INSERT INTO `studentclass` (`username`,`ClassID`) VALUES" +
+                "(?,?);");
+
+        p.setString(1,username);
+        p.setInt(2,classID);
+        p.executeUpdate();
 
         ResultSet r = con.prepareStatement("SELECT availability FROM class WHERE id = '" + classID + "'").executeQuery();
 
@@ -405,10 +550,14 @@ public class JDBC {
 
     public void dropClass(String username, Integer classID) throws SQLException, ClassNotFoundException {
         Connection con = this.MakeConnection();
-        con.prepareStatement("DELETE FROM studentclass WHERE username = '" + username + "' AND classid = '" + classID + "'").executeUpdate();
+        PreparedStatement p = con.prepareStatement("DELETE FROM studentclass WHERE username = ? AND classid = ?");
+        p.setString(1,username);
+        p.setInt(2,classID);
+        p.executeUpdate();
 
-        ResultSet r = con.prepareStatement("SELECT availability FROM class WHERE id = '" + classID + "'").executeQuery();
-
+        p = con.prepareStatement("SELECT availability FROM class WHERE id =?");
+        p.setInt(1,classID);
+        ResultSet r = p.executeQuery();
         r.next();
         int a = r.getInt(1);
         System.out.println(a);
@@ -435,13 +584,22 @@ public class JDBC {
 
     public void makeClass(ClassDto c) throws SQLException, ClassNotFoundException {
         Connection con = this.MakeConnection();
-        con.prepareStatement("INSERT INTO `class` (`level`,`name`,`timeslot`,`classroom`,`teachername`,`availability`,`capacity`) VALUES" +
-                "('" + c.getLevel() + "','" + c.getName() + "','" + c.getTimeSlot() + "','" + c.getClassroom() + "','" + c.getTeacherName() + "','" + c.getCapacity() + "','" + c.getCapacity() + "');").executeUpdate();
+        PreparedStatement p = con.prepareStatement("INSERT INTO `class` (`level`,`name`,`timeslot`,`classroom`,`teachername`,`availability`,`capacity`) VALUES" +
+                "(?,?,?,?,?,?,?);");
+
+        p.setString(1,c.getLevel());
+        p.setString(2,c.getName());
+        p.setString(3,c.getTimeSlot());
+        p.setString(4,c.getClassroom());
+        p.setString(5,c.getTeacherName());
+        p.setString(6,c.getAvailability());
+        p.setString(7,c.getCapacity());
+        p.executeUpdate();
         System.out.println(c.toString());
     }
 
 
-    public ArrayList<ArrayList<String>> makeCSV() throws SQLException, ClassNotFoundException{
+    public ArrayList<ArrayList<String>> makeCSV(String username) throws SQLException, ClassNotFoundException{
         System.out.println("here");
         ArrayList<ArrayList<String>> temp = new ArrayList<>();
         ArrayList<String> a = new ArrayList<>();
@@ -456,10 +614,12 @@ public class JDBC {
         temp.add(a);
 
         Connection con = this.MakeConnection();
-        ResultSet r = con.prepareStatement("SELECT * FROM class").executeQuery();
+        String qury = "SELECT * FROM class WHERE id IN (SELECT classid from studentclass WHERE username = ?  )  ORDER BY level ASC;";
+        PreparedStatement p  = con.prepareStatement(qury);
+        p.setString(1,username);
+        ResultSet r = p.executeQuery();
         while(r.next()){
             ArrayList<String> b = new ArrayList<>();
-
             b.add(r.getString(1));
             b.add(r.getString(2));
             b.add(r.getString(3));

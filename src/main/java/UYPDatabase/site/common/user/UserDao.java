@@ -86,8 +86,8 @@ public class UserDao {
         new JDBC().makeClass(c);
     }
 
-    public ArrayList<ArrayList<String>> getClassCSVData() throws SQLException, ClassNotFoundException{
-        return new JDBC().makeCSV();
+    public ArrayList<ArrayList<String>> getClassCSVData(String username) throws SQLException, ClassNotFoundException{
+        return new JDBC().makeCSV(username);
 
     }
 

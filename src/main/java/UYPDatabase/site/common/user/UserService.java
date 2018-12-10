@@ -72,8 +72,8 @@ public class UserService {
         userDao.makeClass(c);
     }
 
-    public ArrayList<ArrayList<String>> getClassCSVData() throws SQLException, ClassNotFoundException {
-        return userDao.getClassCSVData();
+    public ArrayList<ArrayList<String>> getClassCSVData(String username) throws SQLException, ClassNotFoundException {
+        return userDao.getClassCSVData(username);
     }
 }
 
