@@ -81,7 +81,9 @@ class ApplyPage extends React.Component {
 			'parentHomeNumber2': e.target.parentHomeNumber2.value,
 			'parentWorkNumber2': e.target.parentWorkNumber2.value,
 			'parentCellNumber2': e.target.parentCellNumber2.value,
-			'password': e.target.password.value
+			'password': e.target.password.value,
+			'state': e.target.state.value
+
 		};
 
 		console.log(newUser);
